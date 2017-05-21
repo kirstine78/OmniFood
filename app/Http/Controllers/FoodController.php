@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Food;
+use App\Country;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,4 +20,85 @@ class FoodController extends Controller
     	
     	return View('food.displayAddFoodForm')->with('food', $food);
     }
+    
+    
+    /**
+     * when 'add food' button is clicked, add to database
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function addFood(Request $request){
+    	
+    	// handle validation, if not validated redirect back to where you came from
+    	$this->validateFood($request);
+    	
+    	
+    	// if VALIDATION went ok proceed to below
+    	$food = new Food();
+    	
+    	// assign input values to fields for the customer record
+    	$food= $this->populateFoodFromRequest($food, $request);
+    	
+    	// set created at to current date and time
+    	$food->created_at = Carbon::now();
+    	
+    	$food->save();
+    	
+    	return redirect('countries');
+    }  // end addFood
+    
+    
+    
+    /**
+     * validate user input, customize error messages
+     * @param Request $request
+     */
+    public function validateFood(Request $request) {
+    	// my array of customized messages
+    	$messages = [
+    			'date.required' => 'The :attribute is required.',
+    			'country.required' => 'The :attribute is required.',
+    	];
+    	
+    	// rename attributes to look pretty in form
+    	$attributes = [
+    			'date' => 'date',
+    			'country' => 'country',
+    	];
+    	
+    	// validation of user input in the form
+    	$this->validate($request, [
+    			'date' => 'required',
+    			'country' => 'required',
+    	], $messages, $attributes);
+    }
+    
+    
+    
+    
+    /**
+     * from request assign values to column fields in the food record
+     * @param Food $food
+     * @param Request $request
+     * @return Food
+     */
+    public function populateFoodFromRequest(Food $food, Request $request) {
+    	// get someValue from the name="someValue"  key/value pair from incoming $request
+    	$food->date = $request->date;
+    	$food->rating = $request->rating; // get value of rating radio button
+    	$food->comment = $request->comment;
+    	
+    	// get the country chosen in the drop down menu
+    	$countryCode = $request->country;
+    	
+    	// get the countries with this code. returns a list, but it should only return exactly one record in the list.
+    	$countryList = Country::where('code', '=', $countryCode)->get();
+    	
+    	// assign the name of country to new food obj
+    	$food->country_id = $countryList[0]->id;
+    	    	
+    	return $food;
+    }
+    
+    
 }

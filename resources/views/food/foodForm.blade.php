@@ -16,6 +16,9 @@ Version:    1.0
     <div class="col-sm-4">
         <input type="date" name="date" id="date" class="form-control" maxlength="254" value="" />
     </div>
+    <div class="col-sm-3">
+        @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
+    </div>
 </div>
 
 <!-- food country, dropdown? -->
@@ -26,10 +29,6 @@ Version:    1.0
 	    <select name="country" class="form-control" >
 			<option></option>
 			<optgroup label="North America">
-				<option value="US">United States</option>
-				<option value="UM">United States Minor Outlying Islands</option>
-				<option value="CA">Canada</option>
-				<option value="MX">Mexico</option>
 				<option value="AI">Anguilla</option>
 				<option value="AG">Antigua and Barbuda</option>
 				<option value="AW">Aruba</option>
@@ -38,6 +37,7 @@ Version:    1.0
 				<option value="BZ">Belize</option>
 				<option value="BM">Bermuda</option>
 				<option value="VG">British Virgin Islands</option>
+				<option value="CA">Canada</option>
 				<option value="KY">Cayman Islands</option>
 				<option value="CR">Costa Rica</option>
 				<option value="CU">Cuba</option>
@@ -51,6 +51,7 @@ Version:    1.0
 				<option value="HN">Honduras</option>
 				<option value="JM">Jamaica</option>
 				<option value="MQ">Martinique</option>
+				<option value="MX">Mexico</option>
 				<option value="MS">Montserrat</option>
 				<option value="AN">Netherlands Antilles</option>
 				<option value="NI">Nicaragua</option>
@@ -61,6 +62,8 @@ Version:    1.0
 				<option value="VC">Saint Vincent and the Grenadines</option>
 				<option value="TT">Trinidad and Tobago</option>
 				<option value="TC">Turks and Caicos Islands</option>
+				<option value="US">United States</option>
+				<option value="UM">United States Minor Outlying Islands</option>
 				<option value="VI">US Virgin Islands</option>
 			</optgroup>
 			<optgroup label="South America">
@@ -80,7 +83,6 @@ Version:    1.0
 				<option value="VE">Venezuela</option>
 			</optgroup>
 			<optgroup label="Europe">
-				<option value="GB">United Kingdom</option>
 				<option value="AL">Albania</option>
 				<option value="AD">Andorra</option>
 				<option value="AT">Austria</option>
@@ -91,13 +93,22 @@ Version:    1.0
 				<option value="HR">Croatia (Hrvatska)</option>
 				<option value="CY">Cyprus</option>
 				<option value="CZ">Czech Republic</option>
+				<option value="DK">Denmark</option>
+				<option value="EE">Estonia</option>
+				<option value="FO">Faroe Islands</option>
+				<option value="FI">Finland</option>
 				<option value="FR">France</option>
 				<option value="GI">Gibraltar</option>
 				<option value="DE">Germany</option>
 				<option value="GR">Greece</option>
+				<option value="GL">Greenland</option>
 				<option value="VA">Holy See (Vatican City State)</option>
 				<option value="HU">Hungary</option>
+				<option value="IS">Iceland</option>
+				<option value="IE">Ireland</option>
 				<option value="IT">Italy</option>
+				<option value="LV">Latvia</option>
+				<option value="LT">Lithuania</option>
 				<option value="LI">Liechtenstein</option>
 				<option value="LU">Luxembourg</option>
 				<option value="MK">Macedonia</option>
@@ -106,6 +117,7 @@ Version:    1.0
 				<option value="MC">Monaco</option>
 				<option value="ME">Montenegro</option>
 				<option value="NL">Netherlands</option>
+				<option value="NO">Norway</option>
 				<option value="PL">Poland</option>
 				<option value="PT">Portugal</option>
 				<option value="RO">Romania</option>
@@ -114,21 +126,12 @@ Version:    1.0
 				<option value="SK">Slovakia</option>
 				<option value="SI">Slovenia</option>
 				<option value="ES">Spain</option>
-				<option value="UA">Ukraine</option>
-				<option value="DK">Denmark</option>
-				<option value="EE">Estonia</option>
-				<option value="FO">Faroe Islands</option>
-				<option value="FI">Finland</option>
-				<option value="GL">Greenland</option>
-				<option value="IS">Iceland</option>
-				<option value="IE">Ireland</option>
-				<option value="LV">Latvia</option>
-				<option value="LT">Lithuania</option>
-				<option value="NO">Norway</option>
 				<option value="SJ">Svalbard and Jan Mayen Islands</option>
 				<option value="SE">Sweden</option>
 				<option value="CH">Switzerland</option>
 				<option value="TR">Turkey</option>
+				<option value="UA">Ukraine</option>
+				<option value="GB">United Kingdom</option>
 			</optgroup>
 			<optgroup label="Asia">
 				<option value="AF">Afghanistan</option>
@@ -273,10 +276,10 @@ Version:    1.0
 		</select>
                     
     </div>
+    <div class="col-sm-3">
+        @if ($errors->has('country')) <div class="help-block alert alert-danger errRed">{{ $errors->first('country') }}</div> @endif
+    </div>
 </div>
-
-
-
 
 
 <!-- food rating  -->
@@ -287,9 +290,9 @@ Version:    1.0
         <input name="rating" type="radio" value="0" >0   
 		<input name="rating" type="radio" value="1" >1
 		<input checked="checked" name="rating" type="radio" value="0">2
-		<input name="rating" type="radio" value="0">3
-		<input name="rating" type="radio" value="0">4
-		<input name="rating" type="radio" value="0">5
+		<input name="rating" type="radio" value="3">3
+		<input name="rating" type="radio" value="4">4
+		<input name="rating" type="radio" value="5">5
     </div>
 </div>
 
@@ -301,5 +304,8 @@ Version:    1.0
     <div class="col-sm-4">
 <!--         <input type="text" name="comment" id="comment" class="form-control" maxlength="254"  value="" /> -->
         <textarea name="comment" id="comment" class="form-control" rows="4"></textarea>
+    </div>
+    <div class="col-sm-3">
+        @if ($errors->has('comment')) <div class="help-block alert alert-danger errRed">{{ $errors->first('comment') }}</div> @endif
     </div>
 </div>
