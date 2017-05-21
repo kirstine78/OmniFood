@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Country;
-use App\Food;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

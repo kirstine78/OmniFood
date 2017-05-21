@@ -33,3 +33,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ***************************************
 
 Route::get('/countries', 'CountryController@allCountries');
+
+
+
+
+// ****************************************
+// ********** FoodController **********
+// ****************************************
+
+//Route::get('customers', 'CustomerController@allCustomers');
+
+// To add a Food we display a form then the form submits the data
+// First we display a view with a Form on it
+Route::get('food', 'FoodController@displayAddFoodForm');
+
+// then the form calls the ROUTE to save the data
+Route::put('food', 'FoodController@addFood');

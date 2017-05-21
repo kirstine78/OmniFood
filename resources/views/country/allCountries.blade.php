@@ -43,9 +43,7 @@ Version:    1.0
                                     <!-- done? -->
                                     <td class="table-text">
                                     	@if ($country->foods->isNotEmpty())
-                                        	<div>done</div>
-                                        @else
-                                        	<div>not done</div>
+                                        	<span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span>
                                         @endif
                                     </td>
                                     
