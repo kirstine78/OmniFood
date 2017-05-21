@@ -17,12 +17,12 @@ class CreateFoodsTable extends Migration
     	Schema::create('foods', function (Blueprint $table) {
     		$table->increments('id');
     		$table->timestamps();
-    		$table->timestamp('fldDate')->nullable();
-    		$table->tinyInteger('fldRating');
-    		$table->string('fldComment')->nullable();
-    		$table->integer('fldCountryId')->unsigned();
+    		$table->date('date');
+    		$table->tinyInteger('rating');
+    		$table->string('comment')->nullable();
+    		$table->integer('country_id')->unsigned()->index();
     		
-    		$table->foreign('fldCountryId')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+    		$table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
     	});
     }
 

@@ -17,10 +17,10 @@ class CreateImagesTable extends Migration
     	Schema::create('images', function (Blueprint $table) {
     		$table->increments('id');
     		$table->timestamps();
-    		$table->string('fldFilename');
-    		$table->integer('fldFoodId')->unsigned();
+    		$table->string('filename');
+    		$table->integer('food_id')->unsigned()->index();
     		
-    		$table->foreign('fldFoodId')->references('id')->on('foods')->onUpdate('cascade')->onDelete('cascade');
+    		$table->foreign('food_id')->references('id')->on('foods')->onUpdate('cascade')->onDelete('cascade');
     	});
     }
 

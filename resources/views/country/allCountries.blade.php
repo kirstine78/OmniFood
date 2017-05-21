@@ -7,14 +7,14 @@ Version:    1.0
 
 -->
 
-@extends('app')
+@extends('skeleton')
 
 @section('content')
 
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h2>Countries</h2></div>
+                <div class="panel-heading"><h2>All Countries</h2></div>
 
                 <div class="panel-body">
 
@@ -31,46 +31,32 @@ Version:    1.0
                         <table class="table table-striped task-table"  id="myTable">
                             <!-- Table Headings -->
                             <thead>
-                            <th>Rego no</th>
-                            <th>Brand</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
+                            <th>Done</th>
+                            <th>Country</th>
+                            <th>Region</th>
                             </thead>
 
                             <!-- Table Body -->
                             <tbody>
                             @foreach($countries as $country)
                                 <tr>
+                                    <!-- done? -->
+                                    <td class="table-text">
+                                    	@if ($country->foods->isNotEmpty())
+                                        	<div>done</div>
+                                        @else
+                                        	<div>not done</div>
+                                        @endif
+                                    </td>
+                                    
                                     <!-- country name -->
                                     <td class="table-text">
-                                        <div>{{ $country->fldName }}</div>
+                                        <div>{{ $country->name }}</div>
                                     </td>
 
                                     <!-- country continent -->
                                     <td class="table-text">
-                                        <div>{{ $country->fldContinent }}</div>
-                                    </td>
-
-
-                                    <!-- Vehicle Update Hire Rate Button -->
-                                    <td>
-                                        <form action="vehicle/{{ $country->id }}" method="GET">
-                                            {{ csrf_field() }}
-
-                                            <button type="submit" class="btn btn-warning">
-                                                <i class="fa fa-btn fa-trash">Update Hire Rate</i>
-                                            </button>
-                                        </form>
-                                    </td>
-
-                                    <!-- Vehicle Retire Button -->
-                                    <td>
-                                        <form action="vehicle/retire/{{ $country->id }}" method="POST">
-                                            {{ csrf_field() }}
-
-                                            <!-- Trigger the modal with a button -->
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myConfirmModal" ><i class="fa fa-btn fa-trash">Retire</i></button>
-                                        </form>
+                                        <div>{{ $country->region }}</div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -108,42 +94,4 @@ Version:    1.0
         </div>
     </div>
 
-@endsection
-
-@section('page-script')
-    <script type="text/javascript">
-        function myFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    if ($(td).first().text().toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        // handle when modal shows
-        $('#myConfirmModal').on('show.bs.modal', function (e) {
-            // on show confirm dialog modal, select the event's related button ("retire" btn in form) that got clicked.
-            var btnForm = $(e.relatedTarget);
-
-            // when click yes on dialog box
-            $('#btnConfirmYes').on("click", function () {
-
-                // the parent called 'form' has the correct vehicle id
-                btnForm.parent('form').submit();
-            });
-        });
-    </script>
 @endsection

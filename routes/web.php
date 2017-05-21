@@ -32,4 +32,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ********** CountryController **********
 // ***************************************
 
-Route::get('countries', 'CountryController@allCountries');
+Route::get('/countries', 'CountryController@allCountries');
