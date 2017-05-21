@@ -18,22 +18,43 @@ Version:    1.0
 
                 <div class="panel-body">
 
-                    <form action="vehicle" method="GET" class="marginTopBottom">
-                        {{ csrf_field() }}
-                        <button type="submit" class="btn btn-success">
-                            <i class="fa fa-btn fa-trash">Add new Vehicle</i>
-                        </button>
-                    </form>
-
                     @if (count($countries) > 0)
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for rego number..">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search country..">
+                        
+                        
+	                    <!--  form -->
+	                    <form action="{{ url('#') }}" method="GET" class="form-horizontal">
+	
+	                        <div class="form-group" >
+	                            <div class="col-sm-6">
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral">
+					                    <i class="fa fa-btn fa-trash" value="all" id="all">All</i>
+					                </button>
+					                
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral">
+					                    <i class="fa fa-btn fa-trash" value="done" id="done">Done</i>
+					                </button>
+					                
+					                
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral">
+					                    <i class="fa fa-btn fa-trash" value="empty" id="empty">Empty</i>
+					                </button>
+					                
+	                            </div>
+	                        </div>
+	                    </form>
 
                         <table class="table table-striped task-table"  id="myTable">
                             <!-- Table Headings -->
                             <thead>
                             <th>Done</th>
                             <th>Country</th>
-                            <th>Region</th>
                             </thead>
 
                             <!-- Table Body -->
@@ -51,40 +72,13 @@ Version:    1.0
                                     <td class="table-text">
                                         <div>{{ $country->name }}</div>
                                     </td>
-
-                                    <!-- country continent -->
-                                    <td class="table-text">
-                                        <div>{{ $country->region }}</div>
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
 
-                        <!-- Modal -->
-                        <div id="myConfirmModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Confirm Retire</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to retire Vehicle?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button id="btnConfirmYes" type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
                     @else
-                        <div>There are currently no vehicles in the system</div>
+                        <div>There are currently no Countries in the system</div>
                     @endif
 
                 </div>
@@ -92,4 +86,29 @@ Version:    1.0
         </div>
     </div>
 
+@endsection
+
+@section('page-script')
+    <script type="text/javascript">
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if ($(td).first().text().toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 @endsection
