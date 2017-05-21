@@ -23,31 +23,32 @@ Version:    1.0
                         
                         
 	                    <!--  form -->
-	                    <form action="{{ url('#') }}" method="GET" class="form-horizontal">
+	                    <form action="{{ url('#') }}" method="POST" class="form-horizontal">
 	
 	                        <div class="form-group" >
 	                            <div class="col-sm-6">
 	                            
 					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral">
-					                    <i class="fa fa-btn fa-trash" value="all" id="all">All</i>
+					                <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
+					                    <i class="fa fa-btn fa-trash">All</i>
 					                </button>
 					                
 	                            
 					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral">
-					                    <i class="fa fa-btn fa-trash" value="done" id="done">Done</i>
+					                <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
+					                    <i class="fa fa-btn fa-trash">Done</i>
 					                </button>
 					                
 					                
 	                            
 					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral">
-					                    <i class="fa fa-btn fa-trash" value="empty" id="empty">Empty</i>
+					                <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
+					                    <i class="fa fa-btn fa-trash">Empty</i>
 					                </button>
 					                
 	                            </div>
 	                        </div>
+	                         <input id="filterOption" type="hidden" name="filterOption" value="all">
 	                    </form>
 
                         <table class="table table-striped task-table"  id="myTable">
@@ -110,5 +111,21 @@ Version:    1.0
                 }
             }
         }
+
+        $("#btnAll").click(function() {
+        	$("#filterOption").val("all");
+            this.form.submit();
+       	});
+
+        $("#btnDone").click(function() {
+        	$("#filterOption").val("done");
+            this.form.submit();
+       	});
+
+        $("#btnEmpty").click(function() {
+        	$("#filterOption").val("empty");
+            this.form.submit();
+       	});
+        
     </script>
 @endsection

@@ -9,9 +9,25 @@ use Illuminate\Http\Request;
 class CountryController extends Controller
 {
 	//
-	public function allCountries(){
-		// fetch all Countries from db		
-		$countriesList = Country::orderBy('name', 'asc')->get();
+	public function allCountries(Request $request){
+		
+		$filterOption = $request->filterOption;
+		
+		//echo $filterOption;
+		
+		if ($filterOption == 'done') {	
+			// fetch all Countries from db, that has food entry
+			$countriesList = Country::has('foods')->orderBy('name', 'asc')->get();
+			
+		} elseif ($filterOption == 'empty') {			
+			// fetch all Countries from db, that hasn't food entry
+			$countriesList = Country::doesntHave('foods')->orderBy('name', 'asc')->get();
+			
+		} else {			
+			// fetch all Countries from db
+			$countriesList = Country::orderBy('name', 'asc')->get();
+		}
+		
 		
 // 		foreach ($countriesList as $c) {
 // 			echo $c->name;
