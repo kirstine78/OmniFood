@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-	//
+	// to show all countries
 	public function allCountries(Request $request){
 		
 		$filterOption = $request->filterOption;
@@ -28,24 +28,11 @@ class CountryController extends Controller
 			$countriesList = Country::orderBy('name', 'asc')->get();
 		}
 		
-		
-// 		foreach ($countriesList as $c) {
-// 			echo $c->name;
-			
-// 			$foods =  $c->foods;
-			
-// 			foreach ($foods as $f) {
-// 				echo $f->comment;
-// 			}
-// 		}
-		
-// 		$foodsList = Food::orderBy('comment', 'asc')->get();
-		
-		
-// 		foreach ($foodsList as $f) {
-// 			echo $f->country->name;
-// 		}
-		
 		return View('country.allCountries', ['countries' => $countriesList]);
+	}
+	
+	// show all food entries for ONE country
+	public function oneCountry() {
+		return View('country.oneCountry');
 	}
 }

@@ -72,6 +72,7 @@ Version:    1.0
                                     <!-- country name -->
                                     <td class="table-text">
                                         <div>{{ $country->name }}</div>
+                                        <div class='hiddenID' style="display: none;">{{ $country->id }}</div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -126,6 +127,16 @@ Version:    1.0
         	$("#filterOption").val("empty");
             this.form.submit();
        	});
-        
+
+       	// clickable row
+        $('.table > tbody > tr').click(function() {
+            // row was clicked
+            //alert($(this).find('.hiddenID').text());
+            var hiddenID = $(this).find('.hiddenID').text();
+            var url = '/country/' + hiddenID;
+            //alert (url);
+            // redirect
+            window.location.href = url;
+        });
     </script>
 @endsection

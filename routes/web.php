@@ -35,6 +35,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/countries', 'CountryController@allCountries');
 Route::post('/countries', 'CountryController@allCountries');
 
+Route::get('/country/{country}', 'CountryController@oneCountry');
+
 
 
 
