@@ -61,6 +61,8 @@ Version:    1.0
 						</div>
 						<hr />
 					@endforeach
+				@else
+					<div>No Food to display</div>
 				@endif
 			</div>
 		</div>

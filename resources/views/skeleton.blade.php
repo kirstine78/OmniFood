@@ -82,4 +82,5 @@
 	@yield('page-script')
 
 </body>
+
 </html>

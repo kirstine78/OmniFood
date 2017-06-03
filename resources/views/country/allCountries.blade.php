@@ -139,5 +139,11 @@ Version:    1.0
             // redirect
             window.location.href = url;
         });
+
+        // on click make text bold
+        $('tr').click(function(e){ 
+            $(this).css("font-weight","bold");
+                e.stopPropagation(); 
+         });
     </script>
 @endsection
