@@ -51,7 +51,7 @@ class FoodController extends Controller
     	// check that img is not null
     	if ($img1 != null) {
     		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
-    		$pathToImage1 = $img1->store('foodImages');
+    		$pathToImage1 = $img1->store('foodImages', 'public');
     		
     		// create image
     		$image1 = new Image();

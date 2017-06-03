@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 				</button>
 			</div>
-			<form action="food" method="GET" class="marginTopBottom">
+			<form action="/food" method="GET" class="marginTopBottom">
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-success">
                     <i class="fa fa-btn fa-trash">New Food</i>

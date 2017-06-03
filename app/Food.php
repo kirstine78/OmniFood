@@ -15,7 +15,7 @@ class Food extends Model
 	}
 	
 	/**
-	 * Get the comments for the blog post.
+	 * Get the images for the food entry.
 	 */
 	public function images()
 	{
