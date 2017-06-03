@@ -6,6 +6,10 @@
  */
 
 
+input[type="radio"]{
+  margin: 0 5px 0 18px;
+}
+
 
 .title {
 	font-size: 50px;

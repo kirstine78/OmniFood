@@ -27,7 +27,6 @@ Version:    1.0
 
     <div class="col-sm-4">
 	    <select name="country" class="form-control" >
-			<option></option>
 			<optgroup label="North America">
 				<option value="AI">Anguilla</option>
 				<option value="AG">Antigua and Barbuda</option>
@@ -156,7 +155,7 @@ Version:    1.0
 				<option value="JP">Japan</option>
 				<option value="JO">Jordan</option>
 				<option value="KZ">Kazakhstan</option>
-				<option value="KP">Korea, Democratic People's Republic of</option>
+				<option value="KP">Korea, Democratic Peoples Republic of</option>
 				<option value="KR">Korea, Republic of</option>
 				<option value="KW">Kuwait</option>
 				<option value="KG">Kyrgyzstan</option>
@@ -210,7 +209,7 @@ Version:    1.0
 				<option value="TO">Tonga</option>
 				<option value="TV">Tuvalu</option>
 				<option value="VU">Vanuatu</option>
-				<option valud="WF">Wallis and Futuna Islands</option>
+				<option value="WF">Wallis and Futuna Islands</option>
 			</optgroup>
 			<optgroup label="Africa">
 				<option value="DZ">Algeria</option>
@@ -236,7 +235,7 @@ Version:    1.0
 				<option value="GH">Ghana</option>
 				<option value="GN">Guinea</option>
 				<option value="GW">Guinea-Bissau</option>
-				<option value="CI">Cote d'Ivoire (Ivory Coast)</option>
+				<option value="CI">Cote dIvoire (Ivory Coast)</option>
 				<option value="KE">Kenya</option>
 				<option value="LS">Lesotho</option>
 				<option value="LR">Liberia</option>
@@ -289,7 +288,7 @@ Version:    1.0
     <div class="col-sm-4">
         <input name="rating" type="radio" value="0" >0   
 		<input name="rating" type="radio" value="1" >1
-		<input checked="checked" name="rating" type="radio" value="0">2
+		<input checked="checked" name="rating" type="radio" value="2">2
 		<input name="rating" type="radio" value="3">3
 		<input name="rating" type="radio" value="4">4
 		<input name="rating" type="radio" value="5">5

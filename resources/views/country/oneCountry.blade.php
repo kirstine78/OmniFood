@@ -48,14 +48,14 @@ Version:    1.0
 	
 					@foreach($foodList as $food)
 						<div class="row">
-							<div class="col-sm-8">
+							<div class="col-sm-10">
 								@if ($food->images->isNotEmpty()) 
 									<img class="img-responsive" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
 								@else 
-									<img class="img-responsive" src="{{URL::asset('/img/not_available.jpg')}}" alt="img not available"> 
+									<img class="img-responsive" src="{{URL::asset('/img/not_available.jpg')}}" alt="img not available" width="100%"> 
 								@endif
 							</div>
-							<div class="col-sm-4">{{ $food->date }}</div>
+							<div class="col-sm-2">{{ $food->date }}</div>
 							<div class='hiddenID' style="display: none;">{{ $food->id }}</div>
 							
 						</div>
