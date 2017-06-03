@@ -19,7 +19,7 @@ Version:    1.0
                 <div class="panel-body">
 
                     <!--  form -->
-                    <form action="{{ url('food') }}" method="POST" class="form-horizontal">
+                    <form action="{{ url('food') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                         {{ method_field('PUT') }}
 
                         @include('food/foodForm')

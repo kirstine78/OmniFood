@@ -39,7 +39,7 @@ Route::post('/countries', 'CountryController@allCountries');
 
 
 // ****************************************
-// ********** FoodController **********
+// ************ FoodController ************
 // ****************************************
 
 //Route::get('customers', 'CustomerController@allCustomers');

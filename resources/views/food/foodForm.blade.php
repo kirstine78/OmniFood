@@ -14,7 +14,7 @@ Version:    1.0
     <label for="date" class="col-sm-2 control-label">Date *</label>
 
     <div class="col-sm-4">
-        <input type="date" name="date" id="date" class="form-control" maxlength="254" value="" />
+        <input type="date" name="date" id="date" class="form-control" maxlength="254" value="<?php echo date("Y-m-d");?>" />
     </div>
     <div class="col-sm-3">
         @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
@@ -93,7 +93,7 @@ Version:    1.0
 				<option value="HR">Croatia (Hrvatska)</option>
 				<option value="CY">Cyprus</option>
 				<option value="CZ">Czech Republic</option>
-				<option value="DK">Denmark</option>
+				<option value="DK" selected="selected">Denmark</option>
 				<option value="EE">Estonia</option>
 				<option value="FO">Faroe Islands</option>
 				<option value="FI">Finland</option>
@@ -307,5 +307,14 @@ Version:    1.0
     </div>
     <div class="col-sm-3">
         @if ($errors->has('comment')) <div class="help-block alert alert-danger errRed">{{ $errors->first('comment') }}</div> @endif
+    </div>
+</div>
+
+<!-- food image  -->
+<div class="form-group">
+    <label for="imageUpload" class="col-sm-2 control-label">Image</label>
+
+    <div class="col-sm-4">
+        <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
     </div>
 </div>

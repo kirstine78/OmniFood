@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Food;
 use App\Country;
+use App\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -27,22 +28,40 @@ class FoodController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function addFood(Request $request){
+    public function addFood(Request $request){    	  	    	  	
     	
     	// handle validation, if not validated redirect back to where you came from
-    	$this->validateFood($request);
-    	
+    	$this->validateFood($request);    	
     	
     	// if VALIDATION went ok proceed to below
     	$food = new Food();
     	
-    	// assign input values to fields for the customer record
+    	// assign input values to fields for the food record
     	$food= $this->populateFoodFromRequest($food, $request);
     	
     	// set created at to current date and time
     	$food->created_at = Carbon::now();
     	
     	$food->save();
+    	
+    	
+    	// image that user uploaded
+    	$img1 = $request->file('imageUpload');
+    	
+    	// check that img is not null
+    	if ($img1 != null) {
+    		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
+    		$pathToImage1 = $img1->store('foodImages');
+    		
+    		// create image
+    		$image1 = new Image();
+    		
+    		// assign input value (which is path to image) to field for the image record
+    		$image1->filename = $pathToImage1;
+    		
+    		// save food and img child record
+    		$food->images()->save($image1);    		
+    	}
     	
     	return redirect('countries');
     }  // end addFood
@@ -98,6 +117,13 @@ class FoodController extends Controller
     	$food->country_id = $countryList[0]->id;
     	    	
     	return $food;
+    }
+    
+    
+    public function populateImageFromRequest(Image $img, Request $request) {
+    	// get someValue from the name="someValue"  key/value pair from incoming $request
+    	$img->filename = $request->date;
+    	
     }
     
     

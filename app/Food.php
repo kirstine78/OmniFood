@@ -13,4 +13,14 @@ class Food extends Model
 		// writing: Country::class   is equivalent to: 'App\Country'
 		return $this->belongsTo('App\Country');
 	}
+	
+	/**
+	 * Get the comments for the blog post.
+	 */
+	public function images()
+	{
+		return $this->hasMany('App\Image');
+	}
+	
+	
 }
