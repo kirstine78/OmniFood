@@ -39,7 +39,9 @@ Version:    1.0
         </div>
     </div>
 
-@endsection @section('page-script')
+@endsection 
+
+@section('page-script')
 	<script type="text/javascript">
 		
 		$("div.country_drop_down select").val("{{ $food->country->code }}");

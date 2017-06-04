@@ -19,7 +19,7 @@ class FoodController extends Controller
     	// make sure to pass in empty Food
     	$food = new Food();
     	
-    	// to remove the time
+    	// to remove the time from dateTime we use 'format'
     	$food->date = Carbon::today()->format('Y-m-d');
     	
     	return View('food.displayAddFoodForm')->with('food', $food);
@@ -127,9 +127,49 @@ class FoodController extends Controller
     
     // go to edit view for one specific food entry
     public function editFood(Food $food, Request $request) {
-    	//echo "edit food";
-    	echo $food->id;
+    	//echo $food->id;
     	return View('food.displayEditFoodForm')->with('food', $food);
+    }
+    
+    //
+    public function submitEditFood(Request $request) {
+    	
+    	// handle validation, if not validated redirect back to where you came from
+    	$this->validateFood($request);
+    	
+    	// if VALIDATION went ok proceed to below
+    	// get the food object
+    	$food = Food::find($request->specific_food_id);
+    	    	
+    	// assign input values to fields for the food record
+    	$food= $this->populateFoodFromRequest($food, $request);
+    	
+    	// set updated at to current date and time
+    	$food->updated_at = Carbon::now();
+    	
+    	$food->save();
+    	
+    	
+    	// image that user uploaded
+//     	$img1 = $request->file('imageUpload');
+    	
+//     	// check that img is not null
+//     	if ($img1 != null) {
+//     		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
+//     		$pathToImage1 = $img1->store('foodImages', 'public');
+    		
+//     		// create image
+//     		$image1 = new Image();
+    		
+//     		// assign input value (which is path to image) to field for the image record
+//     		$image1->filename = $pathToImage1;
+    		
+//     		// save food and img child record
+//     		$food->images()->save($image1);
+//     	}
+    	
+    	return redirect('countries');
+    	
     }
         
 //     public function populateImageFromRequest(Image $img, Request $request) {

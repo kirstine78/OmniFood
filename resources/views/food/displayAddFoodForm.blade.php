@@ -40,3 +40,10 @@ Version:    1.0
     </div>
 
 @endsection
+
+@section('page-script')
+	<script type="text/javascript">
+		
+
+    </script>
+@endsection

@@ -15,6 +15,7 @@ Version:    1.0
 
     <div class="col-sm-4">
         <input type="date" name="date" id="date" class="form-control" value="{{ old('date', $food->date) }}" />
+        <input type="hidden" name="specific_food_id" id="specific_food_id" class="form-control" value="{{ $food->id }}">
     </div>
     <div class="col-sm-3">
         @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
