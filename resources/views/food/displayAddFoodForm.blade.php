@@ -20,7 +20,7 @@ Version:    1.0
 
                     <!--  form -->
                     <form action="{{ url('food') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                        {{ method_field('PUT') }}
+                        {{ method_field('POST') }}
 
                         @include('food/foodForm')
 

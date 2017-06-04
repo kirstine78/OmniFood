@@ -45,14 +45,14 @@ Route::post('/country/{country}', 'CountryController@oneCountry');
 // ************ FoodController ************
 // ****************************************
 
-//Route::get('customers', 'CustomerController@allCustomers');
-
 // To add a Food we display a form then the form submits the data
 // First we display a view with a Form on it
 Route::get('/food', 'FoodController@displayAddFoodForm');
 
 // then the form calls the ROUTE to save the data
-Route::put('/food', 'FoodController@addFood');
+Route::post('/food', 'FoodController@addFood');
 
-
+// To show one food entry
 Route::get('/food/{food}', 'FoodController@oneFood');
+// to 
+//Route::post('/food/{food}', 'FoodController@oneFood');
