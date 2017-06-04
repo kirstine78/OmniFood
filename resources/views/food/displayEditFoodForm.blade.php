@@ -41,9 +41,10 @@ Version:    1.0
 
 @endsection @section('page-script')
 	<script type="text/javascript">
-
 		
 		$("div.country_drop_down select").val("{{ $food->country->code }}");
+		
+		$('input[name=rating][value=' + {{ $food->rating }} + ']').prop('checked',true)
 
     </script>
 @endsection

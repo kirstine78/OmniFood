@@ -19,6 +19,9 @@ class FoodController extends Controller
     	// make sure to pass in empty Food
     	$food = new Food();
     	
+    	// to remove the time
+    	$food->date = Carbon::today()->format('Y-m-d');
+    	
     	return View('food.displayAddFoodForm')->with('food', $food);
     }
     
