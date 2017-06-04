@@ -14,7 +14,7 @@ Version:    1.0
     <label for="date" class="col-sm-2 control-label">Date *</label>
 
     <div class="col-sm-4">
-        <input type="date" name="date" id="date" class="form-control" maxlength="254" value="<?php echo date("Y-m-d");?>" />
+        <input type="date" name="date" id="date" class="form-control" value="{{ old('date', $food->date) }}" />
     </div>
     <div class="col-sm-3">
         @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
@@ -25,7 +25,7 @@ Version:    1.0
 <div class="form-group">
     <label for="country" class="col-sm-2 control-label">Country *</label>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 country_drop_down">
 	    <select name="country" class="form-control" >
 			<optgroup label="North America">
 				<option value="AI">Anguilla</option>
@@ -303,8 +303,7 @@ Version:    1.0
     <label for="comment" class="col-sm-2 control-label">Comment</label>
 
     <div class="col-sm-4">
-<!--         <input type="text" name="comment" id="comment" class="form-control" maxlength="254"  value="" /> -->
-        <textarea name="comment" id="comment" class="form-control" rows="4"></textarea>
+        <textarea name="comment" id="comment" class="form-control" rows="4" >{{ old('comment', $food->comment) }}</textarea>
     </div>
     <div class="col-sm-3">
         @if ($errors->has('comment')) <div class="help-block alert alert-danger errRed">{{ $errors->first('comment') }}</div> @endif

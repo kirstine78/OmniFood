@@ -16,7 +16,7 @@ class FoodController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function displayAddFoodForm(){
-    	// make sure to pass in empty customer
+    	// make sure to pass in empty Food
     	$food = new Food();
     	
     	return View('food.displayAddFoodForm')->with('food', $food);
@@ -119,8 +119,14 @@ class FoodController extends Controller
     
     // go to view showing details for one food entry; image, date, rating comment
     public function oneFood(Food $food, Request $request) {
-    	
     	return View('food.oneFood',  ['oneFood' => $food]);
+    }
+    
+    // go to edit view for one specific food entry
+    public function editFood(Food $food, Request $request) {
+    	//echo "edit food";
+    	echo $food->id;
+    	return View('food.displayEditFoodForm')->with('food', $food);
     }
         
 //     public function populateImageFromRequest(Image $img, Request $request) {

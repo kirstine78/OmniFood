@@ -54,5 +54,9 @@ Route::post('/food', 'FoodController@addFood');
 
 // To show one food entry
 Route::get('/food/{food}', 'FoodController@oneFood');
-// to 
-//Route::post('/food/{food}', 'FoodController@oneFood');
+
+// To go to edit view for specific food entry 
+Route::get('/food/edit/{food}', 'FoodController@editFood');
+
+// To submit the food edit
+Route::put('/food/edit', 'FoodController@submitEditFood');

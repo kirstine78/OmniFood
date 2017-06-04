@@ -20,7 +20,8 @@ Version:    1.0
 					
 					
 					<div class="col-xs-3">
-						<form action="/food" method="POST" class="marginTopBottom">
+						<form action="{{ url('/food/edit/'.$oneFood->id) }}" method="GET" class="marginTopBottom">
+						
 			                {{ csrf_field() }}
 			                <button type="submit" class="btn btn-warning">
 			                    <i class="fa fa-btn fa-trash">Edit</i>
@@ -61,7 +62,7 @@ Version:    1.0
 </div>
 
 @endsection @section('page-script')
-<script type="text/javascript">
+	<script type="text/javascript">
 
         $("#btnNewestToOldest").click(function() {
         	$("#filterOption").val("newestToOldest");
@@ -73,16 +74,6 @@ Version:    1.0
             this.form.submit();
        	});
 
-       	// clickable row
-//         $('.table > tbody > tr').click(function() {
-//             // row was clicked
-//             //alert($(this).find('.hiddenID').text());
-//             var hiddenID = $(this).find('.hiddenID').text();
-//             var url = '/country/' + hiddenID;
-//             //alert (url);
-//             // redirect
-//             window.location.href = url;
-//         });
     </script>
 
 @endsection
