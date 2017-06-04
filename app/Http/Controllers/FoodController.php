@@ -93,8 +93,6 @@ class FoodController extends Controller
     }
     
     
-    
-    
     /**
      * from request assign values to column fields in the food record
      * @param Food $food
@@ -119,12 +117,16 @@ class FoodController extends Controller
     	return $food;
     }
     
-    
-    public function populateImageFromRequest(Image $img, Request $request) {
-    	// get someValue from the name="someValue"  key/value pair from incoming $request
-    	$img->filename = $request->date;
+    // go to view showing details for one food entry; image, date, rating comment
+    public function oneFood(Food $food, Request $request) {
     	
+    	return View('food.oneFood',  ['oneFood' => $food]);
     }
+        
+//     public function populateImageFromRequest(Image $img, Request $request) {
+//     	// get someValue from the name="someValue"  key/value pair from incoming $request
+//     	$img->filename = $request->date;    	
+//     }
     
     
-}
+}  // end class

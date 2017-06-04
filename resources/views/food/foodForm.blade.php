@@ -155,7 +155,7 @@ Version:    1.0
 				<option value="JP">Japan</option>
 				<option value="JO">Jordan</option>
 				<option value="KZ">Kazakhstan</option>
-				<option value="KP">Korea, Democratic Peoples Republic of</option>
+				<option value="KP">Korea, Democratic People's Republic of</option>
 				<option value="KR">Korea, Republic of</option>
 				<option value="KW">Kuwait</option>
 				<option value="KG">Kyrgyzstan</option>
@@ -235,7 +235,7 @@ Version:    1.0
 				<option value="GH">Ghana</option>
 				<option value="GN">Guinea</option>
 				<option value="GW">Guinea-Bissau</option>
-				<option value="CI">Cote dIvoire (Ivory Coast)</option>
+				<option value="CI">Cote d'Ivoire (Ivory Coast)</option>
 				<option value="KE">Kenya</option>
 				<option value="LS">Lesotho</option>
 				<option value="LR">Liberia</option>
@@ -271,7 +271,9 @@ Version:    1.0
 				<option value="ZM">Zambia</option>
 				<option value="ZW">Zimbabwe</option>
 			</optgroup>
-			<option value="AQ">Antarctica</option>
+			<optgroup label="Antarctica">
+				<option value="AQ">Antarctica</option>
+			</optgroup>
 		</select>
                     
     </div>

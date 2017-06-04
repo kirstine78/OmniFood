@@ -12,21 +12,21 @@ class CountryController extends Controller
 	// to show all countries
 	public function allCountries(Request $request){
 		
-		$filterOption = $request->filterOption;
+		$filterOptionAllCountries = $request->filterOptionAllCountries;
 		
 		//echo $filterOption;
 		
-		if ($filterOption == 'done') {	
+		if ($filterOptionAllCountries == 'done') {
 			// fetch all Countries from db, that has food entry
 			$countriesList = Country::has('foods')->orderBy('name', 'asc')->get();
 			
-		} elseif ($filterOption == 'empty') {			
+		} elseif ($filterOptionAllCountries == 'empty') {
 			// fetch all Countries from db, that hasn't food entry
 			$countriesList = Country::doesntHave('foods')->orderBy('name', 'asc')->get();
 			
-		} else {			
+		} else {
 			// fetch all Countries from db
-			$countriesList = Country::orderBy('name', 'asc')->get();
+			$countriesList = Country::orderBy('name', 'asc')->get();			
 		}
 		
 		return View('country.allCountries', ['countries' => $countriesList]);
@@ -36,16 +36,18 @@ class CountryController extends Controller
 	// show all food entries for ONE country
 	public function oneCountry(Country $country, Request $request) {		
 		
-		$filterOption = $request->filterOption;		
+		$filterOptionOneCountry= $request->filterOptionOneCountry;
 		
 		// assign id of country to $id. It is the row aka country that was clicked
 		$id = $country->id;
 				
-		//echo $filterOption;
-		
-		if ($filterOption == 'oldestToNewest') {
+		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country
-			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'asc')->get();
+			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
+			
+		} elseif ($filterOptionOneCountry == 'oldestToNewest') {
+			// fetch all food entries for the country
+			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'asc')->get();		
 			
 		} else {
 			// fetch all food entries for the country

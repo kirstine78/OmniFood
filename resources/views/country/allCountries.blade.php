@@ -14,11 +14,11 @@ Version:    1.0
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h2>All Countries</h2></div>
+                <div class="panel-heading"><h4>All Countries</h4></div>
 
                 <div class="panel-body">
 
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search country..">
+                    <input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">
                         
                         
 	                <!--  form -->
@@ -47,7 +47,7 @@ Version:    1.0
 				                
                             </div>
                         </div>
-                         <input id="filterOption" type="hidden" name="filterOption" value="all">
+                        <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
                     </form>
 	                    
                     @if (count($countries) > 0)
@@ -93,7 +93,8 @@ Version:    1.0
 
 @section('page-script')
     <script type="text/javascript">
-        function myFunction() {
+    	// function to search in a table
+        function mySearchFunction() {
             // Declare variables
             var input, filter, table, tr, td, i;
             input = document.getElementById("myInput");
@@ -115,23 +116,24 @@ Version:    1.0
         }
 
         $("#btnAll").click(function() {
-        	$("#filterOption").val("all");
+        	$("#filterOptionAllCountries").val("all");
             this.form.submit();
        	});
 
         $("#btnDone").click(function() {
-        	$("#filterOption").val("done");
+        	$("#filterOptionAllCountries").val("done");
             this.form.submit();
        	});
 
         $("#btnEmpty").click(function() {
-        	$("#filterOption").val("empty");
+        	$("#filterOptionAllCountries").val("empty");
             this.form.submit();
        	});
 
        	// clickable row
         $('.table > tbody > tr').click(function() {
-            // row was clicked
+            
+            // row was clicked            
             //alert($(this).find('.hiddenID').text());
             var hiddenID = $(this).find('.hiddenID').text();
             var url = '/country/' + hiddenID;
@@ -143,7 +145,7 @@ Version:    1.0
         // on click make text bold
         $('tr').click(function(e){ 
             $(this).css("font-weight","bold");
-                e.stopPropagation(); 
+            e.stopPropagation(); 
          });
     </script>
 @endsection
