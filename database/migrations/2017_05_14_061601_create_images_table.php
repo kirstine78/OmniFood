@@ -21,6 +21,7 @@ class CreateImagesTable extends Migration
     		$table->integer('food_id')->unsigned()->index();
     		
     		$table->foreign('food_id')->references('id')->on('foods')->onUpdate('cascade')->onDelete('cascade');
+    		$table->engine = 'InnoDB';
     	});
     }
 

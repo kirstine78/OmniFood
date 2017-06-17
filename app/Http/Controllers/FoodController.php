@@ -188,9 +188,11 @@ class FoodController extends Controller
     	// Laravel will automatically inject the model instance that has
     	// an ID matching the corresponding value from the request URI.
     	    	
-    	// delete Food and any images belonging
+    	// delete Food and any Images belonging to this Food id
+    	//$images = 
     	
-    	echo "hello delete food";
+    	//echo "delete food id: " . $food->id;
+    	$food->forceDelete();
     	
 //     	$customer->fldDeleted = 1;  // we don't delete record, instead we just flag as 'deleted'
 //     	$customer->updated_at = $dateTimeNow;

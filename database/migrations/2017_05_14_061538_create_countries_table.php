@@ -20,6 +20,7 @@ class CreateCountriesTable extends Migration
     		$table->string('code')->unique(); 
     		$table->string('name')->unique();   		
     		$table->string('region');
+    		$table->engine = 'InnoDB';
     	});
     }
 
