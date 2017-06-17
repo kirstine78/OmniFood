@@ -46,9 +46,9 @@ Version:    1.0
 		
 		$("div.country_drop_down select").val("{{ $food->country->code }}");
 
-		var valToSetTo = $('#radRatingGroup').data().valueToSetTo;
+		var valToSetToRating = $('#radRatingGroup').data().valueToSetTo;
 		
-		$('input[name=rating][value=' + valToSetTo + ']').prop('checked',true);
+		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);
 
     </script>
 @endsection
