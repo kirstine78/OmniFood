@@ -285,7 +285,7 @@ Version:    1.0
 
 
 <!-- food rating  -->
-<div class="form-group">
+<div class="form-group" id="radRatingGroup" data-value-to-set-to="{{ old('rating', $food->rating) }}">
     <label for="rating" class="col-sm-2 control-label">Rating *</label>
 
     <div class="col-sm-4">
