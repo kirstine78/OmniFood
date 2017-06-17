@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Food;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+    	// get all food ordered by date desc
+    	// fetch all food entries for the country
+    	$foodList = Food::orderBy('date', 'desc')->get();
+    	
+    	return view('home',  ['foodList' => $foodList]);
     }
 }

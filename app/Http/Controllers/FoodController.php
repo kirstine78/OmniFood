@@ -189,16 +189,9 @@ class FoodController extends Controller
     	// an ID matching the corresponding value from the request URI.
     	    	
     	// delete Food and any Images belonging to this Food id
-    	//$images = 
-    	
-    	//echo "delete food id: " . $food->id;
     	$food->forceDelete();
     	
-//     	$customer->fldDeleted = 1;  // we don't delete record, instead we just flag as 'deleted'
-//     	$customer->updated_at = $dateTimeNow;
-//     	$customer->save();
-    	
-    	//return redirect('/countries');
+    	return redirect('/countries');
     }
     
     

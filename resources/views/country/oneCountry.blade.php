@@ -40,8 +40,7 @@ Version:    1.0
 							</div>
 						</div>
 						<input id="filterOptionOneCountry" type="hidden" name="filterOptionOneCountry" value="newestToOldest">
-					</form>
-	
+					</form>	
 	
 					@foreach($foodList as $food)
 						<a href="{{ url('/food/'.$food->id) }}">
