@@ -24,6 +24,7 @@ class FoodController extends Controller
     	
     	// set denmark as default. hard coded...
     	$food->country_id = 61;
+    	$food->rating = 2;
     	
     	return View('food.displayAddFoodForm')->with('food', $food);
     }

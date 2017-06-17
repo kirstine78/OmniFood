@@ -47,7 +47,10 @@ Version:    1.0
 		var valToSetToCountry = $('#selCountryGroup').data().valueToSetTo;
 		
 		$("div.country_drop_down select").val(valToSetToCountry);
+
+		var valToSetToRating = $('#radRatingGroup').data().valueToSetTo;
 		
+		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);		
 
     </script>
 @endsection
