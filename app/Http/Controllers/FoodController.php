@@ -170,12 +170,7 @@ class FoodController extends Controller
     	
     	return redirect('countries');
     	
-    }
-        
-//     public function populateImageFromRequest(Image $img, Request $request) {
-//     	// get someValue from the name="someValue"  key/value pair from incoming $request
-//     	$img->filename = $request->date;    	
-//     }
+    }    
     
     
 }  // end class

@@ -52,7 +52,9 @@ Version:    1.0
 				@if(!is_null($oneFood->comment))
 					<div class="row">
 						<div class="col-sm-12">
-							<strong>Comment:</strong> {{$oneFood->comment}}		
+							<strong>Comment:</strong>
+							<br/>
+							<textarea class="form-control txtAreaNonEdge" rows="4" readonly style="background-color: white;">{{$oneFood->comment}}</textarea>							
 						</div>					
 					</div>
 				@endif		
