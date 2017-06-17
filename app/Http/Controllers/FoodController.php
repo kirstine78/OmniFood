@@ -20,7 +20,10 @@ class FoodController extends Controller
     	$food = new Food();
     	
     	// to remove the time from dateTime we use 'format'
-    	$food->date = Carbon::today()->format('Y-m-d');
+    	$food->date = Carbon::today()->format('Y-m-d');    	
+    	
+    	// set denmark as default. hard coded...
+    	$food->country_id = 61;
     	
     	return View('food.displayAddFoodForm')->with('food', $food);
     }

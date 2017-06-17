@@ -43,6 +43,10 @@ Version:    1.0
 
 @section('page-script')
 	<script type="text/javascript">
+
+		var valToSetToCountry = $('#selCountryGroup').data().valueToSetTo;
+		
+		$("div.country_drop_down select").val(valToSetToCountry);
 		
 
     </script>
