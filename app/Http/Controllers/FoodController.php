@@ -177,4 +177,27 @@ class FoodController extends Controller
     }    
     
     
+    
+    /**
+     * Delete Food in database
+     * @param Food $food
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function deleteFood(Food $food){
+    	// Because of Route Model Binding,
+    	// Laravel will automatically inject the model instance that has
+    	// an ID matching the corresponding value from the request URI.
+    	    	
+    	// delete Food and any images belonging
+    	
+    	echo "hello delete food";
+    	
+//     	$customer->fldDeleted = 1;  // we don't delete record, instead we just flag as 'deleted'
+//     	$customer->updated_at = $dateTimeNow;
+//     	$customer->save();
+    	
+    	//return redirect('/countries');
+    }
+    
+    
 }  // end class

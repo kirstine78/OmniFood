@@ -60,3 +60,6 @@ Route::get('/food/edit/{food}', 'FoodController@editFood');
 
 // To submit the food edit
 Route::put('/food/edit', 'FoodController@submitEditFood');
+
+// Delete Food
+Route::delete('/food/{food}', 'FoodController@deleteFood');
