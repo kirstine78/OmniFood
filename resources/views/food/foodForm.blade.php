@@ -304,7 +304,7 @@ Version:    1.0
     <label for="comment" class="col-sm-2 control-label">Comment</label>
 
     <div class="col-sm-4">
-        <textarea name="comment" id="comment" class="form-control" rows="4" >{{ old('comment', $food->comment) }}</textarea>
+        <textarea name="comment" id="comment" class="form-control" rows="4" maxlength="190" >{{ old('comment', $food->comment) }}</textarea>
     </div>
     <div class="col-sm-3">
         @if ($errors->has('comment')) <div class="help-block alert alert-danger errRed">{{ $errors->first('comment') }}</div> @endif
