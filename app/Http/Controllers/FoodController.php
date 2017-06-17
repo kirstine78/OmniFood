@@ -79,19 +79,19 @@ class FoodController extends Controller
     	// my array of customized messages
     	$messages = [
     			'date.required' => 'The :attribute is required.',
-    			'country.required' => 'The :attribute is required.',
+    			'countryCode.required' => 'The :attribute is required.',
     	];
     	
     	// rename attributes to look pretty in form
     	$attributes = [
     			'date' => 'date',
-    			'country' => 'country',
+    			'countryCode' => 'country',
     	];
     	
     	// validation of user input in the form
     	$this->validate($request, [
     			'date' => 'required',
-    			'country' => 'required',
+    			'countryCode' => 'required',
     	], $messages, $attributes);
     }
     
@@ -108,14 +108,14 @@ class FoodController extends Controller
     	$food->rating = $request->rating; // get value of rating radio button
     	$food->comment = $request->comment;
     	
-    	// get the country chosen in the drop down menu
-    	$countryCode = $request->country;
+    	// get the country code chosen in the drop down menu
+    	$countryCode = $request->countryCode;
     	
     	// get the countries with this code. returns a list, but it should only return exactly one record in the list.
-    	$countryList = Country::where('code', '=', $countryCode)->get();
+    	$countryCodeList = Country::where('code', '=', $countryCode)->get();
     	
     	// assign the name of country to new food obj
-    	$food->country_id = $countryList[0]->id;
+    	$food->country_id = $countryCodeList[0]->id;
     	    	
     	return $food;
     }

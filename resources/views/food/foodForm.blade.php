@@ -23,11 +23,11 @@ Version:    1.0
 </div>
 
 <!-- food country, dropdown? -->
-<div class="form-group">
+<div class="form-group" id="selCountryGroup" data-value-to-set-to="{{ old('countryCode', $food->country->code) }}">
     <label for="country" class="col-sm-2 control-label">Country *</label>
 
     <div class="col-sm-4 country_drop_down">
-	    <select name="country" class="form-control" >
+	    <select name="countryCode" class="form-control" >
 			<optgroup label="North America">
 				<option value="AI">Anguilla</option>
 				<option value="AG">Antigua and Barbuda</option>
