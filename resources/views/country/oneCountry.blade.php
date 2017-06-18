@@ -49,7 +49,7 @@ Version:    1.0
 									@if ($food->images->isNotEmpty()) 
 										<img class="img-responsive" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
 									@else 
-										<img class="img-responsive" src="{{URL::asset('/img/not_available.jpg')}}" alt="img not available" width="100%"> 
+										<img class="img-responsive" src="{{URL::asset('/img/no_image_available.jpeg')}}" alt="img not available" width="100%"> 
 									@endif
 								</div>
 								<div class="col-sm-2">{{ $food->date }}</div>

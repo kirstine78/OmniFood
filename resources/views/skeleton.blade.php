@@ -54,7 +54,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 
-					<li class="nav_buttons"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
+					<li class="nav_buttons"><a href="{{ url('/') }}" style="color:black;">Home</a></li>
 					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>
 					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">North America</a></li>
 					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">South America</a></li>
