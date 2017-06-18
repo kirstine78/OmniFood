@@ -81,7 +81,7 @@ Version:    1.0
                         </table>
 
                     @else
-                        <div>No Country to display</div>
+                        <div>No Countries to display</div>
                     @endif
 
                 </div>

@@ -7,6 +7,7 @@ use OmniFood\Country;
 use OmniFood\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Storage;
 
 class FoodController extends Controller
 {
@@ -19,6 +20,7 @@ class FoodController extends Controller
 	{
 		$this->middleware('auth');
 	}
+	
 	
 	
     /**
@@ -41,8 +43,9 @@ class FoodController extends Controller
     }
     
     
+    
     /**
-     * when 'add food' button is clicked, add to database
+     * when 'Add Food' button is clicked, add to database
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -60,15 +63,14 @@ class FoodController extends Controller
     	// set created at to current date and time
     	$food->created_at = Carbon::now();
     	
-    	$food->save();
-    	
+    	$food->save();    	
     	
     	// image that user uploaded
     	$img1 = $request->file('imageUpload');
     	
     	// check that img is not null
     	if ($img1 != null) {
-    		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
+    		// get the image the user uploads, store it in folder 'foodImages/{userId}'. The path where img is stored is returned
     		$pathToImage1 = $img1->store('foodImages/' . $request->user()->id, 'public');
     		
     		// create image
@@ -81,7 +83,7 @@ class FoodController extends Controller
     		$food->images()->save($image1);    		
     	}
     	
-    	return redirect('countries');
+    	return redirect('/');
     }  // end addFood
     
     
@@ -111,6 +113,7 @@ class FoodController extends Controller
     }
     
     
+    
     /**
      * from request assign values to column fields in the food record
      * @param Food $food
@@ -135,18 +138,36 @@ class FoodController extends Controller
     	return $food;
     }
     
-    // go to view showing details for one food entry; image, date, rating comment
+    
+    
+    /**
+     * go to view showing details for one food entry; image, date, rating comment
+     * @param Food $food
+     * @param Request $request
+     */
     public function oneFood(Food $food, Request $request) {
     	return View('food.oneFood',  ['oneFood' => $food]);
     }
     
-    // go to edit view for one specific food entry
+    
+    
+    /**
+     * go to edit view for one specific food entry
+     * @param Food $food
+     * @param Request $request
+     */
     public function editFood(Food $food, Request $request) {
     	//echo $food->id;
     	return View('food.displayEditFoodForm')->with('food', $food);
     }
     
-    //
+    
+    
+    /**
+     * when 'Submit Changes' button is clicked, update Food record in database
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function submitEditFood(Request $request) {
     	
     	// handle validation, if not validated redirect back to where you came from
@@ -183,8 +204,7 @@ class FoodController extends Controller
 //     		$food->images()->save($image1);
 //     	}
     	
-    	return redirect('countries');
-    	
+    	return redirect('/');    	
     }    
     
     
@@ -199,12 +219,20 @@ class FoodController extends Controller
     	// Laravel will automatically inject the model instance that has
     	// an ID matching the corresponding value from the request URI.
     	    	
+    	// get Image child records to the Food entry
+    	$imageList = $food->images();
+//     	echo "imageList size" . count($imageList);
+    	    	
+    	foreach ($imageList as $image) {
+    		// TODO remove image from folder
+    		//File::delete($image->filename);
+    		Storage::delete($image->filename);
+    	}
+    	
     	// delete Food and any Images belonging to this Food id
     	$food->forceDelete();  // remove from db
     	
-    	// TODO remove from folder
-    	
-    	return redirect('/countries');
+    	return redirect('/');
     }
     
     
