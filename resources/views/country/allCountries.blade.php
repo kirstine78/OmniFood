@@ -17,15 +17,12 @@ Version:    1.0
                 <div class="panel-heading"><h4>Worldwide</h4></div>
 
                 <div class="panel-body">
-
-                    <input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">
-                        
-                        
+                
 	                <!--  form -->
                     <form action="{{ url('#') }}" method="POST" class="form-horizontal">
 
                         <div class="form-group" >
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                             
 				                {{ csrf_field() }}
 				                <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
@@ -35,7 +32,7 @@ Version:    1.0
                             
 				                {{ csrf_field() }}
 				                <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
-				                    <i class="fa fa-btn fa-trash">Done</i>
+				                    <i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
 				                </button>
 				                
 				                
@@ -49,6 +46,8 @@ Version:    1.0
                         </div>
                         <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
                     </form>
+
+                    <input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">                                              
 	                    
                     @if (count($countries) > 0)
 
