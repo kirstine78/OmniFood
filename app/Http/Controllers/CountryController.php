@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OmniFood\Http\Controllers;
 
-use App\Country;
-use App\Food;
+use OmniFood\Country;
+use OmniFood\Food;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

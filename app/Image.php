@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace OmniFood;
 
 use Illuminate\Database\Eloquent\Model;
 

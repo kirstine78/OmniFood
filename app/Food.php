@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace OmniFood;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,8 +10,8 @@ class Food extends Model
 	 * get the country that owns the food
 	 */
 	public function country() {
-		// writing: Country::class   is equivalent to: 'App\Country'
-		return $this->belongsTo('App\Country');
+		// writing: Country::class   is equivalent to: 'OmniFood\Country'
+		return $this->belongsTo('OmniFood\Country');
 	}
 	
 	/**
@@ -19,7 +19,7 @@ class Food extends Model
 	 */
 	public function images()
 	{
-		return $this->hasMany('App\Image');
+		return $this->hasMany('OmniFood\Image');
 	}
 	
 	

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OmniFood\Http\Controllers;
 
-use App\Food;
-use App\Country;
-use App\Image;
+use OmniFood\Food;
+use OmniFood\Country;
+use OmniFood\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -69,7 +69,7 @@ class FoodController extends Controller
     	// check that img is not null
     	if ($img1 != null) {
     		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
-    		$pathToImage1 = $img1->store('foodImages', 'public');
+    		$pathToImage1 = $img1->store('foodImages/' . $request->user()->id, 'public');
     		
     		// create image
     		$image1 = new Image();
@@ -200,7 +200,9 @@ class FoodController extends Controller
     	// an ID matching the corresponding value from the request URI.
     	    	
     	// delete Food and any Images belonging to this Food id
-    	$food->forceDelete();
+    	$food->forceDelete();  // remove from db
+    	
+    	// TODO remove from folder
     	
     	return redirect('/countries');
     }

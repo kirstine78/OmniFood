@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OmniFood\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Food;
+use OmniFood\Food;
 
 class HomeController extends Controller
 {
