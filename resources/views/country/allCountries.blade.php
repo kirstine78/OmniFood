@@ -18,36 +18,43 @@ Version:    1.0
 
                 <div class="panel-body">
                 
-	                <!--  form -->
-                    <form action="{{ url('#') }}" method="POST" class="form-horizontal">
+                
+					<div class="row">
+						<div class="col-sm-6">
+						<!--  form -->
+	                    <form action="{{ url('#') }}" method="POST" class="form-horizontal">
+	
+	                        <div class="form-group" >
+	                            <div class="col-sm-12">
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
+					                    <i class="fa fa-btn fa-trash">All</i>
+					                </button>
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
+					                    <i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
+					                </button>	
+	                            
+					                {{ csrf_field() }}
+					                <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
+					                    <i class="fa fa-btn fa-trash">Empty</i>
+					                </button>
+					                
+	                            </div>
+	                        </div>
+	                        <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
+	                    </form>
+						</div>
+						<div class="col-sm-6">
+							<input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">     
+						</div>
+					</div>
+                	
+	                
 
-                        <div class="form-group" >
-                            <div class="col-sm-12">
-                            
-				                {{ csrf_field() }}
-				                <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
-				                    <i class="fa fa-btn fa-trash">All</i>
-				                </button>
-				                
-                            
-				                {{ csrf_field() }}
-				                <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
-				                    <i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
-				                </button>
-				                
-				                
-                            
-				                {{ csrf_field() }}
-				                <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
-				                    <i class="fa fa-btn fa-trash">Empty</i>
-				                </button>
-				                
-                            </div>
-                        </div>
-                        <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
-                    </form>
-
-                    <input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">                                              
+                                                             
 	                    
                     @if (count($countries) > 0)
 
