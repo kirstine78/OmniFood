@@ -23,8 +23,6 @@ Version:    1.0
 						@foreach($foodList as $food)
 							<a href="{{ url('/food/'.$food->id) }}">
 								<div class="row">
-									<div class="col-sm-2">{{ $food->country->name }}</div>
-									<div class="col-sm-2">{{ $food->date }}</div>
 									<div class="col-sm-10">
 										@if ($food->images->isNotEmpty()) 
 											<img class="img-responsive" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
@@ -32,8 +30,28 @@ Version:    1.0
 											<img class="img-responsive" src="{{URL::asset('/img/no_image_available.jpeg')}}" alt="img not available" width="100%"> 
 										@endif
 									</div>
-									<div class='hiddenID' style="display: none;">{{ $food->id }}</div>							
+									
+									<div class="col-sm-2">
+										<div class="row">
+											<div class="col-sm-12">{{ $food->country->name }}</div>	
+										</div>
+										<div class="row">
+											<div class="col-sm-12">{{ $food->date }}</div>	
+										</div>										
+										<div class="row">									
+											<div class="col-sm-12 clearfix">
+												@if ($food->rating == 0)
+													<img class="pull-left ratingImage" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
+												@else
+													@for ($i = 0; $i < $food->rating; $i++)
+												        <img class="pull-left ratingImage" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+												    @endfor
+												@endif	
+											</div>
+										</div>
+									</div>		
 								</div>
+								<div class='hiddenID' style="display: none;">{{ $food->id }}</div>		
 								<hr />
 							<a/>
 						@endforeach
@@ -48,8 +66,8 @@ Version:    1.0
         </div>
     </div>
 
-@endsection
-
+@endsection						
+								
 @section('page-script')
     <script type="text/javascript">
     	// function to search in a table

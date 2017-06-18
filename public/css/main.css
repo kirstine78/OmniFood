@@ -21,6 +21,14 @@ input[type="radio"]{
     box-shadow: none;
 }
 
+.ratingImage {
+	width: 25px;
+}
+
+.leftPadding {
+	padding-left: 12px;
+}
+
 .title {
 	font-size: 50px;
 	padding-left: 50px;

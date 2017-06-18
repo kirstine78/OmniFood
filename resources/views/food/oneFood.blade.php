@@ -44,7 +44,17 @@ Version:    1.0
 				<!-- rating -->
 				<div class="row">
 					<div class="col-sm-12">
-						<strong>Rating:</strong> {{ $oneFood->rating }}		
+						<strong>Rating</strong>			
+						
+						<div class="clearfix leftPadding">
+							@if ($oneFood->rating == 0)
+								<img class="pull-left ratingImage" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
+							@else
+								@for ($i = 0; $i < $oneFood->rating; $i++)
+							        <img class="pull-left ratingImage" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+							    @endfor
+							@endif	
+						</div>
 					</div>					
 				</div>
 				
@@ -52,7 +62,7 @@ Version:    1.0
 				@if(!is_null($oneFood->comment))
 					<div class="row">
 						<div class="col-sm-12">
-							<strong>Comment:</strong>
+							<strong>Comment</strong>
 							<br/>
 							<textarea class="form-control txtAreaNonEdge" rows="4" readonly style="background-color: white;">{{$oneFood->comment}}</textarea>							
 						</div>					

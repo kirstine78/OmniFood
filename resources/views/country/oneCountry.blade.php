@@ -51,10 +51,27 @@ Version:    1.0
 									@else 
 										<img class="img-responsive" src="{{URL::asset('/img/no_image_available.jpeg')}}" alt="img not available" width="100%"> 
 									@endif
-								</div>
-								<div class="col-sm-2">{{ $food->date }}</div>
-								<div class='hiddenID' style="display: none;">{{ $food->id }}</div>							
+								</div>								
+								
+								<div class="col-sm-2">
+									<div class="row">
+										<div class="col-sm-12">{{ $food->date }}</div>	
+									</div>
+									
+									<div class="row">									
+										<div class="col-sm-12 clearfix">
+											@if ($food->rating == 0)
+												<img class="pull-left ratingImage" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
+											@else
+												@for ($i = 0; $i < $food->rating; $i++)
+											        <img class="pull-left ratingImage" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+											    @endfor
+											@endif	
+										</div>
+									</div>
+								</div>						
 							</div>
+							<div class='hiddenID' style="display: none;">{{ $food->id }}</div>
 							<hr />
 						<a/>
 					@endforeach
