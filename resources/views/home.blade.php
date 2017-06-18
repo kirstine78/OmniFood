@@ -14,7 +14,7 @@ Version:    1.0
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>Home</h4></div>
+                <div class="panel-heading"><h4>Home</h4><h6 id="statusHome">Completed: {{$amountOfCountriesWithFoodEntry}} of {{$amountOfCountries}}</h6></div>
 
                 <div class="panel-body">
 	                    

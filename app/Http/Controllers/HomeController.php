@@ -4,6 +4,7 @@ namespace OmniFood\Http\Controllers;
 
 use Illuminate\Http\Request;
 use OmniFood\Food;
+use OmniFood\Country;
 
 class HomeController extends Controller
 {
@@ -24,10 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	// get all food ordered by date desc
-    	// fetch all food entries for the country
+    	// get all Food entries ordered by date desc
     	$foodList = Food::orderBy('date', 'desc')->get();
     	
-    	return view('home',  ['foodList' => $foodList]);
+    	// get amount of Countries
+    	$amountOfCountries = Country::count();
+    	
+    	// get amount of Countries that are done
+    	$countryList = Country::has('foods')->get();
+//     	echo "amount of countries with food entry: " . count($countryList);
+    	
+    	return view('home',  ['foodList' => $foodList, 'amountOfCountries' => $amountOfCountries, 'amountOfCountriesWithFoodEntry' => count($countryList)]);
     }
 }
