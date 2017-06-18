@@ -36,7 +36,7 @@ Version:    1.0
 				@foreach($oneFood->images as $img)
 					<div class="row">
 						<div class="col-sm-12">
-							<img class="img-responsive" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
+							<img class="img-responsive imageHundredPercentWidth" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
 						</div>					
 					</div>
 				@endforeach	

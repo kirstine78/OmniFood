@@ -34,6 +34,10 @@ input[type="radio"]{
 	padding-left: 12px;
 }
 
+.imageHundredPercentWidth {
+	width: 100%;
+}
+
 .title {
 	font-size: 50px;
 	padding-left: 50px;
