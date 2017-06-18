@@ -41,7 +41,7 @@ Version:    1.0
 										<div class="row">									
 											<div class="col-sm-12 clearfix">
 												@if ($food->rating == 0)
-													<img class="pull-left ratingImage" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
+													<img class="pull-left ratingImagePoo" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
 												@else
 													@for ($i = 0; $i < $food->rating; $i++)
 												        <img class="pull-left ratingImage" src="{{URL::asset('/img/star.png')}}" alt="Star"> 

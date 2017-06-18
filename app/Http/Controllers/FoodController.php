@@ -220,13 +220,18 @@ class FoodController extends Controller
     	// an ID matching the corresponding value from the request URI.
     	    	
     	// get Image child records to the Food entry
-    	$imageList = $food->images();
-//     	echo "imageList size" . count($imageList);
+    	$imageList = $food->images;
+//      	echo "imageList size" . count($imageList);
     	    	
     	foreach ($imageList as $image) {
     		// TODO remove image from folder
-    		//File::delete($image->filename);
-    		Storage::delete($image->filename);
+    		
+//     		File::delete($image->filename);
+//     		Storage::delete($image->filename);
+//     		echo "storage path: " . Storage::disk('public')->getStoragePath();
+    		Storage::disk('public')->delete($image->filename);
+//     		$image->filename;
+//     		unlink($image->filename);
     	}
     	
     	// delete Food and any Images belonging to this Food id

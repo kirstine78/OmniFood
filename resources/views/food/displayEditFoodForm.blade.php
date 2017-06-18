@@ -14,8 +14,17 @@ Version:    1.0
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>Edit Food</h4></div>
-                {{ $food->id }}
+                <div class="panel-heading"><h4>Edit or Delete Food</h4></div>
+                    
+                    <!--  form -->
+					<form action="/food/{{ $food->id }}" method="POST">
+                    	{{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myConfirmModal" ><i class="fa fa-btn fa-trash">Delete</i></button>
+                    </form> 
+                Food id: {{ $food->id }}
 
                 <div class="panel-body">
 
@@ -33,39 +42,29 @@ Version:    1.0
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>             
                     
-					<form action="/food/{{ $food->id }}" method="POST">
-                    	{{ csrf_field() }}
-                        {{ method_field('DELETE') }}
+                    <!-- Modal -->
+                    <div id="myConfirmModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
 
-                        <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myConfirmModal" ><i class="fa fa-btn fa-trash">Delete</i></button>
-                    </form>   
-                    
-                    
-
-                        <!-- Modal -->
-                        <div id="myConfirmModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Confirm Delete</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this Food?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button id="btnConfirmYes" type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                    </div>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Confirm Delete</h4>
                                 </div>
-
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete this Food?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="btnConfirmYes" type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                </div>
                             </div>
-                        </div>                                     
+
+                        </div>
+                    </div><!-- end Modal -->                                     
                     
                 </div>
             </div>

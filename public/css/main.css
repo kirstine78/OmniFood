@@ -22,7 +22,12 @@ input[type="radio"]{
 }
 
 .ratingImage {
-	width: 25px;
+	width: 28px;
+}
+
+
+.ratingImagePoo {
+	width: 34px;
 }
 
 .leftPadding {
