@@ -25,12 +25,20 @@
 
 	<div class="container">
 		<div class="row">
-
 			<div class="col-md-4">
 				<div class="heading_bar" id="titleBanner"><h1 class="title">OmniFood</h1></div>
 			</div>
+			<div class="col-md-4">
+				<form action="/food" method="GET" class="marginTopBottom">
+	                {{ csrf_field() }}
+	                <button type="submit" class="btn btn-success">
+	                    <i class="fa fa-btn fa-trash">New Food</i>
+	                </button>
+	            </form>
+            </div>
 		</div>
 	</div>
+	
 
 
 	<nav class="navbar navbar-default custom_nav_bar">
@@ -44,12 +52,6 @@
 					<span class="icon-bar"></span>
 				</button>
 			</div>
-			<form action="/food" method="GET" class="marginTopBottom">
-                {{ csrf_field() }}
-                <button type="submit" class="btn btn-success">
-                    <i class="fa fa-btn fa-trash">New Food</i>
-                </button>
-            </form>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
@@ -68,7 +70,33 @@
 				</ul>
 
 				<!-- Right Side Of Navbar -->
+
+				<!-- Right Side Of Navbar -->
 				<ul class="nav navbar-nav navbar-right">
+					<!-- Authentication Links -->
+					@if (Auth::guest())
+						<li><a href="{{ url('/login') }}">Login</a></li>
+					@else
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								{{ Auth::user()->name }} <span class="caret"></span>
+							</a>
+
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="{{ url('/logout') }}"
+									   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+										Logout
+									</a>
+
+									<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+										{{ csrf_field() }}
+									</form>
+								</li>
+							</ul>
+						</li>
+					@endif
 				</ul>
 
 			</div>

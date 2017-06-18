@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
+	
 	// to show all countries
 	public function allCountries(Request $request){
 		
