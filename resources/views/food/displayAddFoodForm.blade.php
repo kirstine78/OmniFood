@@ -52,12 +52,6 @@ Version:    1.0
 		
 		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);	
 
-
-// 		$('#imageUpload').on('click',function(){
-// 	        var imageUploadButton= $('<div class="col-sm-4"><input type="file" name="imageUpload" id="imageUpload" accept="image/*"></div>');
-// 	        $('#imageUploadDiv').append(imageUploadButton);
-// 	    });	
-
 		$(function() {
 		    $(document).on('click', '.btn-add', function(e) {
 		        e.preventDefault();
