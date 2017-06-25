@@ -50,7 +50,34 @@ Version:    1.0
 
 		var valToSetToRating = $('#radRatingGroup').data().valueToSetTo;
 		
-		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);		
+		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);	
+
+
+// 		$('#imageUpload').on('click',function(){
+// 	        var imageUploadButton= $('<div class="col-sm-4"><input type="file" name="imageUpload" id="imageUpload" accept="image/*"></div>');
+// 	        $('#imageUploadDiv').append(imageUploadButton);
+// 	    });	
+
+		$(function() {
+		    $(document).on('click', '.btn-add', function(e) {
+		        e.preventDefault();
+		
+		        var controlForm = $('.controls:first'),
+		            currentEntry = $(this).parents('.entry:first'),
+		            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+		
+		        newEntry.find('input').val('');
+		        controlForm.find('.entry:not(:last) .btn-add')
+		            .removeClass('btn-add').addClass('btn-remove')
+		            .removeClass('btn-success').addClass('btn-danger')
+		            .html('<span class="glyphicon glyphicon-minus"></span>');
+		    }).on('click', '.btn-remove', function(e) {
+		    	$(this).parents('.entry:first').remove();
+		
+				e.preventDefault();
+				return false;
+			});
+		});
 
     </script>
 @endsection

@@ -312,10 +312,50 @@ Version:    1.0
 </div>
 
 <!-- food image  -->
-<div class="form-group">
-    <label for="imageUpload" class="col-sm-2 control-label">Image</label>
+<!-- <div class="form-group"> -->
+<!--     <label for="imageUpload" class="col-sm-2 control-label">Image</label> -->
 
-    <div class="col-sm-4">
-        <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
-    </div>
+<!--     <div class="col-sm-4"> -->
+<!--         <input type="file" name="imageUpload" id="imageUpload" accept="image/*" multiple> -->
+<!--     </div> -->
+<!-- </div> -->
+
+
+<!-- food image  -->
+<div class="form-group controls">
+           
+	<div class="entry input-group col-xs-2">                
+             
+		<input class="btn btn-primary" name="fields[]" type="file">
+		<span class="input-group-btn">
+			<button class="btn btn-success btn-add" type="button">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</span>
+	</div>
+           
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
