@@ -176,7 +176,6 @@ return [
         // OmniFood\Providers\BroadcastServiceProvider::class,
         OmniFood\Providers\EventServiceProvider::class,
         OmniFood\Providers\RouteServiceProvider::class,
-
     ],
 
     /*

@@ -15,7 +15,7 @@ Version:    1.0
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-xs-9">
-						<h4 style="display:inline-block;">{{ $oneFood->country->name }} ~ {{ $oneFood->date }}</h4>
+						<h4 style="display:inline-block;">{{ $oneFood->date }} ~ {{ $oneFood->country->name }}</h4>
 					</div>	
 					
 					
@@ -34,7 +34,7 @@ Version:    1.0
 			<div class="panel-body">
 				<!-- image(s) -->
 				@foreach($oneFood->images as $img)
-					<div class="row">
+					<div class="row foodImageRow">
 						<div class="col-sm-12">
 							<img class="img-responsive imageHundredPercentWidth" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
 						</div>					

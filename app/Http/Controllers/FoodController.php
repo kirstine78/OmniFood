@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Name:		Kirstine Broerup Nielsen
+ * Date:		14.05.2017
+ * Project:    	OmniFood
+ * Version:    	1.0
+ */
+
 namespace OmniFood\Http\Controllers;
 
 use OmniFood\Food;
