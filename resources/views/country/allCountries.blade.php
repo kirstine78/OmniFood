@@ -51,9 +51,6 @@ Version:    1.0
 							<input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">     
 						</div>
 					</div>
-                	
-	                
-
                                                              
 	                    
                     @if (count($countries) > 0)

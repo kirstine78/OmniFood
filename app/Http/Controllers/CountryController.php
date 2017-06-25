@@ -32,34 +32,14 @@ class CountryController extends Controller
 		
 		$filterOptionAllCountries = $request->filterOptionAllCountries;
 		
-		//echo $filterOption;
-		// get user obje
-// 		echo 'user: ' . \Auth::id();
-		
-		
-// 		// get user obje
-// 		echo \Auth::user()->foods()->first();
-		
-// 		$countries = Country::whereHas('foods', function($query){
-// 			$query->where('user_id', '=', \Auth::id());
-			
-// 		});
-		
 		if ($filterOptionAllCountries == 'done') {
 			
-			// fetch all Countries from db, that has food entry for this user id
-// 			$countriesList = Country::has('foods')->orderBy('name', 'asc')->get();
-
-			$countriesList = Country::whereHas('foods', function($query){
-				$query->where('user_id', '=', \Auth::id());				
-			})->orderBy('name', 'asc')->get();
-			
-			$countriesList = $countriesList->all();
+			// fetch all Countries from db, that has food entry for this user id			
+			$countriesList = Country::countriesThatHaveFoodsForUser()->all();
 			
 		} elseif ($filterOptionAllCountries == 'empty') {
-			// fetch all Countries from db, that hasn't food entry for this user id
-			// 			$countriesList = Country::doesntHave('foods')->orderBy('name', 'asc')->get();
 			
+			// fetch all Countries from db, that hasn't food entry for this user id			
 			$countriesList = Country::whereDoesntHave('foods', function($query){
 				$query->where('user_id', '=', \Auth::id());
 			})->orderBy('name', 'asc')->get();
@@ -67,11 +47,11 @@ class CountryController extends Controller
 			$countriesList = $countriesList->all();
 			
 		} else {
+			
 			// fetch all Countries from db
 			$countriesList = Country::orderBy('name', 'asc')->get();			
 		}
 		
-// 		echo $countriesList[0]->foodsForUser()->get();
 		return View('country.allCountries', ['countries' => $countriesList]);
 	}
 	
@@ -95,8 +75,7 @@ class CountryController extends Controller
 		} else {
 			// fetch all food entries for the country
 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
-		}
-		
+		}		
 		
 		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList]);
 	}

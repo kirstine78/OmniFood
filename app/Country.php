@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
 	/**
+	 * returns foods for this country for the user
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function foods() {
@@ -16,11 +17,12 @@ class Country extends Model
 	
 	
 	/**
-	 * return foods for the user for this country
+	 * return countries that have foods for a certain user
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-// 	public function foodsForUser() {
-// 		// writing: Food::class   is equivalent to: 'OmniFood\Food'
-// 		return $this->foods()->where('user_id', '=', \Auth::id());			
-// 	}
+	public static function countriesThatHaveFoodsForUser() {
+		return Country::whereHas('foods', function($query){
+			$query->where('user_id', '=', \Auth::id());
+		})->orderBy('name', 'asc')->get();
+	}
 }
