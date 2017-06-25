@@ -88,7 +88,7 @@ class FoodController extends Controller
     		$food->images()->save($image);    		
     	}
     	
-    	return redirect('/');
+    	return redirect('/home');
     }  // end addFood
     
     
@@ -209,7 +209,7 @@ class FoodController extends Controller
 //     		$food->images()->save($image1);
 //     	}
     	
-    	return redirect('/');    	
+    	return redirect('/home');    	
     }    
     
     
@@ -242,7 +242,7 @@ class FoodController extends Controller
     	// delete Food and any Images belonging to this Food id
     	$food->forceDelete();  // remove from db
     	
-    	return redirect('/');
+    	return redirect('/home');
     }
     
     
