@@ -21,8 +21,10 @@ class CreateFoodsTable extends Migration
     		$table->tinyInteger('rating');
     		$table->string('comment')->nullable();
     		$table->integer('country_id')->unsigned()->index();
+    		$table->integer('user_id')->unsigned()->index();
     		
     		$table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+    		$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
     		$table->engine = 'InnoDB';
     	});
     }
