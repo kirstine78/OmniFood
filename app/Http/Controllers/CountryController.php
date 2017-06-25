@@ -63,18 +63,24 @@ class CountryController extends Controller
 		
 		// assign id of country to $id. It is the row aka country that was clicked
 		$id = $country->id;
+		
+		
+		
 				
 		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country
-			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
+// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
+			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 			
 		} elseif ($filterOptionOneCountry == 'oldestToNewest') {
 			// fetch all food entries for the country
-			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'asc')->get();		
+// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'asc')->get();
+			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'asc')->get();		
 			
 		} else {
 			// fetch all food entries for the country
-			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
+// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
+			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 		}		
 		
 		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList]);
