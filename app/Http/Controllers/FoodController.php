@@ -78,32 +78,8 @@ class FoodController extends Controller
     		$image->filename = $pathToImage;
     		
     		// save food and img child record
-    		$food->images()->save($image); 
-    		
-//     		$filename = $img->store('photos');
-//     		ProductsPhoto::create([
-//     				'product_id' => $product->id,
-//     				'filename' => $filename
-//     		]);
+    		$food->images()->save($image);    		
     	}
-    	
-//     	// image that user uploaded
-//     	$img1 = $request->file('imageUpload');
-    	
-//     	// check that img is not null
-//     	if ($img1 != null) {
-//     		// get the image the user uploads, store it in folder 'foodImages/{userId}'. The path where img is stored is returned
-//     		$pathToImage1 = $img1->store('foodImages/' . $request->user()->id, 'public');
-    		
-//     		// create image
-//     		$image1 = new Image();
-    		
-//     		// assign input value (which is path to image) to field for the image record
-//     		$image1->filename = $pathToImage1;
-    		
-//     		// save food and img child record
-//     		$food->images()->save($image1);    		
-//     	}
     	
     	return redirect('/');
     }  // end addFood
