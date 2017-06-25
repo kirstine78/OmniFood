@@ -326,7 +326,7 @@ Version:    1.0
            
 	<div class="entry input-group col-xs-2">                
              
-		<input class="btn btn-primary" name="fields[]" type="file">
+		<input class="btn btn-primary" name="foodImageUploads[]" type="file">
 		<span class="input-group-btn">
 			<button class="btn btn-success btn-add" type="button">
 				<span class="glyphicon glyphicon-plus"></span>
