@@ -69,17 +69,14 @@ class CountryController extends Controller
 				
 		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country
-// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
 			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 			
 		} elseif ($filterOptionOneCountry == 'oldestToNewest') {
 			// fetch all food entries for the country
-// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'asc')->get();
 			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'asc')->get();		
 			
 		} else {
 			// fetch all food entries for the country
-// 			$foodList = Food::where('country_id', '=', $id)->orderBy('date', 'desc')->get();
 			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 		}		
 		
