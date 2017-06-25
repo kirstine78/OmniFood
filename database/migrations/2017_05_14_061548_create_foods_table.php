@@ -24,7 +24,6 @@ class CreateFoodsTable extends Migration
     		$table->integer('user_id')->unsigned()->index();
     		
     		$table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
-    		$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
     		$table->engine = 'InnoDB';
     	});
     }

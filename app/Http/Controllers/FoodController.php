@@ -130,6 +130,7 @@ class FoodController extends Controller
     	$food->date = $request->date;
     	$food->rating = $request->rating; // get value of rating radio button
     	$food->comment = $request->comment;
+    	$food->user_id = \Auth::id();
     	
     	// get the country code chosen in the drop down menu
     	$countryCode = $request->countryCode;
