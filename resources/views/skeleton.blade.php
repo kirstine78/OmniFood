@@ -21,18 +21,21 @@
 	<script src="{{ asset('/js/dcalendar.picker.js') }}"></script>
 
 </head>
-<body class="body_bg">
+<body >
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+            <div class="col-xs-2">
+				Menu
+			</div>
+			<div class="col-xs-6">
 				<div class="heading_bar" id="titleBanner"><h1 class="title">OmniFood</h1></div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-xs-4">
 				<form action="/food" method="GET" class="marginTopBottom">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success">
-	                    <i class="fa fa-btn fa-trash">New Food</i>
+	                <button type="submit" class="btn btn-success pull-right">
+	                    <i class="fa fa-btn fa-trash">New</i>
 	                </button>
 	            </form>
             </div>
@@ -46,7 +49,7 @@
 		<div class="container-fluid">
 
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<button id="menuButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -58,14 +61,14 @@
 
 					<li class="nav_buttons"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
 					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">North America</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">South America</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Europe</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Asia</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Australia / Oceania</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Africa</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Antarctica</a></li>
-					<li class="nav_buttons"><a href="{{ url('brands') }}" style="color:black;">Reviews</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">North America</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">South America</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Europe</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Asia</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Australia / Oceania</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Africa</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Antarctica</a></li>
+					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
 					
 				</ul>
 

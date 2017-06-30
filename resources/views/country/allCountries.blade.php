@@ -13,83 +13,83 @@ Version:    1.0
 
     <div class="container">
         <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h4>Worldwide</h4></div>
+			<div class="col-xs-12">
+				<h4>Worldwide</h4>
+			</div>
+		</div>
 
-                <div class="panel-body">
-                
-                
-					<div class="row">
-						<div class="col-sm-6">
-						<!--  form -->
-	                    <form action="{{ url('#') }}" method="POST" class="form-horizontal">
-	
-	                        <div class="form-group" >
-	                            <div class="col-sm-12">
-	                            
-					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
-					                    <i class="fa fa-btn fa-trash">All</i>
-					                </button>
-	                            
-					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
-					                    <i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
-					                </button>	
-	                            
-					                {{ csrf_field() }}
-					                <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
-					                    <i class="fa fa-btn fa-trash">Empty</i>
-					                </button>
-					                
-	                            </div>
-	                        </div>
-	                        <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
-	                    </form>
-						</div>
-						<div class="col-sm-6">
-							<input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">     
-						</div>
+        <div class="row">                
+	        <div class="col-sm-5">
+						
+				<!--  form -->
+		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">
+		
+		        	<div class="form-group" >
+		            	<div class="col-xs-12">
+		                         
+							{{ csrf_field() }}
+						    <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
+						    	<i class="fa fa-btn fa-trash">All</i>
+						    </button>
+		                            
+						    {{ csrf_field() }}
+						    <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
+								<i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
+						    </button>	
+		                            
+						    {{ csrf_field() }}
+						    <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
+						    	<i class="fa fa-btn fa-trash">Empty</i>
+						    </button>
+						                
+		                </div>
 					</div>
-                                                             
-	                    
-                    @if (count($countries) > 0)
+		            <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
+		        </form>
+			</div>
+			
+			<div class="col-sm-7">
+				<input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">     
+			</div>
+		</div>
+		         
+		@if (count($countries) > 0)
+            <div class="row">
+				<div class="col-xs-12">
+					<table class="table table-striped task-table"  id="myTable">
+                        <!-- Table Headings -->
+                        <thead>
+	                        <tr class="row">
+	                            <th class="col-xs-1">Done</th>
+	                            <th class="col-xs-11">Country</th>
+                            </tr>
+                        </thead>
 
-                        <table class="table table-striped task-table"  id="myTable">
-                            <!-- Table Headings -->
-                            <thead>
-                            <th>Done</th>
-                            <th>Country</th>
-                            </thead>
-
-                            <!-- Table Body -->
-                            <tbody>
-                            @foreach($countries as $country)
-                                <tr>
+                        <!-- Table Body -->
+                        <tbody>
+                        	@foreach($countries as $country)
+                                <tr class="row">
                                     <!-- done? -->
-                                    <td class="table-text">
+                                    <td class="col-xs-1 table-text">
                                     	@if ($country->foods->isNotEmpty())
                                         	<span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span>
                                         @endif
                                     </td>
                                     
                                     <!-- country name -->
-                                    <td class="table-text">
+                                    <td class="col-xs-11 table-text">
                                         <div>{{ $country->name }}</div>
                                         <div class='hiddenID' style="display: none;">{{ $country->id }}</div>
                                     </td>
                                 </tr>
                             @endforeach
-                            </tbody>
-                        </table>
-
-                    @else
-                        <div>No Countries to display</div>
-                    @endif
-
-                </div>
-            </div>
-        </div>
+                        </tbody>
+                    </table>
+				</div>
+			</div>
+        @else
+            <div>No Countries to display</div>
+        @endif        
     </div>
 
 @endsection
