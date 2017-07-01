@@ -13,12 +13,9 @@ Version:    1.0
 
     <div class="container">
         <div class="row">
-        	<div class="col-xs-4 col-sm-7">
-        		<h4>Home</h4>        		
-        	</div>
-        	<div class="col-xs-8 col-sm-5">
-        		<p class="text-right">Completed: {{$amountOfCountriesWithFoodEntry}} of {{$amountOfCountries}}</p>
-        	</div>        		
+        	<div class="col-sm-12">
+        		<h4>Home <small>~ Completed: {{$amountOfCountriesWithFoodEntry}} of {{$amountOfCountries}}</small></h4>        		
+        	</div>       		
         </div>
 		
 	                    
@@ -28,7 +25,7 @@ Version:    1.0
 						
 				<a href="{{ url('/food/'.$food->id) }}">
 					<div class="row">
-						<div class="col-sm-9 col-md-10">
+						<div class="col-sm-9 col-lg-10">
 							@if ($food->images->isNotEmpty()) 
 								<img class="img-responsive imageHundredPercentWidth" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
 							@else 
@@ -36,17 +33,17 @@ Version:    1.0
 							@endif
 						</div>
 										
-						<div class="col-sm-3 col-md-2">
+						<div class="col-sm-3 col-lg-2">
 							<div class="row">
-								<div class="col-sm-12">{{ $food->country->name }}</div>	
+								<div class="col-xs-12">{{ $food->country->name }}</div>	
 							</div>
 						
 							<div class="row">
-								<div class="col-sm-12">{{ $food->date }}</div>	
+								<div class="col-xs-12">{{ $food->date }}</div>	
 							</div>										
 						
 							<div class="row">									
-								<div class="col-sm-12 clearfix">
+								<div class="col-xs-12 clearfix">
 									@if ($food->rating == 0)
 										<img class="pull-left ratingImagePoo" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
 									@else

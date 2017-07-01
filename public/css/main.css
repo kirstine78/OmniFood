@@ -14,6 +14,13 @@ input[type="radio"]{
   margin: 0 5px 0 18px;
 }
 
+.myPageHeader {
+	font-size: 160%;
+}
+
+.counter {
+	vertical-align: bottom;
+}
 
 .txtAreaNonEdge {
 	border: none;

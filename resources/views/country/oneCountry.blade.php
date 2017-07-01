@@ -50,7 +50,7 @@ Version:    1.0
 			<a href="{{ url('/food/'.$food->id) }}">
 						
 				<div class="row">
-					<div class="col-sm-10">
+					<div class="col-sm-9 col-lg-10">
 						@if ($food->images->isNotEmpty()) 
 							<img class="img-responsive imageHundredPercentWidth" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
 						@else 
@@ -58,7 +58,7 @@ Version:    1.0
 						@endif
 					</div>								
 								
-					<div class="col-sm-2">
+					<div class="col-sm-3 col-lg-2">
 						<div class="row">
 							<div class="col-xs-12">{{ $food->date }}</div>	
 						</div>
