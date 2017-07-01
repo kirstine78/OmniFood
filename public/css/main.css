@@ -4,6 +4,10 @@
 * Project:  OmniFood
 * Version:  1.0
  */
+ 
+ * {
+	border: 1px solid red !important;
+}  
 
 
 input[type="radio"]{
