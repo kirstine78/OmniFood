@@ -12,8 +12,6 @@ Version:    1.0
 @section('content')
 
     <div class="container">
-    
-    	
 		<div class="row rowBottomPadding">
 			<div class="col-xs-12">
 				<h4>Add Food</h4>
@@ -22,9 +20,7 @@ Version:    1.0
 		
         <div class="row">
             <div class="panel panel-default">
-
                 <div class="panel-body">
-
                     <!--  form -->
                     <form action="{{ url('/food') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                         {{ method_field('POST') }}
@@ -39,8 +35,7 @@ Version:    1.0
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    
+                    </form>                    
                 </div>
             </div>
         </div>
