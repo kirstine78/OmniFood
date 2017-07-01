@@ -12,7 +12,7 @@ Version:    1.0
 <div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-md-10">
-						<h4 style="display:inline-block;">{{ $oneFood->date }} ~ {{ $oneFood->country->name }}</h4>
+						<h4>{{ $oneFood->date }} ~ {{ $oneFood->country->name }}</h4>
 					</div>						
 					
 					<div class="col-xs-4 col-md-2">
