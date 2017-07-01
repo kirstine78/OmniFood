@@ -10,35 +10,24 @@ Version:    1.0
 @extends('skeleton') @section('content')
 
 <div class="container">
-	<div class="row">
+	<div class="row rowBottomPadding">
 		<div class="col-xs-12">
 			<h4>{{ $oneCountry->name }}</h4>
 		</div>
 	</div>
-
-	{{ $oneCountry->id }} 
 				
 	@if (count($foodList) > 0)
 				
-		<div class="row">
+		<div class="row rowBottomPadding">
 			<div class="col-xs-12">
 				<!--  form -->
 				<form action="{{ url('#') }}" method="POST" class="form-horizontal">
-			
-					<div class="form-group">
-		                <div class="col-sm-12">			
-							{{ csrf_field() }}
-							<button type="submit" class="btn btn-neutral" id="btnNewestToOldest" value="newestToOldest">
-								<i class="fa fa-btn fa-trash">Newest</i>
-							</button>
 				
-							{{ csrf_field() }}
-							<button type="submit" class="btn btn-neutral" id="btnOldestToNewest" value="oldestToNewest">
-								<i class="fa fa-btn fa-trash">Oldest</i>
-							</button>
-						</div>
-	
-					</div>
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-neutral" id="btnNewestToOldest" value="newestToOldest">Newest</button>
+				
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-neutral" id="btnOldestToNewest" value="oldestToNewest">Oldest</button>
 	
 					<input id="filterOptionOneCountry" type="hidden" name="filterOptionOneCountry" value="newestToOldest">
 				</form>	

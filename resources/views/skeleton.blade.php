@@ -34,9 +34,7 @@
 			<div class="col-xs-4">
 				<form action="/food" method="GET" class="marginTopBottom">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success pull-right">
-	                    <i class="fa fa-btn fa-trash">New</i>
-	                </button>
+	                <button type="submit" class="btn btn-success pull-right">New</button>
 	            </form>
             </div>
 		</div>

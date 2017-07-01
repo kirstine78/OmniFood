@@ -10,18 +10,24 @@ Version:    1.0
 @extends('skeleton') @section('content')
 
 <div class="container">
-				<div class="row">
-					<div class="col-xs-8 col-md-10">
-						<h4>{{ $oneFood->date }} ~ {{ $oneFood->country->name }}</h4>
-					</div>						
+				<div class="row rowBottomPadding">
+					<div class="col-xs-8 col-sm-10">
+						<div class="row">
+							<div class="col-xs-12">
+								<h4>{{ $oneFood->date }}</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<small>{{ $oneFood->country->name }}</small>
+							</div>
+						</div>
+					</div>
 					
-					<div class="col-xs-4 col-md-2">
-						<form action="{{ url('/food/edit/'.$oneFood->id) }}" method="GET" class="marginTopBottom">
-						
+					<div class="col-xs-4 col-sm-2">
+						<form action="{{ url('/food/edit/'.$oneFood->id) }}" method="GET" class="marginTopBottom">						
 			                {{ csrf_field() }}
-			                <button type="submit" class="btn btn-warning pull-right">
-			                    <i class="fa fa-btn fa-trash">Edit</i>
-			                </button>
+			                <button type="submit" class="btn btn-warning pull-right">Edit</button>
 			            </form>		
 			        </div>	
 				</div>

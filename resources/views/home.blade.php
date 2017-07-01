@@ -12,7 +12,7 @@ Version:    1.0
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row rowBottomPadding">
         	<div class="col-sm-12">
         		<h4>Home <small>~ Completed: {{$amountOfCountriesWithFoodEntry}} of {{$amountOfCountries}}</small></h4>        		
         	</div>       		

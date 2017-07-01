@@ -12,44 +12,31 @@ Version:    1.0
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row rowBottomPadding">
 			<div class="col-xs-12">
 				<h4>Worldwide</h4>
 			</div>
 		</div>
 
         <div class="row">                
-	        <div class="col-sm-5">
-						
+	        <div class="col-xs-12 col-sm-5 colBottomPadding">						
 				<!--  form -->
-		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">
-		
-		        	<div class="form-group" >
-		            	<div class="col-xs-12">
-		                         
-							{{ csrf_field() }}
-						    <button type="submit" class="btn btn-neutral" id="btnAll" value="all" >
-						    	<i class="fa fa-btn fa-trash">All</i>
-						    </button>
+		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">		                         
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-neutral" id="btnAll" value="all" >All</button>
 		                            
-						    {{ csrf_field() }}
-						    <button type="submit" class="btn btn-neutral" id="btnDone" value="done" >
-								<i class="fa fa-btn fa-trash"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</i>
-						    </button>	
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-neutral" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
 		                            
-						    {{ csrf_field() }}
-						    <button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >
-						    	<i class="fa fa-btn fa-trash">Empty</i>
-						    </button>
-						                
-		                </div>
-					</div>
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >Empty</button>
+						    
 		            <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
 		        </form>
 			</div>
 			
-			<div class="col-sm-7">
-				<input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country..">     
+			<div class="col-xs-12 col-sm-7 colBottomPadding">
+				<input class="form-control " type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search country.." >     
 			</div>
 		</div>
 		         

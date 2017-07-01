@@ -12,9 +12,17 @@ Version:    1.0
 @section('content')
 
     <div class="container">
+    
+    	
+		<div class="row rowBottomPadding">
+			<div class="col-xs-12">
+				<h4>Edit or Delete Food</h4>
+			</div>
+		</div>
+		
+		
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>Edit or Delete Food</h4></div>
                     
                     <!--  form -->
 					<form action="/food/{{ $food->id }}" method="POST">
@@ -36,7 +44,7 @@ Version:    1.0
 
                         <!-- Edit food button -->
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-4">
+                            <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-success">
                                     <i class="fa fa-plus">Submit Changes</i>
                                 </button>

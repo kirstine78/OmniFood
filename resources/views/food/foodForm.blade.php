@@ -11,22 +11,22 @@ Version:    1.0
 
 <!-- food date -->
 <div class="form-group">
-    <label for="date" class="col-sm-2 control-label">Date *</label>
+    <label for="date" class="col-xs-12 col-sm-2 control-label">Date *</label>
 
-    <div class="col-sm-4">
+    <div class="col-xs-12 col-sm-5 inputFieldPaddingBottom">
         <input type="date" name="date" id="date" class="form-control" value="{{ old('date', $food->date) }}" />
         <input type="hidden" name="specific_food_id" id="specific_food_id" class="form-control" value="{{ $food->id }}">
     </div>
-    <div class="col-sm-3">
+    <div class="col-xs-12 col-sm-5">
         @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
     </div>
 </div>
 
 <!-- food country, dropdown? -->
 <div class="form-group" id="selCountryGroup" data-value-to-set-to="{{ old('countryCode', $food->country->code) }}">
-    <label for="country" class="col-sm-2 control-label">Country *</label>
+    <label for="country" class="col-xs-12 col-sm-2 control-label">Country *</label>
 
-    <div class="col-sm-4 country_drop_down">
+    <div class="col-xs-12 col-sm-5 country_drop_down">
 	    <select name="countryCode" class="form-control" >
 			<optgroup label="North America">
 				<option value="AI">Anguilla</option>
@@ -278,7 +278,7 @@ Version:    1.0
 		</select>
                     
     </div>
-    <div class="col-sm-3">
+    <div class="col-xs-12 col-sm-5">
         @if ($errors->has('country')) <div class="help-block alert alert-danger errRed">{{ $errors->first('country') }}</div> @endif
     </div>
 </div>
@@ -286,10 +286,10 @@ Version:    1.0
 
 <!-- food rating  -->
 <div class="form-group" id="radRatingGroup" data-value-to-set-to="{{ old('rating', $food->rating) }}">
-    <label for="rating" class="col-sm-2 control-label">Rating *</label>
+    <label for="rating" class="col-xs-12 col-sm-2 control-label">Rating *</label>
 
-    <div class="col-sm-4">
-        <input name="rating" type="radio" value="0" >0   
+    <div class="col-xs-12 col-sm-5">
+        <input id="radioBtnZero" name="rating" type="radio" value="0" >0   
 		<input name="rating" type="radio" value="1" >1
 		<input checked="checked" name="rating" type="radio" value="2">2
 		<input name="rating" type="radio" value="3">3
@@ -301,12 +301,12 @@ Version:    1.0
 
 <!-- food comment -->
 <div class="form-group">
-    <label for="comment" class="col-sm-2 control-label">Comment</label>
+    <label for="comment" class="col-xs-12 col-sm-2 control-label">Comment</label>
 
-    <div class="col-sm-4">
+    <div class="col-xs-12 col-sm-5">
         <textarea name="comment" id="comment" class="form-control" rows="4" maxlength="190" >{{ old('comment', $food->comment) }}</textarea>
     </div>
-    <div class="col-sm-3">
+    <div class="col-xs-12 col-sm-5">
         @if ($errors->has('comment')) <div class="help-block alert alert-danger errRed">{{ $errors->first('comment') }}</div> @endif
     </div>
 </div>
@@ -324,7 +324,7 @@ Version:    1.0
 <!-- food image  -->
 <div class="form-group controls">
            
-	<div class="entry input-group col-xs-2">                
+	<div class="entry input-group col-xs-12">                
              
 		<input class="btn btn-primary" name="foodImageUploads[]" type="file">
 		<span class="input-group-btn">
