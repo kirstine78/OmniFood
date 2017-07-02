@@ -41,7 +41,7 @@
 				<a href="{{ url('home') }}" class="navbar-brand">OmniFood</a>
 				<form action="/food" method="GET" id="newButtonFormSmallScreen">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success pull-right">New</button>
+	                <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">New</button>
 	            </form>
 				
 			</div>
@@ -69,9 +69,9 @@
 				</ul>
 				
 				
-				<form action="/food" method="GET" class="marginTopBottom nav navbar-nav navbar-right" id="newButtonFormBigScreen">
+				<form action="/food" method="GET" id="newButtonFormBigScreen">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success pull-right">New</button>
+	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right">New</button>
 	            </form>
 
 				<!-- Right Side Of Navbar -->
