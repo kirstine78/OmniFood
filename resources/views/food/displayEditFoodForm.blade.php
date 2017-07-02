@@ -32,7 +32,6 @@ Version:    1.0
 		
         <div class="row">
             <div class="panel panel-default">
-
                 <div class="panel-body">
 
                     <!--  form -->
@@ -88,8 +87,6 @@ Version:    1.0
 		var valToSetToRating = $('#radRatingGroup').data().valueToSetTo;
 		
 		$('input[name=rating][value=' + valToSetToRating + ']').prop('checked',true);
-
-
 
         // handle when modal shows
         $('#myConfirmModal').on('show.bs.modal', function (e) {

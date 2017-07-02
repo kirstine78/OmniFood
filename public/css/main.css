@@ -164,7 +164,7 @@ h4, h6 {
 	}
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 1220px) {
   .navbar-header {
       float: none;
   }
@@ -173,7 +173,7 @@ h4, h6 {
   }
   .navbar-toggle {
       display: block;
-      float: left !important;
+      /*float: left !important;*/
   }
   .navbar-collapse {
       border-top: 1px solid transparent;

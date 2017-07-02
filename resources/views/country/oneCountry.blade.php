@@ -36,8 +36,7 @@ Version:    1.0
 	
 		@foreach($foodList as $food)
 					
-			<a href="{{ url('/food/'.$food->id) }}">
-						
+			<a href="{{ url('/food/'.$food->id) }}">						
 				<div class="row">
 					<div class="col-sm-9 col-lg-10">
 						@if ($food->images->isNotEmpty()) 
