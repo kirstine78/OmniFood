@@ -12,7 +12,7 @@
 	<title>OmniFood</title>
 	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">   	
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> -->
 	<link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/dcalendar.picker.css') }}" rel="stylesheet">
 
@@ -22,33 +22,28 @@
 
 </head>
 <body >
-
-	<div class="container">
-		<div class="row" id="bannerRow">
-            <div class="col-xs-auto">
-				<form action="/food" method="GET" class="marginTopBottom">
-	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success pull-right">New</button>
-	            </form>
-			</div>
-			<div class="col-xs-auto">
-				<div id="titleBanner"><p class="title">OmniFood</p></div>
-			</div>
-		</div>
-	</div>
-	
-
+<div class="container">
+<div class="row">
 
 	<nav class="navbar navbar-default custom_nav_bar">
 
 		<div class="container-fluid">
 
 			<div class="navbar-header">
+			
+			
 				<button id="menuButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				
+				<a href="{{ url('home') }}" class="navbar-brand">OmniFood</a>
+				<form action="/food" method="GET" id="newButtonFormSmallScreen">
+	                {{ csrf_field() }}
+	                <button type="submit" class="btn btn-success pull-right">New</button>
+	            </form>
+				
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -72,7 +67,12 @@
 					</li>					
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>					
 				</ul>
-
+				
+				
+				<form action="/food" method="GET" class="marginTopBottom nav navbar-nav navbar-right" id="newButtonFormBigScreen">
+	                {{ csrf_field() }}
+	                <button type="submit" class="btn btn-success pull-right">New</button>
+	            </form>
 
 				<!-- Right Side Of Navbar -->
 				<ul id="navbarUserName" class="nav navbar-nav navbar-right">
@@ -106,6 +106,9 @@
 
 	</nav>
 
+</div>
+</div>
+
 	@yield('content')
 	
 	@yield('page-script')
@@ -120,21 +123,22 @@
 			$('.btn').mouseleave(function(){
 				$(this).css('font-weight', 'normal');
 			});
-
+<!--
 			if($(window).width() < 1204){
 				$('#navbarUserName').removeClass('navbar-right');
 			} else {
 				$('#navbarUserName').addClass('navbar-right');
-			}
+			}-->
 		});
 
+		<!--
 		$(window).resize(function(){
 			if($(window).width() < 1204){
 				$('#navbarUserName').removeClass('navbar-right');
 			} else {
 				$('#navbarUserName').addClass('navbar-right');
 			}
-		});
+		});-->
     </script>
 </body>
 

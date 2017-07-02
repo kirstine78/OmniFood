@@ -5,9 +5,9 @@
 * Version:  1.0
  */
  
-* {
+/** {
 	border: 1px solid red !important;
-}
+}*/
 
 
 input[type="radio"]{
@@ -92,14 +92,9 @@ h4, h6 {
 	margin-bottom: 4px;
 }
 
-.title {
-	font-size: 100%;
-}
 
-#bannerRow {
-	padding-left: 15px;
-	padding-right: 15px;
-}
+
+
 
 
 .myNavbarItem:hover {
@@ -111,7 +106,17 @@ h4, h6 {
 	
 }
 
+@media (min-width:768px) {
+	#newButtonFormSmallScreen {
+		display: none;
+	}
+}
 
+@media (max-width:768px) {
+	#newButtonFormBigScreen {
+		display: none;
+	}
+}
 /**********************************************/
 
 
@@ -119,50 +124,7 @@ h4, h6 {
 
 
 
-.noPadding {
-	padding: 0px;
-}
 
-.paddingRight {
-	padding-right: 50px;
-}
-
-.marginTopBottom {
-}
-
-.errRed {
-	padding: 5px;
-	margin: 0px;
-}
-
-.greenMessage {
-	color: green;
-}
-
-
-
-.preserveWhiteSpace {
-	white-space: pre;
-}
-
-#myFooter {
-	background-color: #636b6f;
-	padding-top: 16px;
-}
-
-#map {
-	height: 800px;
-	width: 100%;
-}
-
-#outer {
-    width:100%;
-    text-align: center;
-}
-
-.inner {
-    display: inline-block;
-}
 
 /******** logo image shall NOT appear ********/
 @media only screen and (max-width: 992px) {
@@ -180,6 +142,7 @@ h4, h6 {
 
 /** below is used in OmniFood*/
 
+/*
 @media (max-width: 1220px) {
   .navbar-header {
       float: none;
@@ -215,4 +178,4 @@ h4, h6 {
   .collapse.in{
       display:block !important;
   }
-}
+}*/
