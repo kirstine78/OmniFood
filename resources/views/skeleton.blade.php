@@ -59,16 +59,16 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 
-					<li class="nav_buttons"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">North America</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">South America</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Europe</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Asia</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Australia / Oceania</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Africa</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Antarctica</a></li>
-					<li class="nav_buttons"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">North America</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">South America</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Europe</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Asia</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Australia / Oceania</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Africa</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Antarctica</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
 					
 				</ul>
 
@@ -78,16 +78,16 @@
 				<ul class="nav navbar-nav navbar-right">
 					<!-- Authentication Links -->
 					@if (Auth::guest())
-						<li><a href="{{ url('/login') }}">Login</a></li>
+						<li class="myNavbarItem"><a href="{{ url('/login') }}">Login</a></li>
 					@else
-						<li class="dropdown">
+						<li class="dropdown myNavbarItem">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 								{{ Auth::user()->name }} <span class="caret"></span>
 							</a>
 
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+									<a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="myNavbarItem">
 										Logout
 									</a>
 
@@ -110,6 +110,18 @@
 	
 	@yield('page-script')
 
+
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('.btn').mouseenter(function(){
+				$(this).css('font-weight', 'bold');
+			});
+			
+			$('.btn').mouseleave(function(){
+				$(this).css('font-weight', 'normal');
+			});
+		});
+    </script>
 </body>
 
 </html>

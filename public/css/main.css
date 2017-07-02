@@ -101,6 +101,13 @@ h4, h6 {
 	padding-right: 15px;
 }
 
+.myNavbarItem:hover {
+    font-weight: bold;
+	
+	
+}
+
+
 /**********************************************/
 
 

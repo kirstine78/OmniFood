@@ -75,9 +75,10 @@ Version:    1.0
 	@endif
 </div>
 
-@endsection @section('page-script')
-	<script type="text/javascript">
+@endsection 
 
+@section('page-script')
+	<script type="text/javascript">
         $("#btnNewestToOldest").click(function() {
         	$("#filterOptionOneCountry").val("newestToOldest");
             this.form.submit();
