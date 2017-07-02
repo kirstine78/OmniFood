@@ -24,19 +24,21 @@
 <body >
 
 	<div class="container">
-		<div class="row">
-            <div class="col-xs-2">
-				Menu
-			</div>
-			<div class="col-xs-6">
-				<div class="heading_bar" id="titleBanner"><h1 class="title">OmniFood</h1></div>
-			</div>
-			<div class="col-xs-4">
+		<div class="row" id="bannerRow">
+            <div class="col-xs-auto">
 				<form action="/food" method="GET" class="marginTopBottom">
 	                {{ csrf_field() }}
 	                <button type="submit" class="btn btn-success pull-right">New</button>
 	            </form>
-            </div>
+			</div>
+			<div class="col-xs-auto">
+				<div id="titleBanner"><p class="title">OmniFood</p></div>
+			</div>
+			<div class="col-xs-auto">
+				<div id="burgerMenuBanner">
+				
+				</div>
+			</div>
 		</div>
 	</div>
 	

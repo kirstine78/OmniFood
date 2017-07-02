@@ -92,18 +92,21 @@ h4, h6 {
 	margin-bottom: 4px;
 }
 
+.title {
+	font-size: 100%;
+}
+
+#bannerRow {
+	padding-left: 15px;
+	padding-right: 15px;
+}
 
 /**********************************************/
 
 
 
 
-.title {
-	font-size: 50px;
-	padding-left: 50px;
-	padding-top: 30px;
-	text-align: left;
-}
+
 
 .noPadding {
 	padding: 0px;
@@ -156,12 +159,12 @@ h4, h6 {
 		display: none;
 	}
 
-	.title {
+	/*.title {
 		font-size: 24px;
 		padding-left: 0px;
 		padding-top: 0px;
 		text-align: left;
-	}
+	}*/
 }
 
 @media (max-width: 1220px) {
