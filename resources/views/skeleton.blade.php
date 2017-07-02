@@ -34,11 +34,6 @@
 			<div class="col-xs-auto">
 				<div id="titleBanner"><p class="title">OmniFood</p></div>
 			</div>
-			<div class="col-xs-auto">
-				<div id="burgerMenuBanner">
-				
-				</div>
-			</div>
 		</div>
 	</div>
 	
@@ -59,7 +54,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
+					<li class="nav_buttons myNavbarItem active"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>					
 					<li class="dropdown myNavbarItem">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:black;">

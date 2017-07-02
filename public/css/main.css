@@ -5,9 +5,9 @@
 * Version:  1.0
  */
  
-/** {
+* {
 	border: 1px solid red !important;
-}*/
+}
 
 
 input[type="radio"]{
@@ -74,7 +74,7 @@ h4, h6 {
 }
 
 #menuButton {
-	margin-left:16px;
+	/*margin-left:16px;*/
 }
 
 #myInput {
@@ -106,7 +106,8 @@ h4, h6 {
     font-weight: bold;
 }
 
-#navbarUserName {
+.active {
+    font-weight: bold;
 	
 }
 

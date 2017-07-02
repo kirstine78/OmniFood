@@ -121,8 +121,7 @@ Version:    1.0
        	});
 
        	// clickable row
-        $('.table > tbody > tr').click(function() {
-            
+        $('.table > tbody > tr').click(function() {            
             // row was clicked            
             //alert($(this).find('.hiddenID').text());
             var hiddenID = $(this).find('.hiddenID').text();
@@ -137,5 +136,13 @@ Version:    1.0
             $(this).css("font-weight","bold");
             e.stopPropagation(); 
          });
+
+		$('tr').mouseenter(function(){
+			$(this).css('font-weight', 'bold');
+		});
+		
+		$('tr').mouseleave(function(){
+			$(this).css('font-weight', 'normal');
+		});
     </script>
 @endsection
