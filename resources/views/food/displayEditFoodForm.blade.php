@@ -25,7 +25,7 @@ Version:    1.0
                     {{ method_field('DELETE') }}
 
                     <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#myConfirmModal" >Delete</button>
+                    <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#myConfirmModal">Delete</button>
                 </form> 	
 			</div>
 		</div>

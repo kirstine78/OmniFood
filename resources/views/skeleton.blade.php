@@ -123,22 +123,7 @@
 			$('.btn').mouseleave(function(){
 				$(this).css('font-weight', 'normal');
 			});
-<!--
-			if($(window).width() < 1204){
-				$('#navbarUserName').removeClass('navbar-right');
-			} else {
-				$('#navbarUserName').addClass('navbar-right');
-			}-->
 		});
-
-		<!--
-		$(window).resize(function(){
-			if($(window).width() < 1204){
-				$('#navbarUserName').removeClass('navbar-right');
-			} else {
-				$('#navbarUserName').addClass('navbar-right');
-			}
-		});-->
     </script>
 </body>
 

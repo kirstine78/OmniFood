@@ -30,9 +30,7 @@ Version:    1.0
                         <!-- Add food button -->
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fa fa-plus">Add Food</i>
-                                </button>
+                                <button type="submit" class="btn btn-success">Add Food</button>
                             </div>
                         </div>
                     </form>                    
