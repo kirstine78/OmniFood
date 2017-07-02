@@ -101,9 +101,12 @@ h4, h6 {
 	padding-right: 15px;
 }
 
+
 .myNavbarItem:hover {
     font-weight: bold;
-	
+}
+
+#navbarUserName {
 	
 }
 
@@ -174,6 +177,8 @@ h4, h6 {
 	}*/
 }
 
+/** below is used in OmniFood*/
+
 @media (max-width: 1220px) {
   .navbar-header {
       float: none;
@@ -183,7 +188,6 @@ h4, h6 {
   }
   .navbar-toggle {
       display: block;
-      /*float: left !important;*/
   }
   .navbar-collapse {
       border-top: 1px solid transparent;

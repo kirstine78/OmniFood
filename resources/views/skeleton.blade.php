@@ -60,22 +60,27 @@
 				<ul class="nav navbar-nav">
 
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">North America</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">South America</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Europe</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Asia</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Australia / Oceania</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Africa</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Antarctica</a></li>
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
-					
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>					
+					<li class="dropdown myNavbarItem">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:black;">
+							Regions<span class="caret"></span>
+						</a>						
+						<ul class=" dropdown-menu" role="menu">
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">North America</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">South America</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Europe</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Asia</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Australia / Oceania</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Africa</a></li>
+							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Antarctica</a></li>
+						</ul>					
+					</li>					
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>					
 				</ul>
 
-				<!-- Right Side Of Navbar -->
 
 				<!-- Right Side Of Navbar -->
-				<ul class="nav navbar-nav navbar-right">
+				<ul id="navbarUserName" class="nav navbar-nav navbar-right">
 					<!-- Authentication Links -->
 					@if (Auth::guest())
 						<li class="myNavbarItem"><a href="{{ url('/login') }}">Login</a></li>
@@ -120,6 +125,20 @@
 			$('.btn').mouseleave(function(){
 				$(this).css('font-weight', 'normal');
 			});
+
+			if($(window).width() < 1204){
+				$('#navbarUserName').removeClass('navbar-right');
+			} else {
+				$('#navbarUserName').addClass('navbar-right');
+			}
+		});
+
+		$(window).resize(function(){
+			if($(window).width() < 1204){
+				$('#navbarUserName').removeClass('navbar-right');
+			} else {
+				$('#navbarUserName').addClass('navbar-right');
+			}
 		});
     </script>
 </body>
