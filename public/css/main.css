@@ -98,7 +98,7 @@ h4, h6 {
 	margin-right: 16px;
 }
 
-/*must be here with zero px*/
+/* needs this to align correct*/
 #newButtonBigScreen {
 	margin-right: 0px;
 }
@@ -126,6 +126,7 @@ h4, h6 {
 
 @media (max-width:768px) {
 
+	/*for navbar not to overlap content*/
 	body { 
 		padding-top: 64px; 
 	}

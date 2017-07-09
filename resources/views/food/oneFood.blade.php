@@ -27,7 +27,10 @@ Version:    1.0
 					<div class="col-xs-4 col-sm-2">
 						<form action="{{ url('/food/edit/'.$oneFood->id) }}" method="GET" class="marginTopBottom">						
 			                {{ csrf_field() }}
-			                <button type="submit" class="btn btn-warning pull-right">Edit</button>
+			                <!-- <button type="submit" class="btn btn-warning pull-right">Edit</button> -->
+					        <button type="submit" class="btn btn-warning pull-right">
+					          	<span class="glyphicon glyphicon-edit"></span> Edit
+					        </button>
 			            </form>		
 			        </div>	
 				</div>

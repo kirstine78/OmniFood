@@ -29,8 +29,7 @@
 
 		<div class="container-fluid" id="myContainerFluid">
 
-			<div class="navbar-header">
-			
+			<div class="navbar-header">			
 			
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="icon-bar"></span>
@@ -39,10 +38,14 @@
 				</button>
 				
 				<a href="{{ url('home') }}" class="navbar-brand">OmniFood</a>
+				
 				<form action="/food" method="GET" id="newButtonFormSmallScreen">
-	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">New</button>
-	            </form>
+	            	{{ csrf_field() }}
+	            	<!-- <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">New</button> -->
+	                <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">
+			          	<span class="glyphicon glyphicon-plus"></span> New
+			        </button>	
+			    </form>
 				
 			</div>
 
@@ -71,7 +74,10 @@
 				
 				<form action="/food" method="GET" id="newButtonFormBigScreen">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">New</button>
+	                <!-- <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">New</button> -->
+	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">
+			          	<span class="glyphicon glyphicon-plus"></span> New
+			        </button>
 	            </form>
 
 				<!-- Right Side Of Navbar -->
