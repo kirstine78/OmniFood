@@ -47,10 +47,12 @@ class HomeController extends Controller
     	
     	$countryList = Country::countriesThatHaveFoodsForUser();
     	
+    	// default country Afghanistan 'AF'
+    	$defaultCountryCode = 'AF';    	
     	
     	
 //     	echo "amount of countries with food entry: " . count($countryList);
     	
-    	return view('home',  ['foodList' => $foodList, 'amountOfCountries' => $amountOfCountries, 'amountOfCountriesWithFoodEntry' => count($countryList)]);
+    	return view('home',  ['foodList' => $foodList, 'amountOfCountries' => $amountOfCountries, 'amountOfCountriesWithFoodEntry' => count($countryList), 'countryCode' => $defaultCountryCode]);
     }
 }

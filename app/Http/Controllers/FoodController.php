@@ -35,18 +35,26 @@ class FoodController extends Controller
      * the form is displayed
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function displayAddFoodForm(){
+	public function displayAddFoodForm(Request $request){
     	// make sure to pass in empty Food
     	$food = new Food();
     	
     	// to remove the time from dateTime we use 'format'
-    	$food->date = Carbon::today()->format('Y-m-d');    	
+    	$food->date = Carbon::today()->format('Y-m-d');   
+    	    	    	
+    	// check if a country id has been passed in
+    	if ($request->countryCode != null) {
+    		$country = Country::where('code', '=', $request->countryCode)->get();
+    		$food->country_id = $country[0]->id;    
+    	} else {
+    		// set denmark as default. hard coded...
+    		$food->country_id = 61;    	
+    	}
     	
-    	// set denmark as default. hard coded...
-    	$food->country_id = 61;
+    	// set rating to default 2
     	$food->rating = 2;
     	
-    	return View('food.displayAddFoodForm')->with('food', $food);
+    	return View('food.displayAddFoodForm')->with(['food'=> $food, 'countryCode' => $food->country->code] );
     }
     
     
@@ -152,7 +160,7 @@ class FoodController extends Controller
      * @param Request $request
      */
     public function oneFood(Food $food, Request $request) {
-    	return View('food.oneFood',  ['oneFood' => $food]);
+    	return View('food.oneFood',  ['oneFood' => $food, 'countryCode' => $food->country->code]);
     }
     
     
@@ -164,7 +172,7 @@ class FoodController extends Controller
      */
     public function editFood(Food $food, Request $request) {
     	//echo $food->id;
-    	return View('food.displayEditFoodForm')->with('food', $food);
+    	return View('food.displayEditFoodForm')->with(['food' => $food, 'countryCode' => $food->country->code]);
     }
     
     

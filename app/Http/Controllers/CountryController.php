@@ -52,7 +52,10 @@ class CountryController extends Controller
 			$countriesList = Country::orderBy('name', 'asc')->get();			
 		}
 		
-		return View('country.allCountries', ['countries' => $countriesList]);
+		// default country Afghanistan 'AF'
+		$defaultCountryCode = 'AF';
+		
+		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode]);
 	}
 	
 	
@@ -61,11 +64,8 @@ class CountryController extends Controller
 		
 		$filterOptionOneCountry= $request->filterOptionOneCountry;
 		
-		// assign id of country to $id. It is the row aka country that was clicked
-		$id = $country->id;
-		
-		
-		
+		// assign id of country to $id. It is the row aka. country that was clicked
+		$id = $country->id;						
 				
 		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country
@@ -80,6 +80,6 @@ class CountryController extends Controller
 			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 		}		
 		
-		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList]);
+		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList, 'countryCode' => $country->code]);
 	}
 }

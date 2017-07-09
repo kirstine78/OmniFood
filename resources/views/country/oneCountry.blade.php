@@ -7,7 +7,9 @@ Version:    1.0
 
 -->
 
-@extends('skeleton') @section('content')
+@extends('skeleton', ['countryCode' => $countryCode]) 
+
+@section('content')
 
 <div class="container">
 	<div class="row rowBottomPadding">

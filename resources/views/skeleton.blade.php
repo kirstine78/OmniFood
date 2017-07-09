@@ -45,6 +45,7 @@
 	                <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">
 			          	<span class="glyphicon glyphicon-plus"></span> New
 			        </button>	
+			        <input type="hidden" type="text" value="{{ $countryCode }}" name="countryCode">		        
 			    </form>
 				
 			</div>
@@ -78,6 +79,7 @@
 	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">
 			          	<span class="glyphicon glyphicon-plus"></span> New
 			        </button>
+			        <input type="hidden" type="text" value="{{ $countryCode }}" name="countryCode">
 	            </form>
 
 				<!-- Right Side Of Navbar -->

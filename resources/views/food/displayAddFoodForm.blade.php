@@ -7,7 +7,7 @@ Version:    1.0
 
 -->
 
-@extends('skeleton')
+@extends('skeleton', ['countryCode' => $countryCode])
 
 @section('content')
 

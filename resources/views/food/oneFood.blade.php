@@ -7,7 +7,9 @@ Version:    1.0
 
 -->
 
-@extends('skeleton') @section('content')
+@extends('skeleton', ['countryCode' => $countryCode]) 
+
+@section('content')
 
 <div class="container">
 				<div class="row rowBottomPadding">
@@ -19,7 +21,7 @@ Version:    1.0
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<small>{{ $oneFood->country->name }}</small>
+								<h5>{{ $oneFood->country->name }}</h5>
 							</div>
 						</div>
 					</div>
