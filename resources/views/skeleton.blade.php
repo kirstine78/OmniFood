@@ -25,9 +25,9 @@
 <div class="container">
 <div class="row">
 
-	<nav class="navbar navbar-default custom_nav_bar">
+	<nav class="navbar navbar-default custom_nav_bar navbar-fixed-top">
 
-		<div class="container-fluid">
+		<div class="container-fluid" id="myContainerFluid">
 
 			<div class="navbar-header">
 			
@@ -123,7 +123,7 @@
 			$('.btn').mouseleave(function(){
 				$(this).css('font-weight', 'normal');
 			});
-		});
+		}); 
     </script>
 </body>
 

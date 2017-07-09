@@ -5,10 +5,16 @@
 * Version:  1.0
  */
  
-/** {
+/*
+* {
 	border: 1px solid red !important;
-}*/
+}
+*/
 
+/* To avoid navbar overlaps the body content */
+body { 
+	padding-top: 80px; 
+}
 
 input[type="radio"]{
   	margin: 0 5px 0 18px;
@@ -101,8 +107,11 @@ h4, h6 {
 }
 
 .active {
-    font-weight: bold;
-	
+    font-weight: bold;	
+}
+
+#myContainerFluid {
+	max-width: 1600px;
 }
 
 @media (min-width:768px) {
@@ -112,9 +121,15 @@ h4, h6 {
 }
 
 @media (max-width:768px) {
+
+	body { 
+		padding-top: 64px; 
+	}
+	
 	#newButtonFormBigScreen {
 		display: none;
 	}
+	
 }
 /**********************************************/
 
