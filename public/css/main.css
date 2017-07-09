@@ -79,10 +79,6 @@ h4, h6 {
 	padding-bottom: 16px;
 }
 
-#menuButton {
-	/*margin-left:16px;*/
-}
-
 #myInput {
 	background-image: url('../img/search_icon.png'); /* Add a search icon to input */
 	background-position: 4px 4px; /* Position the search icon */
@@ -102,6 +98,11 @@ h4, h6 {
 	margin-right: 16px;
 }
 
+/*must be here with zero px*/
+#newButtonBigScreen {
+	margin-right: 0px;
+}
+
 .myNavbarItem:hover {
     font-weight: bold;
 }
@@ -110,9 +111,12 @@ h4, h6 {
     font-weight: bold;	
 }
 
+/* To ensure the navbar doesn't display any wider than max-width */
 #myContainerFluid {
 	max-width: 1600px;
 }
+
+
 
 @media (min-width:768px) {
 	#newButtonFormSmallScreen {
@@ -131,7 +135,8 @@ h4, h6 {
 	}
 	
 }
-/**********************************************/
+
+/******************** Above is used for OmniFood **************************/
 
 
 
@@ -153,43 +158,3 @@ h4, h6 {
 		text-align: left;
 	}*/
 }
-
-/** below is used in OmniFood*/
-
-/*
-@media (max-width: 1220px) {
-  .navbar-header {
-      float: none;
-  }
-  .navbar-left,.navbar-right {
-      float: none !important;
-  }
-  .navbar-toggle {
-      display: block;
-  }
-  .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-      display: none!important;
-  }
-  .navbar-nav {
-      float: none!important;
-      margin-top: 7.5px;
-  }
-  .navbar-nav>li {
-      float: none;
-  }
-  .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
-  .collapse.in{
-      display:block !important;
-  }
-}*/

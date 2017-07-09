@@ -32,7 +32,7 @@
 			<div class="navbar-header">
 			
 			
-				<button id="menuButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -71,7 +71,7 @@
 				
 				<form action="/food" method="GET" id="newButtonFormBigScreen">
 	                {{ csrf_field() }}
-	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right">New</button>
+	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">New</button>
 	            </form>
 
 				<!-- Right Side Of Navbar -->
