@@ -303,7 +303,8 @@ Version:    1.0
 <!-- image(s) -->
 @foreach($food->images as $img)	
 	<div class="row foodImageRow" data-img-id="{{ $img->id }}">
-		<div class="col-xs-7">
+		<div class="col-xs-12 col-sm-2"></div>
+		<div class="col-xs-5">
 			<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
 		</div>	
 		<div class="col-xs-5">
@@ -315,19 +316,22 @@ Version:    1.0
 	</div>
 @endforeach
 
-
 <!-- food image add new file -->
-<div class="form-group controls">       
-	<div class="entry input-group col-sm-offset-2 col-xs-12 col-sm-5">
-		<input class="btn btn-primary" name="foodImageUploads[]" type="file">
-		<span class="input-group-btn">
-			<button class="btn btn-success btn-add" type="button">
-				<span class="glyphicon glyphicon-plus"></span>
-			</button>
-		</span>
-	</div>           
-</div>   
+<div class="row">
+	<div class="col-xs-12 col-sm-2"></div>
+	<div class="controls col-xs-12 col-sm-5">       
+		<div class="entry input-group">
+			<input class="btn btn-primary" name="foodImageUploads[]" type="file" style="width:100%">
+			<span class="input-group-btn">
+				<button class="btn btn-success btn-add" type="button">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</span>
+		</div>           
+	</div>   
+</div>
 
+<br/>
 
 
 
