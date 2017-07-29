@@ -107,15 +107,19 @@ Version:    1.0
 
      	// onclick handler for image delete btn
         $('.foodImageRow').on("click", ".deleteImage", function (evt) {
-			var deleteButton = $(evt.target);	
-            var imgId = deleteButton.data().imgIdentification;
+            evt.preventDefault();
+
+            // we don't know whether it's the button element or the span element inside it with the trash can
+			var elementClicked = $(evt.target);
+			var foodImageRowDiv = elementClicked.parents('.foodImageRow');
+            var imgId = foodImageRowDiv.data().imgId;
             var valueName = "deleteImgId" + imgId;
             
 			// add hidden input with the img id
 			$('#editFoodForm').append("<input type='text' " + "name='" + valueName + "' value='" + imgId + "' />");		
 
-			// hide image and img-delete button
-			deleteButton.parents('.foodImageRow').addClass('hidden');
+			// hide image and img-delete button which are held in the row
+			foodImageRowDiv.addClass('hidden');
         });
     </script>
 @endsection

@@ -311,15 +311,16 @@ Version:    1.0
 <!-- if ADD then food obj is fake and empty of images -->
 <!-- image(s) -->
 @foreach($food->images as $img)	
-	<div class="row foodImageRow">
+	<div class="row foodImageRow" data-img-id="{{ $img->id }}">
 		<div class="col-xs-8">
 			<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
 		</div>	
 		<div class="col-xs-4">
-			<button type="button" class="btn btn-danger deleteImage" data-img-identification="{{ $img->id }}">
+			<button type="button" class="btn btn-danger deleteImage">
 	          	<span class="glyphicon glyphicon-trash"></span>
-	        </button>								
-		</div>					
+	        </button>	
+	        <div  >{{ $img->id }}</div>							
+		</div>				
 	</div>
 @endforeach
 
