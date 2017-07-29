@@ -80,20 +80,25 @@ class FoodController extends Controller
     	
     	$food->save();    	
     	
-    	// loop through images that user uploaded
-    	foreach ($request->foodImageUploads as $img) {
+    	// check whether one or more images are added
+    	if ($request->foodImageUploads != null) {
     		
-    		// get the image the user uploads, store it in folder 'foodImages/{userId}'. The path where img is stored is returned
-    		$pathToImage = $img->store('foodImages/' . $request->user()->id, 'public');
+    		// loop through images that user uploaded
+    		foreach ($request->foodImageUploads as $img) {
+    			
+    			// get the image the user uploads, store it in folder 'foodImages/{userId}'. The path where img is stored is returned
+    			$pathToImage = $img->store('foodImages/' . $request->user()->id, 'public');
+    			
+    			// create image
+    			$image = new Image();
+    			
+    			// assign input value (which is path to image) to field for the image record
+    			$image->filename = $pathToImage;
+    			
+    			// save food and img child record
+    			$food->images()->save($image);
+    		}
     		
-    		// create image
-    		$image = new Image();
-    		
-    		// assign input value (which is path to image) to field for the image record
-    		$image->filename = $pathToImage;
-    		
-    		// save food and img child record
-    		$food->images()->save($image);    		
     	}
     	
     	return redirect('/home');
