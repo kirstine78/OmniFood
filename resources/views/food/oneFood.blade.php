@@ -47,7 +47,7 @@ Version:    1.0
 				@endforeach	
 				
 				<!-- rating -->
-				<div class="row">
+				<div class="row foodRatingRow">
 					<div class="col-xs-12">
 						<strong>Rating</strong>			
 						
