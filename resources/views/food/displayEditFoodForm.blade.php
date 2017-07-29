@@ -39,7 +39,7 @@ Version:    1.0
                 <div class="panel-body">
 
                     <!--  form -->
-                    <form action="{{ url('/food/edit') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form id="editFoodForm" action="{{ url('/food/edit') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                         {{ method_field('PUT') }}
 
                         @include('food/foodForm')
@@ -105,5 +105,17 @@ Version:    1.0
             });
         });
 
+     	// onclick handler for image delete btn
+        $('.foodImageRow').on("click", ".deleteImage", function (evt) {
+			var deleteButton = $(evt.target);	
+            var imgId = deleteButton.data().imgIdentification;
+            var valueName = "deleteImgId" + imgId;
+            
+			// add hidden input with the img id
+			$('#editFoodForm').append("<input type='text' " + "name='" + valueName + "' value='" + imgId + "' />");		
+
+			// hide image and img-delete button
+			deleteButton.parents('.foodImageRow').addClass('hidden');
+        });
     </script>
 @endsection

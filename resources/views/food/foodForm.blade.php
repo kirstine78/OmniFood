@@ -307,22 +307,54 @@ Version:    1.0
 <!-- </div> -->
 
 
-<!-- food image  -->
-<div class="form-group controls">
-           
-	<div class="entry input-group col-xs-12">                
-             
+<!-- if EDIT then there might be images associated with food  -->
+<!-- if ADD then food obj is fake and empty of images -->
+<!-- image(s) -->
+@foreach($food->images as $img)	
+	<div class="row foodImageRow">
+		<div class="col-xs-8">
+			<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
+		</div>	
+		<div class="col-xs-4">
+			<button type="button" class="btn btn-danger deleteImage" data-img-identification="{{ $img->id }}">
+	          	<span class="glyphicon glyphicon-trash"></span>
+	        </button>								
+		</div>					
+	</div>
+@endforeach
+
+
+<!-- food image add new file -->
+<div class="form-group controls">           
+	<div class="entry input-group col-xs-12">
 		<input class="btn btn-primary" name="foodImageUploads[]" type="file">
 		<span class="input-group-btn">
 			<button class="btn btn-success btn-add" type="button">
 				<span class="glyphicon glyphicon-plus"></span>
 			</button>
 		</span>
-	</div>
-           
-</div>
+	</div>           
+</div>   
 
 
+<!-- food image  -->
+<!-- <div class="fileinput fileinput-new input-group" data-provides="fileinput"> -->
+<!-- 	<div class="form-control" data-trigger="fileinput"> -->
+<!-- 		<i class="glyphicon glyphicon-file fileinput-exists"></i>  -->
+<!-- 		<span class="fileinput-filename"></span> -->
+<!-- 	</div> -->
+<!--   	<span class="input-group-addon btn btn-default btn-file"> -->
+<!-- 	  	<span class="fileinput-new">Select file</span> -->
+<!-- 	  	<span class="fileinput-exists">Change</span> -->
+<!-- 	  	<input type="file" name="..."> -->
+<!--   	</span> -->
+<!--   	<a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> -->
+<!-- 	<span class="input-group-btn"> -->
+<!-- 		<button class="btn btn-success btn-add" type="button"> -->
+<!-- 			<span class="glyphicon glyphicon-plus"></span> -->
+<!-- 		</button> -->
+<!-- 	</span> -->
+<!-- </div> -->
 
 
 

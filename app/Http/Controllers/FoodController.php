@@ -37,7 +37,7 @@ class FoodController extends Controller
      */
 	public function displayAddFoodForm(Request $request){
     	// make sure to pass in empty Food
-    	$food = new Food();
+		$food = new Food();
     	
     	// to remove the time from dateTime we use 'format'
     	$food->date = Carbon::today()->format('Y-m-d');   
