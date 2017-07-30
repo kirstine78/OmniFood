@@ -126,7 +126,9 @@ h4, h6 {
 	max-width: 1600px;
 }
 
-
+.countryNamePadding, .datePadding {
+	padding-bottom:8px;
+}
 
 @media (min-width:768px) {
 	#newButtonFormSmallScreen {
@@ -135,7 +137,6 @@ h4, h6 {
 }
 
 @media (max-width:768px) {
-
 	/*for navbar not to overlap content*/
 	body { 
 		padding-top: 64px; 
@@ -145,6 +146,9 @@ h4, h6 {
 		display: none;
 	}
 	
+	.countryNamePadding {
+		padding-top:8px;
+	}	
 }
 
 /******************** Above is used for OmniFood **************************/

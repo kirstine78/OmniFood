@@ -34,11 +34,11 @@ Version:    1.0
 						</div>
 										
 						<div class="col-sm-3 col-lg-2">
-							<div class="row">
+							<div class="row countryNamePadding">
 								<div class="col-xs-12">{{ $food->country->name }}</div>	
 							</div>
 						
-							<div class="row">
+							<div class="row datePadding">
 								<div class="col-xs-12">{{ $food->date }}</div>	
 							</div>										
 						
