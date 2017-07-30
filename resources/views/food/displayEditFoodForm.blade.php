@@ -113,7 +113,7 @@ Version:    1.0
 			var elementClicked = $(evt.target);
 			var foodImageRowDiv = elementClicked.parents('.foodImageRow');
             var imgId = foodImageRowDiv.data().imgId;
-            var valueName = "deleteImgId" + imgId;
+            var valueName = "deleteImgId[]";
             
 			// add hidden input with the img id
 			$('#editFoodForm').append("<input type='text' " + "name='" + valueName + "' value='" + imgId + "' />");		

@@ -15,6 +15,7 @@ use OmniFood\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Storage;
+use Illuminate\Support\Facades\Input;
 
 class FoodController extends Controller
 {
@@ -224,9 +225,22 @@ class FoodController extends Controller
     		}
     		
     	}
+    	    	
+    	// get the array of image id's to delete
+    	$deleteImgIdList = $request->deleteImgId;
     	
-    	
-    	// delete image(s)
+    	// check if list is empty
+    	if ($deleteImgIdList != null) {
+    		foreach ($deleteImgIdList as $imgId) {  
+    			$imgRecord = Image::find($imgId);
+    			
+    			// delete image with the imgId from folder
+    			Storage::disk('public')->delete($imgRecord->filename);
+    			
+    			// delete image with the imgId from db
+    			$imgRecord->forceDelete();
+    		}
+    	}
     	
     	return redirect('/home');    	
     }    
