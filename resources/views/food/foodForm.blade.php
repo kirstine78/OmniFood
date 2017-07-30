@@ -18,7 +18,7 @@ Version:    1.0
         <input type="hidden" name="specific_food_id" id="specific_food_id" class="form-control" value="{{ $food->id }}">
     </div>
     <div class="col-xs-12 col-sm-5">
-        @if ($errors->has('date')) <div class="help-block alert alert-danger errRed">{{ $errors->first('date') }}</div> @endif
+        @if ($errors->has('date')) <div class="help-block alert alert-danger errRed errorMessageStyling">{{ $errors->first('date') }}</div> @endif
     </div>
 </div>
 
@@ -298,8 +298,8 @@ Version:    1.0
 </div>
 
 
-<!-- if EDIT then there might be images associated with food  -->
-<!-- if ADD then food obj is fake and empty of images -->
+<!-- if EDIT then there might be images associated with food -->
+<!-- if ADD then food obj is 'fake' and empty of images -->
 <!-- image(s) -->
 @foreach($food->images as $img)	
 	<div class="row foodImageRow" data-img-id="{{ $img->id }}">

@@ -94,6 +94,15 @@ h4, h6 {
 	margin-bottom: 4px;
 }
 
+.errorMessageStyling {
+	padding-top: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 3px;
+	
+	margin-bottom: 0px;
+}
+
 #navbarUserName, #newButtonSmallScreen {
 	margin-right: 16px;
 }
@@ -110,6 +119,7 @@ h4, h6 {
 .active {
     font-weight: bold;	
 }
+
 
 /* To ensure the navbar doesn't display any wider than max-width */
 #myContainerFluid {

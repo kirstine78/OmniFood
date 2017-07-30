@@ -139,7 +139,7 @@ class FoodController extends Controller
      * @return Food
      */
     public function populateFoodFromRequest(Food $food, Request $request) {
-    	// get someValue from the name="someValue"  key/value pair from incoming $request
+    	// get someValue from the name="someValue" key/value pair from incoming $request
     	$food->date = $request->date;
     	$food->rating = $request->rating; // get value of rating radio button
     	$food->comment = $request->comment;
@@ -204,24 +204,29 @@ class FoodController extends Controller
     	
     	$food->save();
     	
+    	// check whether one or more images are added
+    	if ($request->foodImageUploads != null) {
+    		
+    		// loop through images that user uploaded
+    		foreach ($request->foodImageUploads as $img) {
+    			
+    			// get the image the user uploads, store it in folder 'foodImages/{userId}'. The path where img is stored is returned
+    			$pathToImage = $img->store('foodImages/' . $request->user()->id, 'public');
+    			
+    			// create image
+    			$image = new Image();
+    			
+    			// assign input value (which is path to image) to field for the image record
+    			$image->filename = $pathToImage;
+    			
+    			// save food and img child record
+    			$food->images()->save($image);
+    		}
+    		
+    	}
     	
-    	// image that user uploaded
-//     	$img1 = $request->file('imageUpload');
     	
-//     	// check that img is not null
-//     	if ($img1 != null) {
-//     		// get the image the user uploads, store it in folder 'foodImages'. The path where img is stored is returned
-//     		$pathToImage1 = $img1->store('foodImages', 'public');
-    		
-//     		// create image
-//     		$image1 = new Image();
-    		
-//     		// assign input value (which is path to image) to field for the image record
-//     		$image1->filename = $pathToImage1;
-    		
-//     		// save food and img child record
-//     		$food->images()->save($image1);
-//     	}
+    	// delete image(s)
     	
     	return redirect('/home');    	
     }    
@@ -242,9 +247,8 @@ class FoodController extends Controller
     	$imageList = $food->images;
 //      	echo "imageList size" . count($imageList);
     	    	
-    	foreach ($imageList as $image) {
-    		// TODO remove image from folder
-    		
+    	// remove image(s) from folder
+    	foreach ($imageList as $image) {    		
 //     		File::delete($image->filename);
 //     		Storage::delete($image->filename);
 //     		echo "storage path: " . Storage::disk('public')->getStoragePath();
