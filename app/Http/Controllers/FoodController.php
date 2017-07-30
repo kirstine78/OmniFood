@@ -262,13 +262,8 @@ class FoodController extends Controller
 //      	echo "imageList size" . count($imageList);
     	    	
     	// remove image(s) from folder
-    	foreach ($imageList as $image) {    		
-//     		File::delete($image->filename);
-//     		Storage::delete($image->filename);
-//     		echo "storage path: " . Storage::disk('public')->getStoragePath();
+    	foreach ($imageList as $image) {
     		Storage::disk('public')->delete($image->filename);
-//     		$image->filename;
-//     		unlink($image->filename);
     	}
     	
     	// delete Food and any Images belonging to this Food id
