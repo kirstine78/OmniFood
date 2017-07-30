@@ -309,7 +309,7 @@ Version:    1.0
 		</div>	
 		<div class="col-xs-5">
 			<button type="button" class="btn btn-danger deleteImage">
-	          	<span class="glyphicon glyphicon-trash"></span>
+	          	<span class="glyphicon glyphicon-minus"></span>
 	        </button>	
 	        <div  >{{ $img->id }}</div>							
 		</div>				
