@@ -25,11 +25,9 @@ Version:    1.0
 					{{ csrf_field() }}
 					<button type="submit" class="btn btn-neutral" id="btnAll" value="all" >All</button>
 		                            
-					{{ csrf_field() }}
 					<button type="submit" class="btn btn-neutral" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
 		                            
-					{{ csrf_field() }}
-					<button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >Empty</button>
+					<button type="submit" class="btn btn-neutral" id="btnEmpty" value="empty" >No Entry</button>
 						    
 		            <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
 		        </form>

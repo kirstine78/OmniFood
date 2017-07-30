@@ -28,7 +28,6 @@ Version:    1.0
 					{{ csrf_field() }}
 					<button type="submit" class="btn btn-neutral" id="btnNewestToOldest" value="newestToOldest">Newest</button>
 				
-					{{ csrf_field() }}
 					<button type="submit" class="btn btn-neutral" id="btnOldestToNewest" value="oldestToNewest">Oldest</button>
 	
 					<input id="filterOptionOneCountry" type="hidden" name="filterOptionOneCountry" value="newestToOldest">
