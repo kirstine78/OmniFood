@@ -22,7 +22,7 @@ Version:    1.0
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!--  form -->
-                    <form action="{{ url('/food') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{ url('/food') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" id="addFoodForm">
                         {{ method_field('POST') }}
 
                         @include('food/foodForm')
@@ -30,7 +30,7 @@ Version:    1.0
                         <!-- Add food button -->
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Add Food</button>
+                                <button type="submit" id="addButton" class="btn btn-success">Add Food</button>
                             </div>
                         </div>
                     </form>                    
@@ -72,6 +72,63 @@ Version:    1.0
 				return false;
 			});
 		});
+
+		$("#addFoodForm").submit(function(event){
+			// alert("button clicked");
+
+			// flag
+		    var isValid = true;
+		    
+		    // if date is ahead of today update flag
+		    var nowDate = new Date();
+		    var dateEnteredString = $("#date").val();
+		    
+// 			alert("Now: " + nowDate);
+// 		    alert("date entered: " + $("#date").val());
+		    
+			if (isValidDate(dateEnteredString)) {
+// 				alert("date is valid");
+
+				// create a Date
+		    	var dateEnteredDate = new Date(dateEnteredString);
+				
+				// check if date entered is in future				
+				if (dateEnteredDate > nowDate) {
+				  	// selected date is in the future
+// 					alert("dateEnteredDate is in the future");
+					isValid = false;
+				}
+				
+			} else {
+			  	// date is not entered
+// 				alert("date INVALID");
+				isValid = false;				
+			}
+
+		    if (!isValid) {
+				$("#date").css("background-color","#ff5e5e");
+		        event.preventDefault();
+		    }
+		});
+
+		/**
+		https://stackoverflow.com/questions/18758772/how-do-i-validate-a-date-in-this-format-yyyy-mm-dd-using-jquery
+		*/
+		function isValidDate(dateString) {
+		  	var regEx = /^\d{4}-\d{2}-\d{2}$/;
+
+		  	if(!dateString.match(regEx)) {
+		    	return false;  // Invalid format
+		  	}
+		  	
+		  	var d;
+
+		  	if(!((d = new Date(dateString))|0)) {
+		    	return false; // Invalid date (or this could be epoch)
+		  	}
+		  	
+		  	return d.toISOString().slice(0,10) == dateString;
+		}
 
     </script>
 @endsection
