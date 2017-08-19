@@ -102,7 +102,7 @@ class FoodController extends Controller
     		
     	}
     	
-    	return redirect('/home');
+    	return redirect('/food/' . $food->id);
     }  // end addFood
     
     
