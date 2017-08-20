@@ -44,7 +44,7 @@
 				<form action="/food" method="GET" id="newButtonFormSmallScreen">
 	            	{{ csrf_field() }}
 	            	<!-- <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">New</button> -->
-	                <button type="submit" class="btn btn-success navbar-btn pull-right" id="newButtonSmallScreen">
+	                <button type="submit" class="btn btn-primary navbar-btn pull-right" id="newButtonSmallScreen">
 			          	<span class="glyphicon glyphicon-plus"></span> New
 			        </button>	
 			        <input type="hidden" type="text" value="{{ $countryCode }}" name="countryCode">		        
@@ -79,7 +79,7 @@
 				<form action="/food" method="GET" id="newButtonFormBigScreen">
 	                {{ csrf_field() }}
 	                <!-- <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">New</button> -->
-	                <button type="submit" class="btn btn-success navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">
+	                <button type="submit" class="btn btn-primary navbar-btn navbar-nav navbar-right" id="newButtonBigScreen">
 			          	<span class="glyphicon glyphicon-plus"></span> New
 			        </button>
 			        <input type="hidden" type="text" value="{{ $countryCode }}" name="countryCode">

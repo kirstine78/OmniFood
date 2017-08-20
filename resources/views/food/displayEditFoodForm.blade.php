@@ -66,8 +66,8 @@ Version:    1.0
                                     <p>Are you sure you want to delete this Food?</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button id="btnConfirmYes" type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    <button id="btnConfirmYes" type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                                 </div>
                             </div>
 
