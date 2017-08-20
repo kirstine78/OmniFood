@@ -127,11 +127,11 @@
     <script type="text/javascript">
 		$(document).ready(function(){
 			$('.btn').mouseenter(function(){
-				$(this).addClass('btnActiveClicked');
+				$(this).addClass('btnHover');
 			});
 			
 			$('.btn').mouseleave(function(){
-				$(this).removeClass('btnActiveClicked');
+				$(this).removeClass('btnHover');
 			});
 		}); 
     </script>
