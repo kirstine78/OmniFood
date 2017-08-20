@@ -26,9 +26,9 @@ Version:    1.0
 				<form action="{{ url('#') }}" method="POST" class="form-horizontal">
 				
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-neutral" id="btnNewestToOldest" value="newestToOldest">Newest</button>
+					<button type="submit" class="btn btn-default" id="btnNewestToOldest" value="newestToOldest">Newest</button>
 				
-					<button type="submit" class="btn btn-neutral" id="btnOldestToNewest" value="oldestToNewest">Oldest</button>
+					<button type="submit" class="btn btn-default" id="btnOldestToNewest" value="oldestToNewest">Oldest</button>
 	
 					<input id="filterOptionOneCountry" type="hidden" name="filterOptionOneCountry" value="newestToOldest">
 				</form>	
@@ -80,6 +80,20 @@ Version:    1.0
 
 @section('page-script')
 	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var theButtonThatIsClicked = '#btnNewestToOldest';  // default
+			
+			if ( '{{ $filterOptionOneCountry }}' == 'newestToOldest') {
+				theButtonThatIsClicked = '#btnNewestToOldest';
+			} else if  ( '{{ $filterOptionOneCountry }}' == 'oldestToNewest') {
+				theButtonThatIsClicked = '#btnOldestToNewest';				
+			}
+			
+			$(theButtonThatIsClicked).addClass('btnActiveClicked');
+		});
+
+		
         $("#btnNewestToOldest").click(function() {
         	$("#filterOptionOneCountry").val("newestToOldest");
             this.form.submit();

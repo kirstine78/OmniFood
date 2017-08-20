@@ -23,11 +23,11 @@ Version:    1.0
 				<!--  form -->
 		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">		                         
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-info" id="btnAll" value="all">All</button>
+					<button type="submit" class="btn btn-default" id="btnAll" value="all">All</button>
 		                            
-					<button type="submit" class="btn btn-info" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
+					<button type="submit" class="btn btn-default" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
 		                            
-					<button type="submit" class="btn btn-info" id="btnEmpty" value="empty" >No Entry</button>
+					<button type="submit" class="btn btn-default" id="btnEmpty" value="empty" >No Entry</button>
 						    
 		            <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
 		        </form>

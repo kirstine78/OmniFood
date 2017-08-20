@@ -122,12 +122,14 @@ h4, h6 {
 
 .btnActiveClicked {
 	font-weight: bold;
-	background-color: #31b0d5;
-	border-color: #269abc;
+	/*
+	background-color: #31b0d5;*/
+	border-color: #6d8383;
 }
 
 .btnHover {
 	font-weight: bold;
+	border-color: #6d8383;
 }
 
 

@@ -80,6 +80,6 @@ class CountryController extends Controller
 			$foodList = Food::where([['country_id', '=', $id], ['user_id', '=', \Auth::id()],])->orderBy('date', 'desc')->get();
 		}		
 		
-		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList, 'countryCode' => $country->code]);
+		return View('country.oneCountry',  ['oneCountry' => $country, 'foodList' => $foodList, 'countryCode' => $country->code, 'filterOptionOneCountry' => $filterOptionOneCountry]);
 	}
 }
