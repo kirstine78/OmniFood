@@ -55,7 +55,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 
-					<li class="nav_buttons myNavbarItem active"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('home') }}" style="color:black;">Home</a></li>
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Worldwide</a></li>					
 					<li class="dropdown myNavbarItem">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:black;">
@@ -127,11 +127,11 @@
     <script type="text/javascript">
 		$(document).ready(function(){
 			$('.btn').mouseenter(function(){
-				$(this).css('font-weight', 'bold');
+				$(this).addClass('btnActiveClicked');
 			});
 			
 			$('.btn').mouseleave(function(){
-				$(this).css('font-weight', 'normal');
+				$(this).removeClass('btnActiveClicked');
 			});
 		}); 
     </script>
