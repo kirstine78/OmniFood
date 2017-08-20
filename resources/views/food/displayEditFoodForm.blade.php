@@ -116,7 +116,7 @@ Version:    1.0
             var valueName = "deleteImgId[]";
             
 			// add hidden input with the img id
-			$('#editFoodForm').append("<input type='text' " + "name='" + valueName + "' value='" + imgId + "' />");		
+			$('#editFoodForm').append("<input type='hidden' " + "name='" + valueName + "' value='" + imgId + "' />");		
 
 			// hide image and img-delete button which are held in the row
 			foodImageRowDiv.addClass('hidden');
