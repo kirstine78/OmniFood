@@ -311,7 +311,7 @@ Version:    1.0
 			<button type="button" class="btn btn-danger deleteImage">
 	          	<span class="glyphicon glyphicon-minus"></span>
 	        </button>	
-	        <div  >{{ $img->id }}</div>							
+	        <div type="hidden" >{{ $img->id }}</div>							
 		</div>				
 	</div>
 @endforeach
@@ -321,7 +321,7 @@ Version:    1.0
 	<div class="col-xs-12 col-sm-2"></div>
 	<div class="controls col-xs-12 col-sm-5">       
 		<div class="entry input-group">
-			<input class="btn btn-primary" name="foodImageUploads[]" type="file" style="width:100%">
+			<input class="btn btn-default" name="foodImageUploads[]" type="file" style="width:100%">
 			<span class="input-group-btn">
 				<button class="btn btn-success btn-add" type="button">
 					<span class="glyphicon glyphicon-plus"></span>
