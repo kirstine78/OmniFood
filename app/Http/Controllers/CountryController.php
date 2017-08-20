@@ -55,7 +55,7 @@ class CountryController extends Controller
 		// default country Afghanistan 'AF'
 		$defaultCountryCode = 'AF';
 		
-		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode]);
+		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries]);
 	}
 	
 	

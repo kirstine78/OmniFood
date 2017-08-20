@@ -23,7 +23,7 @@ Version:    1.0
 				<!--  form -->
 		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">		                         
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-neutral" id="btnAll" value="all" >All</button>
+					<button type="submit" class="btn btn-neutral" id="btnAll" value="all">All</button>
 		                            
 					<button type="submit" class="btn btn-neutral" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
 		                            
@@ -81,6 +81,21 @@ Version:    1.0
 
 @section('page-script')
     <script type="text/javascript">
+
+		$(document).ready(function(){
+			var theButtonThatIsClicked = '#btnAll';  // default
+			
+			if ( '{{ $filterOptionAllCountries }}' == 'all') {
+				theButtonThatIsClicked = '#btnAll';
+			} else if  ( '{{ $filterOptionAllCountries }}' == 'done') {
+				theButtonThatIsClicked = '#btnDone';				
+			} else if  ( '{{ $filterOptionAllCountries }}' == 'empty') {
+				theButtonThatIsClicked = '#btnEmpty';
+			}
+			$(theButtonThatIsClicked).addClass('btnActiveClicked');
+		});
+			
+		
     	// function to search in a table
         function mySearchFunction() {
             // Declare variables
@@ -129,6 +144,7 @@ Version:    1.0
             window.location.href = url;
         });
 
+       	
         // on click make text bold
         $('tr').click(function(e){ 
             $(this).css("font-weight","bold");
