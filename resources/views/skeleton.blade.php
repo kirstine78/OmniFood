@@ -71,7 +71,8 @@
 							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Antarctica</a></li>
 						</ul>					
 					</li>					
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>					
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
+					<li class="nav_buttons myNavbarItem"><a href="{{ url('about') }}" style="color:black;">About</a></li>						
 				</ul>
 				
 				

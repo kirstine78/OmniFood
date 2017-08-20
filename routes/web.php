@@ -43,7 +43,6 @@ Route::get('/countries/region/{region}', 'CountryController@countriesOneRegion')
 
 
 
-
 // ****************************************
 // ************ FoodController ************
 // ****************************************
@@ -66,3 +65,12 @@ Route::put('/food/edit', 'FoodController@submitEditFood');
 
 // Delete Food
 Route::delete('/food/{food}', 'FoodController@deleteFood');
+
+
+
+// ****************************************
+// ************ AboutController ************
+// ****************************************
+
+
+Route::get('/about', 'AboutController@index');
