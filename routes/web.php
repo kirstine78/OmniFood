@@ -39,7 +39,7 @@ Route::get('/country/{country}', 'CountryController@oneCountry');
 Route::post('/country/{country}', 'CountryController@oneCountry');
 
 
-Route::get('/countries/region/{region}', 'CountryController@countriesOneRegion');
+Route::get('/countries/region', 'CountryController@allCountries');
 
 
 

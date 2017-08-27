@@ -63,12 +63,12 @@
 						</a>						
 						<ul class=" dropdown-menu" role="menu">
 							<li><a href="{{ url('countries') }}" class="myNavbarItem">North America</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">South America</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Europe</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Asia</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Australia / Oceania</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Africa</a></li>
-							<li class="myNavbarItem"><a href="{{ url('countries') }}" class="myNavbarItem">Antarctica</a></li>
+							<li><a href="{{ url('countries/region?region=South+America') }}" class="myNavbarItem">South America</a></li>
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">Europe</a></li>
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">Asia</a></li>
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">Australia / Oceania</a></li>
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">Africa</a></li>
+							<li><a href="{{ url('countries') }}" class="myNavbarItem">Antarctica</a></li>
 						</ul>					
 					</li>					
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>

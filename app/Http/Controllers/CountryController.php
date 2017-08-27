@@ -32,6 +32,10 @@ class CountryController extends Controller
 		
 		$filterOptionAllCountries = $request->filterOptionAllCountries;
 		
+		$region = $request->input('region');
+		
+// 		echo "the region ". $region;
+		
 		if ($filterOptionAllCountries == 'done') {
 			
 			// fetch all Countries from db, that has food entry for this user id			
