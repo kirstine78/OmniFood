@@ -8,102 +8,18 @@
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <title>Laravel</title>
+        <title>OmniFood</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+		<link href="{{ asset('/css/landingPage.css') }}" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-            html, body {
-            
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-            
-            /*
-            .full-height {
-                height: 7vh;
-            }*/
-
-/*
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }*/
-
-            .top-right {
-                /*position: absolute;
-                right: 10px;
-                top: 18px;*/
-                padding-top: 18px;
-                padding-bottom: 18px;
-                text-align: right;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 100px;
-            }
-            
-            .landingPageSubtext {
-            	font-size: 20px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }           
-
-			.imageHundredPercentWidth {
-				width: 100%;
-			}
-
-            .m-b-md {
-                margin-bottom: 30px;http://10.1.1.5:8888/#myCarousel
-            }
-            
-            .carousel-caption {
-			    top: 20%;
-			    bottom: auto;
-			}
-			
-			@media (max-width:992px) {
-			/*for navbar not to overlap content*/
-			.title { 
-                font-size: 60px;
-			}
-            
-            .landingPageSubtext {
-            	font-size: 16px;
-            }
-            
-            .carousel-caption {
-			    top: 10%;
-			}
-		}
-        </style>
+        
     </head>
     <body>
 		<div class="container">
-		    <div class="row">
+		    <div class="row"><!-- start row -->
 		        @if (Route::has('login'))
 		            <div class="top-right links">
 		                @if (Auth::check())
@@ -114,9 +30,9 @@
 		                @endif
 		            </div>
 		        @endif
-			</div>
+			</div><!-- end row -->
 			
-			<div class="row">
+			<div class="row"><!-- start row -->
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
@@ -186,7 +102,18 @@
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-			</div>	        
-	   	</div> 
+			</div><!-- end row -->   
+			<div id="titleAndSubtextSectionSmallDevice">
+				<div id="titleSmallDevice" class="m-b-md">
+					OmniFood
+				</div>
+				<div id="subtextSmallDevice" >
+					<p>Welcome to OmniFood</p>
+					<p>Taste food from all around the World</p>
+					<p>Can you complete all countries?</p>
+					<p>Register or Login</p>
+				</div>   
+			</div> 
+	   	</div> <!-- end container -->
     </body>
 </html>
