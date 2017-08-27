@@ -34,8 +34,13 @@ class CountryController extends Controller
 		
 		$region = $request->input('region');
 		
+		// default title
+		$title = 'Worldwide';
+		
 		// default country Afghanistan 'AF'
 		$defaultCountryCode = 'AF';
+		
+		
 		
 		// check if region is present
 // 		echo "region ". $region;
@@ -92,7 +97,7 @@ class CountryController extends Controller
 // 				echo "<br/>after in region all";
 			}
 			
-			// determine the defaultCountryCode
+			// determine the defaultCountryCode and title
 			if ($region == 'Africa') {
 				$defaultCountryCode = 'DZ';
 			} else if  ($region == 'Antarctica') {
@@ -109,9 +114,11 @@ class CountryController extends Controller
 				$defaultCountryCode = 'AR';
 			}
 			
+			$title = $region;
+			
 		}
 		
-		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries, 'region' => $region]);
+		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries, 'title' => $title]);
 	}
 	
 	

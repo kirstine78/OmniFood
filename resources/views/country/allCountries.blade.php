@@ -14,7 +14,7 @@ Version:    1.0
     <div class="container">
         <div class="row rowBottomPadding">
 			<div class="col-xs-12">
-				<h4>Worldwide</h4>
+				<h4>{{ $title }}</h4>
 			</div>
 		</div>
 
