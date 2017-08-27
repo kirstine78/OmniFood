@@ -25,4 +25,5 @@ class Country extends Model
 			$query->where('user_id', '=', \Auth::id());
 		})->orderBy('name', 'asc')->get();
 	}
+	
 }

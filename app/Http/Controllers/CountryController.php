@@ -34,32 +34,63 @@ class CountryController extends Controller
 		
 		$region = $request->input('region');
 		
-// 		echo "the region ". $region;
-		
-		if ($filterOptionAllCountries == 'done') {
+		// check if region is present
+		echo "region ". $region;
+		if ($region== null) {
+			echo "<br/>inside the region null";
+			// WORLDWIDE
+			if ($filterOptionAllCountries == 'done') {
+				
+				// fetch all Countries from db, that has food entry for this user id
+				$countriesList = Country::countriesThatHaveFoodsForUser()->all();
+				
+			} elseif ($filterOptionAllCountries == 'empty') {
+				
+				// fetch all Countries from db, that hasn't got food entry for this user id
+				$countriesList = Country::whereDoesntHave('foods', function($query){
+					$query->where('user_id', '=', \Auth::id());
+				})->orderBy('name', 'asc')->get();
+				
+				$countriesList = $countriesList->all();
+				
+			} else {
+				
+				// fetch all Countries from db
+				$countriesList = Country::orderBy('name', 'asc')->get();
+			}
 			
-			// fetch all Countries from db, that has food entry for this user id			
-			$countriesList = Country::countriesThatHaveFoodsForUser()->all();
-			
-		} elseif ($filterOptionAllCountries == 'empty') {
-			
-			// fetch all Countries from db, that hasn't food entry for this user id			
-			$countriesList = Country::whereDoesntHave('foods', function($query){
-				$query->where('user_id', '=', \Auth::id());
-			})->orderBy('name', 'asc')->get();
-			
-			$countriesList = $countriesList->all();
-			
-		} else {
-			
-			// fetch all Countries from db
-			$countriesList = Country::orderBy('name', 'asc')->get();			
-		}
+		} else {		
+			echo "<br/>Else region: ". $region;
+			// REGION
+			if ($filterOptionAllCountries == 'done') {
+				echo "<br/>in region done";
+				// fetch all Countries from certain Region from db, that has food entry for this user id
+				$countriesList = Country::countriesThatHaveFoodsForUser()->where('region', '=', $region);
+				echo "<br/>after the region done";
+				
+			} elseif ($filterOptionAllCountries == 'empty') {
+				echo "<br/>in region empty";
+				
+				// fetch all Countries from certain Region from db, that hasn't got food entry for this user id
+				$countriesList = Country::whereDoesntHave('foods', function($query){
+					$query->where('user_id', '=', \Auth::id());
+				})->where('region', '=', $region)->orderBy('name', 'asc')->get();
+				
+				$countriesList = $countriesList->all();
+				
+			} else {
+				echo "<br/>in region all";
+				
+				// fetch all Countries from certain Region from db
+				$countriesList = Country::orderBy('name', 'asc')->where('region', '=', $region)->get();
+				echo "<br/>after in region all";
+			}
+		}	
 		
 		// default country Afghanistan 'AF'
 		$defaultCountryCode = 'AF';
 		
-		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries]);
+		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries, 'region' => $region]);
 	}
 	
 	

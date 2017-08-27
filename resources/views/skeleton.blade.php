@@ -63,7 +63,7 @@
 						</a>						
 						<ul class=" dropdown-menu" role="menu">
 							<li><a href="{{ url('countries') }}" class="myNavbarItem">North America</a></li>
-							<li><a href="{{ url('countries/region?region=South+America') }}" class="myNavbarItem">South America</a></li>
+							<li><a href="{{ url('countries?region=South+America') }}" class="myNavbarItem">South America</a></li>
 							<li><a href="{{ url('countries') }}" class="myNavbarItem">Europe</a></li>
 							<li><a href="{{ url('countries') }}" class="myNavbarItem">Asia</a></li>
 							<li><a href="{{ url('countries') }}" class="myNavbarItem">Australia / Oceania</a></li>
