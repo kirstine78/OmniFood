@@ -124,11 +124,9 @@ class CountryController extends Controller
 	public function oneCountry(Country $country, Request $request) {		
 		
 		$filterOptionOneCountry= $request->filterOptionOneCountry;
-		echo $filterOptionOneCountry;
 		
 		// assign id of country to $id. It is the row aka. country that was clicked
 		$id = $country->id;
-		echo $id;
 				
 		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country

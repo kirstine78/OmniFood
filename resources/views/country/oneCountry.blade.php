@@ -74,6 +74,7 @@ Version:    1.0
 	<script type="text/javascript">
 
 		$(document).ready(function(){
+			// determine which button to show as Active
 			var theButtonThatIsClicked = '#btnNewestToOldest';  // default
 			
 			if ( '{{ $filterOptionOneCountry }}' == 'newestToOldest') {
@@ -85,16 +86,6 @@ Version:    1.0
 			$(theButtonThatIsClicked).addClass('btnActiveClicked');
 		});
 
-		
-        $("#btnNewestToOldest").click(function() {
-        	$("#filterOptionOneCountry").val("newestToOldest");
-            this.form.submit();
-       	});
-
-        $("#btnOldestToNewest").click(function() {            
-        	$("#filterOptionOneCountry").val("oldestToNewest");
-            this.form.submit();
-       	});
 	</script>
 
 @endsection

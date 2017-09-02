@@ -62,13 +62,13 @@
 							Regions<span class="caret"></span>
 						</a>						
 						<ul class=" dropdown-menu" role="menu">
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=Africa') }}" class="myNavbarItem">Africa</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=Antarctica') }}" class="myNavbarItem">Antarctica</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=Asia') }}" class="myNavbarItem">Asia</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=Australia+/+Oceania') }}" class="myNavbarItem">Australia / Oceania</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=Europe') }}" class="myNavbarItem">Europe</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=North+America') }}" class="myNavbarItem">North America</a></li>
-							<li><a href="{{ url('countries?filterOptionAllCountries=all&region=South+America') }}" class="myNavbarItem">South America</a></li>
+							<li><a href="{{ url('countries?region=Africa') }}" class="myNavbarItem">Africa</a></li>
+							<li><a href="{{ url('countries?region=Antarctica') }}" class="myNavbarItem">Antarctica</a></li>
+							<li><a href="{{ url('countries?region=Asia') }}" class="myNavbarItem">Asia</a></li>
+							<li><a href="{{ url('countries?region=Australia+/+Oceania') }}" class="myNavbarItem">Australia / Oceania</a></li>
+							<li><a href="{{ url('countries?region=Europe') }}" class="myNavbarItem">Europe</a></li>
+							<li><a href="{{ url('countries?region=North+America') }}" class="myNavbarItem">North America</a></li>
+							<li><a href="{{ url('countries?region=South+America') }}" class="myNavbarItem">South America</a></li>
 						</ul>					
 					</li>					
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
