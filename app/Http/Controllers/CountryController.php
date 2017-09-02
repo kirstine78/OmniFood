@@ -32,7 +32,11 @@ class CountryController extends Controller
 		
 		$filterOptionAllCountries = $request->filterOptionAllCountries;
 		
-		$region = $request->input('region');
+		if ($filterOptionAllCountries == null) {
+			$filterOptionAllCountries = 'all';
+		}
+		
+		$region = $request->region;
 		
 		// default title
 		$title = 'Worldwide';
@@ -43,11 +47,8 @@ class CountryController extends Controller
 		
 		
 		// check if region is present
-// 		echo "region ". $region;
-
-		if ($region== null) {
-// 			echo "<br/>region null";
-
+		if ($region == null) {
+			
 			// WORLDWIDE
 			if ($filterOptionAllCountries == 'done') {
 				
@@ -69,18 +70,15 @@ class CountryController extends Controller
 				$countriesList = Country::orderBy('name', 'asc')->get();
 			}
 			
-		} else {		
-// 			echo "<br/>Else region: ". $region;
-
+		} else {
+			
 			// REGION
 			if ($filterOptionAllCountries == 'done') {
-// 				echo "<br/>in region done";
+				
 				// fetch all Countries from certain Region from db, that has food entry for this user id
 				$countriesList = Country::countriesThatHaveFoodsForUser()->where('region', '=', $region);
-// 				echo "<br/>after the region done";
 				
 			} elseif ($filterOptionAllCountries == 'empty') {
-// 				echo "<br/>in region empty";
 				
 				// fetch all Countries from certain Region from db, that hasn't got food entry for this user id
 				$countriesList = Country::whereDoesntHave('foods', function($query){
@@ -90,35 +88,42 @@ class CountryController extends Controller
 				$countriesList = $countriesList->all();
 				
 			} else {
-// 				echo "<br/>in region all";
 				
 				// fetch all Countries from certain Region from db
 				$countriesList = Country::orderBy('name', 'asc')->where('region', '=', $region)->get();
-// 				echo "<br/>after in region all";
 			}
 			
-			// determine the defaultCountryCode and title
-			if ($region == 'Africa') {
-				$defaultCountryCode = 'DZ';
-			} else if  ($region == 'Antarctica') {
-				$defaultCountryCode = 'AQ';
-			} else if  ($region == 'Asia') {
-				$defaultCountryCode = 'AF';
-			} else if  ($region == 'Australia / Oceania') {
-				$defaultCountryCode = 'AS';
-			} else if  ($region == 'Europe') {
-				$defaultCountryCode = 'AL';
-			} else if  ($region == 'North America') {
-				$defaultCountryCode = 'AI';
-			} else if  ($region == 'South America') {
-				$defaultCountryCode = 'AR';
-			}
+			// set the defaultCountryCode
+			$defaultCountryCode = $this->getDefaultCountryCode($region);
 			
-			$title = $region;
-			
+			// set title
+			$title = $region;			
 		}
 		
-		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries, 'title' => $title]);
+		return View('country.allCountries', ['countries' => $countriesList, 'countryCode' => $defaultCountryCode, 'filterOptionAllCountries' => $filterOptionAllCountries, 'title' => $title, 'region' => $region]);
+	}
+	
+	// takes a Region as parameter and based on that determines which country should be set as default and returns it
+	public function getDefaultCountryCode($region) {
+		
+		$defaultCountryCode = 'AF';
+		
+		if ($region == 'Africa') {
+			$defaultCountryCode = 'DZ';
+		} else if  ($region == 'Antarctica') {
+			$defaultCountryCode = 'AQ';
+		} else if  ($region == 'Asia') {
+			$defaultCountryCode = 'AF';
+		} else if  ($region == 'Australia / Oceania') {
+			$defaultCountryCode = 'AS';
+		} else if  ($region == 'Europe') {
+			$defaultCountryCode = 'AL';
+		} else if  ($region == 'North America') {
+			$defaultCountryCode = 'AI';
+		} else if  ($region == 'South America') {
+			$defaultCountryCode = 'AR';
+		}
+		return $defaultCountryCode;
 	}
 	
 	

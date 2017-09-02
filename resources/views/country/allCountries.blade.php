@@ -15,22 +15,15 @@ Version:    1.0
         <div class="row rowBottomPadding">
 			<div class="col-xs-12">
 				<h4>{{ $title }}</h4>
+				{{$filterOptionAllCountries}}
 			</div>
 		</div>
 
         <div class="row">                
-	        <div class="col-xs-12 col-sm-5 colBottomPadding">						
-				<!--  form -->
-		        <form action="{{ url('#') }}" method="POST" class="form-horizontal">		                         
-					{{ csrf_field() }}
-					<button type="submit" class="btn btn-default" id="btnAll" value="all">All</button>
-		                            
-					<button type="submit" class="btn btn-default" id="btnDone" value="done" ><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</button>	
-		                            
-					<button type="submit" class="btn btn-default" id="btnEmpty" value="empty" >No Entry</button>
-						    
-		            <input id="filterOptionAllCountries" type="hidden" name="filterOptionAllCountries" value="all">
-		        </form>
+	        <div class="col-xs-12 col-sm-5 colBottomPadding">
+		        <a href="countries?filterOptionAllCountries=all&region={{$region}}" class="btn btn-default" id="#btnAll">All</a>
+		        <a href="countries?filterOptionAllCountries=done&region={{$region}}" class="btn btn-default" id="#btnDone"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</a>
+		        <a href="countries?filterOptionAllCountries=empty&region={{$region}}" class="btn btn-default" id="#btnEmpty">No Entry</a>
 			</div>
 			
 			<div class="col-xs-12 col-sm-7 colBottomPadding">
@@ -82,6 +75,7 @@ Version:    1.0
 @section('page-script')
     <script type="text/javascript">
 
+
 		$(document).ready(function(){
 			var theButtonThatIsClicked = '#btnAll';  // default
 			
@@ -118,20 +112,6 @@ Version:    1.0
             }
         }
 
-        $("#btnAll").click(function() {
-        	$("#filterOptionAllCountries").val("all");
-            this.form.submit();
-       	});
-
-        $("#btnDone").click(function() {
-        	$("#filterOptionAllCountries").val("done");
-            this.form.submit();
-       	});
-
-        $("#btnEmpty").click(function() {
-        	$("#filterOptionAllCountries").val("empty");
-            this.form.submit();
-       	});
 
        	// clickable row
         $('.table > tbody > tr').click(function() {            
