@@ -42,9 +42,7 @@ class CountryController extends Controller
 		$title = 'Worldwide';
 		
 		// default country Afghanistan 'AF'
-		$defaultCountryCode = 'AF';
-		
-		
+		$defaultCountryCode = 'AF';		
 		
 		// check if region is present
 		if ($region == null) {
@@ -96,7 +94,7 @@ class CountryController extends Controller
 			// set the defaultCountryCode
 			$defaultCountryCode = $this->getDefaultCountryCode($region);
 			
-			// set title
+			// set title to reflect the Region
 			$title = $region;			
 		}
 		

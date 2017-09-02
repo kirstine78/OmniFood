@@ -15,15 +15,14 @@ Version:    1.0
         <div class="row rowBottomPadding">
 			<div class="col-xs-12">
 				<h4>{{ $title }}</h4>
-				{{$filterOptionAllCountries}}
 			</div>
 		</div>
 
         <div class="row">                
 	        <div class="col-xs-12 col-sm-5 colBottomPadding">
-		        <a href="countries?filterOptionAllCountries=all&region={{$region}}" class="btn btn-default" id="#btnAll">All</a>
-		        <a href="countries?filterOptionAllCountries=done&region={{$region}}" class="btn btn-default" id="#btnDone"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</a>
-		        <a href="countries?filterOptionAllCountries=empty&region={{$region}}" class="btn btn-default" id="#btnEmpty">No Entry</a>
+		        <a href="countries?filterOptionAllCountries=all&region={{$region}}" class="btn btn-default" id="btnAll">All</a>
+		        <a href="countries?filterOptionAllCountries=done&region={{$region}}" class="btn btn-default" id="btnDone"><span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;"></span> Done</a>
+		        <a href="countries?filterOptionAllCountries=empty&region={{$region}}" class="btn btn-default" id="btnEmpty">No Entry</a>
 			</div>
 			
 			<div class="col-xs-12 col-sm-7 colBottomPadding">
@@ -75,7 +74,6 @@ Version:    1.0
 @section('page-script')
     <script type="text/javascript">
 
-
 		$(document).ready(function(){
 			var theButtonThatIsClicked = '#btnAll';  // default
 			
@@ -87,7 +85,10 @@ Version:    1.0
 				theButtonThatIsClicked = '#btnEmpty';
 			}
 			$(theButtonThatIsClicked).addClass('btnActiveClicked');
+
 		});
+
+
 			
 		
     	// function to search in a table
