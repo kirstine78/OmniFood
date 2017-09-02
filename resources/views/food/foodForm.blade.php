@@ -310,11 +310,10 @@ Version:    1.0
 		<!-- image(s) -->
 		@foreach($food->images as $img)	
 			<div class="entry row foodImageRow" data-img-id="{{ $img->id }}">
-				<div class="col-xs-12"></div>
-				<div class="col-xs-5">
+				<div class="col-xs-6">
 					<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
 				</div>	
-				<div class="col-xs-5">
+				<div class="col-xs-6">
 					<button type="button" class="btn btn-danger deleteImage">
 			          	<span class="glyphicon glyphicon-minus"></span>
 			        </button>						
