@@ -75,6 +75,8 @@ Version:    1.0
     <script type="text/javascript">
 
 		$(document).ready(function(){
+
+			// determine which link (btn) should have bold text (look active) 
 			var theButtonThatIsClicked = '#btnAll';  // default
 			
 			if ( '{{ $filterOptionAllCountries }}' == 'all') {
@@ -87,8 +89,6 @@ Version:    1.0
 			$(theButtonThatIsClicked).addClass('btnActiveClicked');
 
 		});
-
-
 			
 		
     	// function to search in a table
@@ -114,7 +114,7 @@ Version:    1.0
         }
 
 
-       	// clickable row
+       	// clickable table row
         $('.table > tbody > tr').click(function() {            
             // row was clicked            
             //alert($(this).find('.hiddenID').text());
@@ -126,7 +126,7 @@ Version:    1.0
         });
 
        	
-        // on click make text bold
+        // on table row click make text bold
         $('tr').click(function(e){ 
             $(this).css("font-weight","bold");
             e.stopPropagation(); 
