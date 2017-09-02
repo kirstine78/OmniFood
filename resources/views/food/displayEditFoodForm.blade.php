@@ -120,6 +120,12 @@ Version:    1.0
 
 			// hide image and img-delete button which are held in the row
 			foodImageRowDiv.addClass('hidden');
+
+			// determine if file input element should be shown
+			var theControlForm = $('.controls:first');
+			if (theControlForm.find('.deleteImage:not(:hidden)').length < 3) {
+				$('.input-group').removeClass('hide');
+			}	
         });
 
      	
@@ -149,7 +155,7 @@ Version:    1.0
 				return false;
 			});
 		});
-		
+
 		
 		$("#editFoodForm").submit(function(event){
 			// alert("button clicked");

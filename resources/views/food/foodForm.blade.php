@@ -321,14 +321,18 @@ Version:    1.0
 			</div>
 		@endforeach
 	   
-		<div class="entry input-group">
-			<input class="btn btn-default" name="foodImageUploads[]" type="file" style="width:100%">
-			<span class="input-group-btn">
-				<button class="btn btn-success btn-add" type="button">
-					<span class="glyphicon glyphicon-plus"></span>
-				</button>
-			</span>
-		</div>           
+	   	@if (count($food->images) == 3)
+			<div class="entry input-group hide"> 
+		@else  
+		 	<div class="entry input-group">
+		@endif  
+				<input class="btn btn-default" name="foodImageUploads[]" type="file" style="width:100%">
+				<span class="input-group-btn">
+					<button class="btn btn-success btn-add" type="button">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</span>
+			</div>     
 	</div>   
 </div>
 
