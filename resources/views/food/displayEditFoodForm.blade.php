@@ -122,7 +122,35 @@ Version:    1.0
 			foodImageRowDiv.addClass('hidden');
         });
 
+     	
+		// handles when clicks the PLUS btn for image file input
+		$(function() {
+		    $(document).on('click', '.btn-add', function(e) {
+		        e.preventDefault();
+		
+		        var controlForm = $('.controls:first');
 
+		        // be sure to exlude the hidden images when counting the elements with class 'entry'
+		        if (controlForm.find('.entry:not(:hidden)').length < 3) {		  
+			        var currentEntry = $(this).parents('.entry:first');
+			        var newEntry = $(currentEntry.clone()).appendTo(controlForm);
+			
+			        newEntry.find('input').val('');
+			              
+			        controlForm.find('.entry:not(:last) .btn-add')
+			            .removeClass('btn-add').addClass('btn-remove')
+			            .removeClass('btn-success').addClass('btn-danger')
+			            .html('<span class="glyphicon glyphicon-minus"></span>');
+		        }
+		    }).on('click', '.btn-remove', function(e) {
+		    	$(this).parents('.entry:first').remove();
+		
+				e.preventDefault();
+				return false;
+			});
+		});
+		
+		
 		$("#editFoodForm").submit(function(event){
 			// alert("button clicked");
 

@@ -298,27 +298,30 @@ Version:    1.0
 </div>
 
 
-<!-- if EDIT then there might be images associated with food -->
-<!-- if ADD then food obj is 'fake' and empty of images -->
-<!-- image(s) -->
-@foreach($food->images as $img)	
-	<div class="row foodImageRow" data-img-id="{{ $img->id }}">
-		<div class="col-xs-12 col-sm-2"></div>
-		<div class="col-xs-5">
-			<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
-		</div>	
-		<div class="col-xs-5">
-			<button type="button" class="btn btn-danger deleteImage">
-	          	<span class="glyphicon glyphicon-minus"></span>
-	        </button>						
-		</div>				
-	</div>
-@endforeach
+
 
 <!-- food image add new file -->
 <div class="row">
-	<div class="col-xs-12 col-sm-2"></div>
-	<div class="controls col-xs-12 col-sm-5">       
+    <label for="foodImageUploads[]" class="col-xs-12 col-sm-2 control-label">Img (max 3)</label>
+	<div class="controls col-xs-12 col-sm-5">    
+	
+		<!-- if EDIT then there might be images associated with food -->
+		<!-- if ADD then food obj is 'fake' and empty of images -->
+		<!-- image(s) -->
+		@foreach($food->images as $img)	
+			<div class="entry row foodImageRow" data-img-id="{{ $img->id }}">
+				<div class="col-xs-12"></div>
+				<div class="col-xs-5">
+					<img class="img-responsive imageHundredPercentWidth img-thumbnail" src="{{Storage::disk('public')->url($img->filename)}}" alt="{{$img->filename}}">							
+				</div>	
+				<div class="col-xs-5">
+					<button type="button" class="btn btn-danger deleteImage">
+			          	<span class="glyphicon glyphicon-minus"></span>
+			        </button>						
+				</div>				
+			</div>
+		@endforeach
+	   
 		<div class="entry input-group">
 			<input class="btn btn-default" name="foodImageUploads[]" type="file" style="width:100%">
 			<span class="input-group-btn">
