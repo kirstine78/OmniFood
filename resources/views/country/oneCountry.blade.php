@@ -21,17 +21,9 @@ Version:    1.0
 	@if (count($foodList) > 0)
 				
 		<div class="row rowBottomPadding">
-			<div class="col-xs-12">
-				<!--  form -->
-				<form action="{{ url('#') }}" method="POST" class="form-horizontal">
-				
-					{{ csrf_field() }}
-					<button type="submit" class="btn btn-default" id="btnNewestToOldest" value="newestToOldest">Newest</button>
-				
-					<button type="submit" class="btn btn-default" id="btnOldestToNewest" value="oldestToNewest">Oldest</button>
-	
-					<input id="filterOptionOneCountry" type="hidden" name="filterOptionOneCountry" value="newestToOldest">
-				</form>	
+			<div class="col-xs-12">				
+				<a href="?filterOptionOneCountry=newestToOldest" class="btn btn-default" id="btnNewestToOldest">Newest</a>
+				<a href="?filterOptionOneCountry=oldestToNewest" class="btn btn-default" id="btnOldestToNewest">Oldest</a>
 			</div>
 		</div>
 	

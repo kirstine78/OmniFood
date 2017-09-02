@@ -30,12 +30,7 @@ class CountryController extends Controller
 	// to show all countries
 	public function allCountries(Request $request){
 		
-		$filterOptionAllCountries = $request->filterOptionAllCountries;
-		
-		if ($filterOptionAllCountries == null) {
-			$filterOptionAllCountries = 'all';
-		}
-		
+		$filterOptionAllCountries = $request->filterOptionAllCountries;				
 		$region = $request->region;
 		
 		// default title
@@ -129,9 +124,11 @@ class CountryController extends Controller
 	public function oneCountry(Country $country, Request $request) {		
 		
 		$filterOptionOneCountry= $request->filterOptionOneCountry;
+		echo $filterOptionOneCountry;
 		
 		// assign id of country to $id. It is the row aka. country that was clicked
-		$id = $country->id;						
+		$id = $country->id;
+		echo $id;
 				
 		if  ($filterOptionOneCountry == 'newestToOldest') {
 			// fetch all food entries for the country
