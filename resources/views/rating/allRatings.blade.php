@@ -36,7 +36,7 @@ Version:    1.0
                         <thead>
 	                        <tr class="row">
 	                            <th class="col-xs-3">Rating</th>
-	                            <th class="col-xs-9">Country / Img</th>
+	                            <th class="col-xs-9">Country / Image</th>
                             </tr>
                         </thead>
 

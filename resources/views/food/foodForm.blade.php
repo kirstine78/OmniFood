@@ -321,7 +321,7 @@ Version:    1.0
 			</div>
 		@endforeach
 	   
-	   	@if (count($food->images) == 3)
+	   	@if (count($food->images) == 6)
 			<div class="entry input-group hide"> 
 		@else  
 		 	<div class="entry input-group">

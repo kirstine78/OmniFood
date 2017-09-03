@@ -123,7 +123,7 @@ Version:    1.0
 
 			// determine if file input element should be shown
 			var theControlForm = $('.controls:first');
-			if (theControlForm.find('.deleteImage:not(:hidden)').length < 3) {
+			if (theControlForm.find('.deleteImage:not(:hidden)').length < 6) {
 				$('.input-group').removeClass('hide');
 			}	
         });
@@ -137,7 +137,7 @@ Version:    1.0
 		        var controlForm = $('.controls:first');
 
 		        // be sure to exlude the hidden images when counting the elements with class 'entry'
-		        if (controlForm.find('.entry:not(:hidden)').length < 3) {		  
+		        if (controlForm.find('.entry:not(:hidden)').length < 6) {		  
 			        var currentEntry = $(this).parents('.entry:first');
 			        var newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			

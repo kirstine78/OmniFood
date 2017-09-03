@@ -59,7 +59,7 @@ Version:    1.0
 		
 		        var controlForm = $('.controls:first');
 
-		        if (controlForm.find('.entry').length < 3) {		  
+		        if (controlForm.find('.entry').length < 6) {		  
 			        var currentEntry = $(this).parents('.entry:first');
 			        var newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
