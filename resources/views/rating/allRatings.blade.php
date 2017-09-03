@@ -19,13 +19,16 @@ Version:    1.0
 		</div>
 
 		@if (count($foodList) > 0)
-	        <div class="row">                
-		        <div class="col-xs-12 col-sm-5 colBottomPadding">
-					<a href="?filterOptionRatings=bestToWorst" class="btn btn-default" id="btnBestToWorst">Best</a>
-					<a href="?filterOptionRatings=worstToBest" class="btn btn-default" id="btnWorstToBest">Worst</a>
+			
+			@if ($title == 'All Ratings')
+		        <div class="row">                
+			        <div class="col-xs-12 col-sm-5 colBottomPadding">
+						<a href="?filterOptionRatings=bestToWorst" class="btn btn-default" id="btnBestToWorst">Best</a>
+						<a href="?filterOptionRatings=worstToBest" class="btn btn-default" id="btnWorstToBest">Worst</a>
+					</div>
 				</div>
-			</div>
-		         
+		    @endif
+		       
             <div class="row">
 				<div class="col-xs-12">
 					<table class="table table-striped task-table"  id="myTable">
