@@ -47,9 +47,12 @@ Version:    1.0
 				<p>
 		        	You can also choose to see all food entries associated with a specific country.
 		        	<br/>
-		        	Simply click the 'Worldwide' tab.
+		        	Simply click the 'Worldwide' tab and choose the country of interest
 					<br/>
-					This will show details in a similar fashion as on the Home page, but country specific.					
+					This will show details in a similar fashion as on the Home page, but country specific.		
+					<br/>
+					<br/>
+					To see entries for a certain region or entries with a certain rating simply click one of the options under 'Regions'	or 'Ratings'.
 	        	</p>
 				<br/>	        	
 	        	<p>It's now entirely up to you to see if you can complete a menu from each countries in the entire World.</p>	
