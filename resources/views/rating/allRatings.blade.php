@@ -35,8 +35,8 @@ Version:    1.0
                         <!-- Table Headings -->
                         <thead>
 	                        <tr class="row">
-	                            <th class="col-xs-4">Rating</th>
-	                            <th class="col-xs-8">Country / Img</th>
+	                            <th class="col-xs-3">Rating</th>
+	                            <th class="col-xs-9">Country / Img</th>
                             </tr>
                         </thead>
 
@@ -45,7 +45,7 @@ Version:    1.0
                         	@foreach($foodList as $food)
                                 <tr class="row">
                                     <!-- Rating -->
-                                    <td class="col-xs-4 table-text">	
+                                    <td class="col-xs-3 table-text ratingImageColumnOnRatingPage">	
 										@if ($food->rating == 0)
 											<img class="ratingImagePooSmallVersion" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
 										@else
@@ -56,7 +56,7 @@ Version:    1.0
                                     </td>
                                     
                                     <!-- country name / img -->
-                                    <td class="col-xs-8 table-text">
+                                    <td class="col-xs-9 table-text">
                                     	<div class="row countryNameRowOnRatingPage">
                                     		<div class="col-xs-12">{{ $food->country->name }}</div> 
 											<div class='hiddenID' style="display: none;">{{ $food->id }}</div>	                                   		
