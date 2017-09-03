@@ -59,7 +59,7 @@ Version:    1.0
                                     <td class="col-xs-8 table-text">
                                     	<div class="row">
                                     		<div class="col-xs-12">{{ $food->country->name }}</div> 
-											<div class='hiddenID' ">{{ $food->id }}</div>	                                   		
+											<div class='hiddenID' style="display: none;">{{ $food->id }}</div>	                                   		
                                     	</div>
                                     	<div class="row">                                    	
                                     		<div class="col-xs-12">
