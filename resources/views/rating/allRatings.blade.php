@@ -57,7 +57,7 @@ Version:    1.0
                                     
                                     <!-- country name / img -->
                                     <td class="col-xs-8 table-text">
-                                    	<div class="row">
+                                    	<div class="row countryNameRowOnRatingPage">
                                     		<div class="col-xs-12">{{ $food->country->name }}</div> 
 											<div class='hiddenID' style="display: none;">{{ $food->id }}</div>	                                   		
                                     	</div>
