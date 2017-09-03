@@ -58,6 +58,14 @@ h4 {
 	width: 34px;
 }
 
+.ratingImageSmallVersion {
+	width: 20px;	
+}
+
+.ratingImagePooSmallVersion {
+	width: 20px;	
+}
+
 .leftPadding {
 	padding-left: 12px;
 }

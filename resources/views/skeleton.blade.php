@@ -79,12 +79,46 @@
 						</a>						
 						<ul class=" dropdown-menu" role="menu">
 							<li><a href="{{ url('ratings') }}" class="myNavbarItem">All</a></li>
-							<li><a href="{{ url('ratings?rating=5') }}" class="myNavbarItem">5</a></li>
-							<li><a href="{{ url('ratings?rating=4') }}" class="myNavbarItem">4</a></li>
-							<li><a href="{{ url('ratings?rating=3') }}" class="myNavbarItem">3</a></li>
-							<li><a href="{{ url('ratings?rating=2') }}" class="myNavbarItem">2</a></li>
-							<li><a href="{{ url('ratings?rating=1') }}" class="myNavbarItem">1</a></li>
-							<li><a href="{{ url('ratings?rating=0') }}" class="myNavbarItem">0</a></li>
+							<li>
+								<a href="{{ url('ratings?rating=5') }}" class="myNavbarItem">
+									@for ($i = 0; $i < 5; $i++)
+								        <img class="ratingImageSmallVersion" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+								    @endfor
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('ratings?rating=4') }}" class="myNavbarItem">
+									@for ($i = 0; $i < 4; $i++)
+								        <img class="ratingImageSmallVersion" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+								    @endfor
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('ratings?rating=3') }}" class="myNavbarItem">
+									@for ($i = 0; $i < 3; $i++)
+								        <img class="ratingImageSmallVersion" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+								    @endfor
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('ratings?rating=2') }}" class="myNavbarItem">
+									@for ($i = 0; $i < 2; $i++)
+								        <img class="ratingImageSmallVersion" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+								    @endfor
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('ratings?rating=1') }}" class="myNavbarItem">
+									@for ($i = 0; $i < 1; $i++)
+								        <img class="ratingImageSmallVersion" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+								    @endfor
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('ratings?rating=0') }}" class="myNavbarItem">
+									<img class="ratingImagePooSmallVersion" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop">
+								</a>
+							</li>
 						</ul>					
 					</li>
 					
