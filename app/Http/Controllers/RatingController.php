@@ -19,10 +19,8 @@ class RatingController extends Controller
 	
 	
 	public function allRatings(Request $request){
-		echo "all ratings";
 		
 		$filterOptionRatings= $request->filterOptionRatings;
-		echo "<br/>filterOptionRatings" . $filterOptionRatings;
 		
 		$title = 'All Ratings';
 		

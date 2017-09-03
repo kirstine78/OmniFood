@@ -42,17 +42,30 @@ Version:    1.0
                         	@foreach($foodList as $food)
                                 <tr class="row">
                                     <!-- Rating -->
-                                    <td class="col-xs-4 table-text">
-                                        {{ $food->rating }}
+                                    <td class="col-xs-4 table-text">	
+										@if ($food->rating == 0)
+											<img class="ratingImagePoo" src="{{URL::asset('/img/SadPoopEmoji.jpg')}}" alt="Poop"> 
+										@else
+											@for ($i = 0; $i < $food->rating; $i++)
+										        <img class="ratingImage" src="{{URL::asset('/img/star.png')}}" alt="Star"> 
+										    @endfor
+										@endif	
                                     </td>
                                     
                                     <!-- country name / img -->
                                     <td class="col-xs-8 table-text">
                                     	<div class="row">
-                                    		<div class="col-xs-12">{{ $food->country->name }}</div>                                    		
+                                    		<div class="col-xs-12">{{ $food->country->name }}</div> 
+											<div class='hiddenID' ">{{ $food->id }}</div>	                                   		
                                     	</div>
-                                    	<div class="row">
-                                    		<div class="col-xs-12">some image</div>                                    		
+                                    	<div class="row">                                    	
+                                    		<div class="col-xs-12">
+												@if ($food->images->isNotEmpty()) 
+													<img class="img-responsive imageHundredPercentWidth" src="{{Storage::disk('public')->url($food->images->first()->filename)}}" alt="{{$food->images->first()->filename}}"> 
+												@else 
+													<img class="img-responsive imageHundredPercentWidth" src="{{URL::asset('/img/no_image_available.jpeg')}}" alt="img not available"> 
+												@endif
+											</div>                                    		
                                     	</div>                                        
                                     </td>
                                 </tr>
@@ -91,7 +104,7 @@ Version:    1.0
             // row was clicked            
             //alert($(this).find('.hiddenID').text());
             var hiddenID = $(this).find('.hiddenID').text();
-            var url = '/country/' + hiddenID;
+            var url = '/food/' + hiddenID;
             //alert (url);
             // redirect
             window.location.href = url;

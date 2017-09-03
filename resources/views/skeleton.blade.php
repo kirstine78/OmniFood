@@ -39,7 +39,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				
-				<a href="{{ url('home') }}" class="navbar-brand">OmniFood</a>
+				<a href="{{ url('home') }}" class="navbar-brand" id="omniFoodLogo">OmniFood</a>
 				
 				<form action="/food" method="GET" id="newButtonFormSmallScreen">
 	            	{{ csrf_field() }}
