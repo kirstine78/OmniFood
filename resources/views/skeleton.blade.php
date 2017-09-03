@@ -70,8 +70,25 @@
 							<li><a href="{{ url('countries?region=North+America') }}" class="myNavbarItem">North America</a></li>
 							<li><a href="{{ url('countries?region=South+America') }}" class="myNavbarItem">South America</a></li>
 						</ul>					
-					</li>					
-					<li class="nav_buttons myNavbarItem"><a href="{{ url('countries') }}" style="color:black;">Reviews</a></li>
+					</li>		
+					
+									
+					<li class="dropdown myNavbarItem">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:black;">
+							Ratings<span class="caret"></span>
+						</a>						
+						<ul class=" dropdown-menu" role="menu">
+							<li><a href="{{ url('ratings') }}" class="myNavbarItem">All</a></li>
+							<li><a href="{{ url('ratings?rating=5') }}" class="myNavbarItem">5</a></li>
+							<li><a href="{{ url('ratings?rating=4') }}" class="myNavbarItem">4</a></li>
+							<li><a href="{{ url('ratings?rating=3') }}" class="myNavbarItem">3</a></li>
+							<li><a href="{{ url('ratings?rating=2') }}" class="myNavbarItem">2</a></li>
+							<li><a href="{{ url('ratings?rating=1') }}" class="myNavbarItem">1</a></li>
+							<li><a href="{{ url('ratings?rating=0') }}" class="myNavbarItem">0</a></li>
+						</ul>					
+					</li>
+					
+								
 					<li class="nav_buttons myNavbarItem"><a href="{{ url('about') }}" style="color:black;">About</a></li>						
 				</ul>
 				

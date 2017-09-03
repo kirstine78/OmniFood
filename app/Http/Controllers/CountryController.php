@@ -27,7 +27,7 @@ class CountryController extends Controller
 	}
 	
 	
-	// to show all countries
+	// to show all countries/regions
 	public function allCountries(Request $request){
 		
 		$filterOptionAllCountries = $request->filterOptionAllCountries;				
