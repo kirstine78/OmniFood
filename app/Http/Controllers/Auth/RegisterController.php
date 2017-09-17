@@ -6,6 +6,7 @@ use OmniFood\User;
 use OmniFood\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -63,10 +64,47 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+    	$confirmation_code = str_random(30);  // http://bensmith.io/email-verification-with-laravel
+    	
+    	$aUser = User::create([
+    			'name' => $data['name'],
+    			'email' => $data['email'],
+    			'password' => bcrypt($data['password']),
+    			'confirmed' => 0,
+    			'confirmation_code' => $confirmation_code,  // http://bensmith.io/email-verification-with-laravel
+    	]);
+    	
+    	Mail::send('email.verify', ['confirmation_code' => $confirmation_code], function($message) use (&$aUser){
+    		$message->to($aUser->email, $aUser->name)
+    		->subject('Verify your email address');
+    	});
+    	
+    	return $aUser;
+    }
+    
+    
+    // http://bensmith.io/email-verification-with-laravel
+    public function confirm($confirmation_code)
+    {
+    	//echo "in confirm method";
+    	if( ! $confirmation_code)
+    	{
+    		throw new InvalidConfirmationCodeException;
+    	}
+    	
+    	$user = User::whereConfirmationCode($confirmation_code)->first();
+    	
+    	if ( ! $user)
+    	{
+    		throw new InvalidConfirmationCodeException;
+    	}
+    	
+    	$user->confirmed = 1;
+    	$user->confirmation_code = null;
+    	$user->save();
+    	
+    	//Flash::message('You have successfully verified your account.');
+    	
+    	return View('confirmationRegistration');
     }
 }
