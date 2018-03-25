@@ -25,15 +25,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-// http://bensmith.io/email-verification-with-laravel
-// Route::get('register/verify/{confirmationCode}', [
-// 		'as' => 'confirmation_path',
-// 		'uses' => 'Auth\RegisterController@confirm'
-// ]);
-
-Route::get('/register/verify/{confirmationCode}', 'Auth\RegisterController@confirm');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 
